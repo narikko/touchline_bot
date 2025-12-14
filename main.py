@@ -12,8 +12,7 @@ intents.members = True
 
 class SoccerBot(commands.Bot):
     def __init__(self):
-        # Removed command_prefix="%" since we are only using slash commands
-        super().__init__(intents=intents, help_command=None)
+        super().__init__(command_prefix="!", intents=intents, help_command=None)
 
     async def setup_hook(self):
         # 1. Initialize Database
@@ -24,11 +23,15 @@ class SoccerBot(commands.Bot):
         await self.load_extension("src.cogs.gacha") 
         print("--- Cog 'Gacha' Loaded ---")
 
-        # 3. SYNC GLOBAL SLASH COMMANDS
-        print("--- Syncing Global Slash Commands ---")
+        # 3. TEMPORARY GUILD SYNC FOR FAST TESTING
+        DEV_GUILD_ID = discord.Object(id=775442968177541150) 
+        
+        print("--- Syncing to Development Guild ---")
         try:
-            synced = await self.tree.sync()
-            print(f"Synced {len(synced)} command(s) globally.")
+            # Syncs commands only to the specified Guild ID
+            self.tree.copy_global_to(guild=DEV_GUILD_ID)
+            synced = await self.tree.sync(guild=DEV_GUILD_ID)
+            print(f"Synced {len(synced)} command(s) to Guild ID {775442968177541150}.")
         except Exception as e:
             print(f"Failed to sync commands: {e}")
 
@@ -38,7 +41,6 @@ class SoccerBot(commands.Bot):
 
 async def main():
     bot = SoccerBot()
-    # Ensure DISCORD_TOKEN is loaded from .env
     token = DISCORD_TOKEN
     if not token:
         print("FATAL ERROR: DISCORD_TOKEN not found in environment.")

@@ -27,6 +27,7 @@ class User(Base):
     
     # Gameplay Resources
     rolls_remaining = Column(Integer, default=9)
+    claims_remaining = Column(Integer, default=1)
     max_rolls = Column(Integer, default=9)
     free_claims = Column(Integer, default=0)
     

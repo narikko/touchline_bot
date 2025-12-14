@@ -24,41 +24,124 @@ class ClaimView(discord.ui.View):
 
     @discord.ui.button(label="Claim!", style=discord.ButtonStyle.green, emoji="⚽")
     async def claim_button(self, interaction: discord.Interaction, button: discord.ui.Button):
-        # Defer the interaction response immediately to prevent "Interaction failed"
+        # 1. Defer/Acknowledge the interaction
         await interaction.response.defer() 
+
+        print("DEBUG: Button clicked, processing...")
         
         session = get_session()
-        service = GachaService(session) # Create new service instance for the interaction
+        service = GachaService(session) 
 
         try:
-            # 1. Attempt to claim using the Service
+            # 2. Attempt to claim using the Service
+            #print(f"DEBUG: Calling claim_card for Player ID: {self.player_id}")
+            
             result = service.claim_card(str(interaction.user.id), self.guild_id, self.player_id)
 
             if result["success"]:
-                # 2. Update UI on success
+                #print("DEBUG: Result was successful")
+                # 3. Handle successful claim
                 card = result["card"]
-                player_name = card.details.name # Get the full name from the Card's details relationship
+                player_name = card.details.name
                 
+                # Update button state
                 button.disabled = True
                 button.label = f"Claimed by {interaction.user.display_name}"
                 button.style = discord.ButtonStyle.blurple
                 
-                # Update the message 
+                # Use EDIT on the FOLLOWUP message
                 if interaction.message:
-                    await interaction.message.edit(view=self)
+                    await interaction.followup.edit_message(message_id=interaction.message.id, view=self)
                 
-                # Send a confirmation 
+                # Send confirmation
                 await interaction.followup.send(
                     f"✅ **{interaction.user.mention}** successfully claimed **{player_name}**!", 
                     ephemeral=False
                 )
                 self.stop() 
             else:
-                # 3. Handle failure 
+                print(f"DEBUG: Result failed - {result['message']}")
                 await interaction.followup.send(result["message"], ephemeral=True)
+
+        except Exception as e:
+            print(f"CRITICAL ERROR in claim_button: {e}")
+            import traceback
+            traceback.print_exc() 
+            await interaction.followup.send("An error occurred while claiming.", ephemeral=True)
+            
         finally:
+            #print("DEBUG: Closing session")
             session.close()
 
+class CollectionView(discord.ui.View):
+    def __init__(self, service, discord_id, guild_id, username):
+        super().__init__(timeout=60)
+        self.service = service
+        self.discord_id = discord_id
+        self.guild_id = guild_id
+        self.username = username
+        self.page = 1 # Current card index (1-based)
+
+    async def update_embed(self, interaction):
+        data = self.service.get_user_collection(
+            self.discord_id, 
+            self.guild_id, 
+            page=self.page, 
+            per_page=1
+        )
+        
+        if data["total"] == 0:
+            await interaction.response.send_message("You don't have any cards yet!", ephemeral=True)
+            return
+
+        # Get the single card from the list
+        card = data["cards"][0]
+        p = card.details
+
+        # Rarity Color & Emoji
+        if p.rarity == "Legend":
+            color = 0xFFD700
+            icon = "🌟"
+        elif p.rarity == "Ultra Rare":
+            color = 0x9400D3 
+            icon = ""
+        else:
+            color = 0xAF0000
+            icon = ""
+
+        # Build the "Big Card" Embed
+        embed = discord.Embed(
+            title=f"{icon} {p.name}",
+            description=f"**{p.club}**\n{p.nationality}",
+            color=color
+        )
+        
+        embed.add_field(name="Rating", value=f"{p.rating} 💎", inline=True)
+        embed.add_field(name="Position", value=p.positions, inline=True)
+        embed.add_field(name="Rarity", value=p.rarity, inline=True)
+        
+        # SHOW THE IMAGE
+        if p.image_url and p.image_url != "N/A":
+            embed.set_image(url=p.image_url)
+
+        # Footer: Card X of Y
+        embed.set_footer(text=f"Card {self.page} of {data['total']} | Obtained: {card.obtained_at.strftime('%Y-%m-%d')}")
+        
+        # Update Button States
+        self.children[0].disabled = (self.page == 1) # Previous
+        self.children[1].disabled = (self.page == data['total']) # Next
+        
+        await interaction.response.edit_message(embed=embed, view=self)
+
+    @discord.ui.button(label="◀", style=discord.ButtonStyle.secondary)
+    async def prev_button(self, interaction: discord.Interaction, button: discord.ui.Button):
+        self.page -= 1
+        await self.update_embed(interaction)
+
+    @discord.ui.button(label="▶", style=discord.ButtonStyle.secondary)
+    async def next_button(self, interaction: discord.Interaction, button: discord.ui.Button):
+        self.page += 1
+        await self.update_embed(interaction)
 
 class GachaCog(commands.Cog):
     def __init__(self, bot):
@@ -124,6 +207,66 @@ class GachaCog(commands.Cog):
         except Exception as e:
             await interaction.followup.send("An unexpected error occurred during the roll.")
             print(f"Error in roll slash command: {e}")
+        finally:
+            session.close()
+
+    @app_commands.command(name="collection", description="View your card collection (Gallery Mode).")
+    async def collection(self, interaction: discord.Interaction):
+        await interaction.response.defer()
+        
+        session = get_session()
+        service = GachaService(session)
+        
+        try:
+            # 1. Fetch Page 1
+            data = service.get_user_collection(str(interaction.user.id), str(interaction.guild_id), page=1, per_page=1)
+            
+            if data["total"] == 0:
+                await interaction.followup.send("You don't have any cards yet! Type `/r` to start rolling.")
+                return
+
+            # 2. Build Initial Embed 
+            card = data["cards"][0]
+            p = card.details
+
+            if p.rarity == "Legend":
+                color = 0xFFD700
+                icon = "🌟"
+            elif p.rarity == "Ultra Rare":
+                color = 0x9400D3 
+                icon = ""
+            else:
+                color = 0xAF0000
+                icon = ""
+
+            embed = discord.Embed(
+                title=f"{icon} {p.name}",
+                description=f"**{p.club}**\n{p.nationality}",
+                color=color
+            )
+            embed.add_field(name="Rating", value=f"{p.rating} 💎", inline=True)
+            embed.add_field(name="Position", value=p.positions, inline=True)
+            embed.add_field(name="Rarity", value=p.rarity, inline=True)
+
+            if p.image_url and p.image_url != "N/A":
+                embed.set_image(url=p.image_url)
+
+            embed.set_footer(text=f"Card 1 of {data['total']} | Obtained: {card.obtained_at.strftime('%Y-%m-%d')}")
+
+            # 3. Create View
+            view = CollectionView(service, str(interaction.user.id), str(interaction.guild_id), interaction.user.display_name)
+            
+            # Disable Prev button initially
+            view.children[0].disabled = True
+            # Disable Next button if they only have 1 card
+            if data['total'] == 1:
+                view.children[1].disabled = True
+
+            await interaction.followup.send(embed=embed, view=view)
+            
+        except Exception as e:
+            print(f"Error in collection: {e}")
+            await interaction.followup.send("Failed to load collection.")
         finally:
             session.close()
 
