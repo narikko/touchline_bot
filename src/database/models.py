@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Boolean, ForeignKey, DateTime, UniqueConstraint
+from sqlalchemy import Column, Integer, String, Boolean, ForeignKey, DateTime, UniqueConstraint, BigInteger
 from sqlalchemy.orm import relationship, declarative_base
 from sqlalchemy.dialects.postgresql import JSONB
 from datetime import datetime
@@ -85,6 +85,7 @@ class Card(Base):
     player_base_id = Column(Integer, ForeignKey('player_base.id'))
     
     obtained_at = Column(DateTime, default=datetime.utcnow)
+    sort_priority = Column(BigInteger, default=0)
     
     # Team Management
     # "F1", "F2", "GK", etc. or None if on bench
