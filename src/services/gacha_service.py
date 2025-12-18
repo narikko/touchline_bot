@@ -13,10 +13,11 @@ def normalize_text(text):
 class GachaService:
     def __init__(self, session):
         self.session = session
-        self.BOARD_MULTIPLIERS = [0, 0.05, 0.10, 0.15, 0.20, 0.25] 
+        self.BOARD_MULTIPLIERS = [0, 0.05, 0.10, 0.15, 0.20, 0.25]
+        self.STADIUM_MULTIPLIERS = [0, 0.5, 1, 2, 3, 5] 
 
-        self.MAX_ROLLS = 10
-        self.ROLL_RESET_MINUTES = 60
+        self.MAX_ROLLS = 100
+        self.ROLL_RESET_MINUTES = 0
         
         self.MAX_CLAIMS = 1
         self.CLAIM_RESET_MINUTES = 180
@@ -86,39 +87,72 @@ class GachaService:
     def roll_card(self, discord_id, guild_id, username):
         user = self.get_or_create_user(discord_id, guild_id, username)
 
+        # 0. Check Rolls
         if user.rolls_remaining <= 0:
             reset_in = self.get_next_reset_time(user.last_roll_reset, self.ROLL_RESET_MINUTES)
             return {"success": False, "message": f"⏳ You are out of rolls! Reset in: **{reset_in}**"}
 
-        # 1. Pick a Player
+        # 1. Determine Rarity
         rarity = self.determine_rarity()
-        player = self.session.query(PlayerBase)\
-            .filter_by(rarity=rarity)\
-            .order_by(func.random())\
-            .first()
+        
+        # --- STADIUM UPGRADE LOGIC ---
+        # "Increases chances of rolling a player from your Favorite Club (excluding Legends)."
+        force_fav_club = False
+        
+        # Only apply if they have a favorite club AND it's not a Legend roll
+        if user.favorite_club and rarity != "Legend":
+            
+            # Safely get level (cap at 5)
+            level = min(getattr(user, "upgrade_stadium", 0), 5)
+            
+            if level > 0:
+                chance = self.STADIUM_MULTIPLIERS[level]
+                # Roll a 100-sided float die
+                if random.uniform(0, 100) < chance:
+                    force_fav_club = True
+
+        # 2. Pick the Player
+        query = self.session.query(PlayerBase).filter_by(rarity=rarity)
+        player = None
+
+        if force_fav_club:
+            # Try to find a player from their club
+            # We use ilike for case-insensitive matching
+            fav_matches = query.filter(PlayerBase.club.ilike(f"%{user.favorite_club}%"))
+            
+            # Only proceed if such players actually exist (e.g. if they favor a club with no 'Ultra Rare' cards, fall back)
+            if fav_matches.count() > 0:
+                player = fav_matches.order_by(func.random()).first()
+
+        # Fallback: Normal random roll if stadium failed OR no players found in club
+        if not player:
+            player = query.order_by(func.random()).first()
 
         if not player:
             return {"success": False, "message": "Database error: No players found."}
 
-        # 2. Pay the Roll Cost
+        # 3. Pay the Roll Cost
         if user.rolls_remaining >= self.MAX_ROLLS:
             user.last_roll_reset = datetime.utcnow()
 
         user.rolls_remaining -= 1
         
-        # Check if any user in this guild already owns this card
+        # 4. Duplicate Check
         existing_card = self.session.query(Card).join(User).filter(
             User.guild_id == guild_id,
             Card.player_base_id == player.id
         ).first()
 
         if existing_card:
-            # It's a duplicate. Give coins instead.
+            # It's a duplicate. Give coins.
             base_value = player.value
             
-            # Apply Board Upgrade Multiplier
-            # user.upgrade_board is 0-5. 
-            multiplier = self.BOARD_MULTIPLIERS[min(user.upgrade_board, 5)]
+            # --- BOARD UPGRADE LOGIC ---
+            # "Boosts overall income... getting duplicates"
+            board_level = min(getattr(user, "upgrade_board", 0), 5)
+            # Bonuses: 0%, 5%, 10%, 15%, 20%, 25%
+            multiplier = self.BOARD_MULTIPLIERS[board_level]
+            
             coin_reward = int(base_value * (1 + multiplier))
             
             user.coins += coin_reward
@@ -133,7 +167,7 @@ class GachaService:
                 "owner_name": existing_card.owner.username
             }
 
-        # 4. Not a duplicate: Ready to Claim
+        # 5. Not a duplicate: Ready to Claim
         self.session.commit()
         
         return {
@@ -204,7 +238,7 @@ class GachaService:
     
     def sell_player(self, discord_id, guild_id, player_name):
         """
-        Finds a player by name, deletes it, and refunds coins.
+        Finds a player by name, deletes it, and refunds coins with Board Multiplier.
         """
         user = self.get_or_create_user(discord_id, guild_id, "Unknown")
         card_to_sell = self.session.query(Card)\
@@ -216,21 +250,33 @@ class GachaService:
         if not card_to_sell:
             return {"success": False, "message": f"Could not find a player named '{player_name}' in your collection."}
 
-        # Calculate Refund
-        refund_amount = card_to_sell.details.value
+        # 1. Calculate Base Refund
+        base_value = card_to_sell.details.value
         player_name = card_to_sell.details.name
         
-        # Update User Balance
-        user.coins += refund_amount
+        # 2. Apply Board Upgrade Multiplier
+        # Safely get the level (default 0) and cap it at 5 to prevent index errors
+        board_level = min(getattr(user, "upgrade_board", 0), 5)
         
-        # Delete Card
+        # self.BOARD_MULTIPLIERS is like [0, 0.05, 0.10, ...]
+        multiplier = self.BOARD_MULTIPLIERS[board_level]
+        
+        bonus_amount = int(base_value * multiplier)
+        total_refund = base_value + bonus_amount
+
+        # 3. Update User Balance
+        user.coins += total_refund
+        
+        # 4. Delete Card
         self.session.delete(card_to_sell)
         self.session.commit()
         
         return {
             "success": True, 
             "player_name": player_name, 
-            "coins": refund_amount, 
+            "coins": total_refund,      # Total given
+            "base_value": base_value,   # Original value (for display)
+            "bonus": bonus_amount,      # Extra from board (for display)
             "new_balance": user.coins
         }
     
@@ -433,35 +479,72 @@ class GachaService:
     def get_club_checklist(self, discord_id, guild_id, club_query):
         """
         Returns ALL players in a club and flags which ones the user owns.
+        Handles multi-club strings (e.g., 'Ajax/FC Barcelona').
         """
         user = self.get_or_create_user(discord_id, guild_id, "Unknown")
         
-        club_match = self.session.query(PlayerBase.club)\
+        # 1. Broad Search: Find any club string containing the query
+        # We assume the query is close to the real name.
+        club_match_rows = self.session.query(PlayerBase.club)\
             .filter(PlayerBase.club.ilike(f"%{club_query}%"))\
             .distinct()\
-            .limit(10)\
             .all()
             
-        if not club_match:
+        if not club_match_rows:
             return {"success": False, "message": "Club not found."}
         
-        found_clubs = [c[0] for c in club_match]
+        # 2. Parse and Split Multi-Club Strings
+        # We extract individual teams (e.g., "Ajax/FC Barcelona" -> "Ajax", "FC Barcelona")
+        found_clubs = set()
         
+        for row in club_match_rows:
+            raw_club_str = row[0]
+            # Split by '/' and strip whitespace
+            individual_teams = [t.strip() for t in raw_club_str.split('/')]
+            
+            # Only add teams that match the user's query
+            for team in individual_teams:
+                if club_query.lower() in team.lower():
+                    found_clubs.add(team)
+        
+        sorted_clubs = sorted(list(found_clubs))
+        
+        if not sorted_clubs:
+             return {"success": False, "message": "Club not found."}
+
+        # 3. Determine Target Club (Exact Match Priority)
         target_club = None
-        exact = next((c for c in found_clubs if c.lower() == club_query.lower()), None)
+        exact = next((c for c in sorted_clubs if c.lower() == club_query.lower()), None)
         
         if exact:
             target_club = exact
-        elif len(found_clubs) == 1:
-            target_club = found_clubs[0]
+        elif len(sorted_clubs) == 1:
+            target_club = sorted_clubs[0]
         else:
-            return {"success": False, "reason": "multiple", "matches": found_clubs}
+            # If we still have multiple distinct CLUBS (e.g. "FC Barcelona" and "Barcelona SC")
+            return {"success": False, "reason": "multiple", "matches": sorted_clubs}
 
-        all_players = self.session.query(PlayerBase)\
-            .filter(PlayerBase.club == target_club)\
-            .order_by(PlayerBase.rating.desc())\
+        # 4. Fetch Players (Robust Filtering)
+        # First, get all players who have the target club string anywhere in their club column
+        candidates = self.session.query(PlayerBase)\
+            .filter(PlayerBase.club.ilike(f"%{target_club}%"))\
             .all()
 
+        # 5. Filter in Python to ensure they belong to the specific target club
+        # This correctly handles "Ajax/FC Barcelona" when we want "FC Barcelona"
+        all_players = []
+        for p in candidates:
+            # Split player's club string into parts
+            p_teams = [t.strip().lower() for t in p.club.split('/')]
+            
+            # Check if our target club is in that list
+            if target_club.lower() in p_teams:
+                all_players.append(p)
+
+        # Sort by rating manually since we are in Python now
+        all_players.sort(key=lambda x: x.rating, reverse=True)
+
+        # 6. Check Ownership (Standard Logic)
         owned_rows = self.session.query(Card.player_base_id)\
             .filter(Card.user_id == user.id)\
             .all()
@@ -472,7 +555,6 @@ class GachaService:
         owned_count = 0
         
         for p in all_players:
-
             is_owned = p.id in owned_ids
             if is_owned:
                 owned_count += 1
@@ -490,6 +572,41 @@ class GachaService:
             "checklist": checklist,
             "owned_count": owned_count,
             "total_count": len(all_players)
+        }
+    
+    def use_free_claim(self, discord_id, guild_id):
+        # This will auto-run check_refills first. 
+        # If the natural timer just finished, their claims will refill to MAX here.
+        user = self.get_or_create_user(discord_id, guild_id, "Unknown")
+
+        # 1. Validation: Don't let them waste a ticket if they can already claim
+        if user.claims_remaining > 0:
+            return {
+                "success": False, 
+                "message": f"Your claim is already ready ({user.claims_remaining} left)! No need to use a Free Claim."
+            }
+
+        # 2. Validation: Do they have tickets?
+        if user.free_claims <= 0:
+            return {
+                "success": False, 
+                "message": "You don't have any Free Claim tickets! Earn them through rewards."
+            }
+
+        # 3. Apply the Free Claim
+        user.free_claims -= 1
+        user.claims_remaining += 1
+        
+        # Note: We do NOT touch last_claim_reset. 
+        # This allows their natural timer to keep ticking in the background 
+        # towards the next natural refill, which is player-friendly.
+        
+        self.session.commit()
+
+        return {
+            "success": True,
+            "claims_remaining": user.claims_remaining,
+            "free_claims_left": user.free_claims
         }
             
         

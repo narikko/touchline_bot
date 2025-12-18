@@ -21,7 +21,9 @@ class SoccerBot(commands.Bot):
         
         # 2. Load Cogs
         await self.load_extension("src.cogs.gacha") 
-        print("--- Cog 'Gacha' Loaded ---")
+        await self.load_extension("src.cogs.team")
+        await self.load_extension("src.cogs.upgrade")
+        print("--- Cogs Loaded ---")
 
         # 3. TEMPORARY GUILD SYNC FOR FAST TESTING
         DEV_GUILD_ID = discord.Object(id=775442968177541150) 

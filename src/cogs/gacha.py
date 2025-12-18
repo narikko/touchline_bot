@@ -573,6 +573,46 @@ class GachaCog(commands.Cog):
         finally:
             session.close()
 
+    @app_commands.command(name="freeclaim", description="Use a Free Claim ticket to instantly refresh your claim.")
+    async def free_claim(self, interaction: discord.Interaction):
+        await interaction.response.defer()
+        
+        # 1. Initialize Session & Service (This was missing!)
+        session = get_session()
+        service = GachaService(session)
+
+        try:
+            # 2. Call the service using the local 'service' variable
+            result = service.use_free_claim(
+                str(interaction.user.id), 
+                str(interaction.guild_id)
+            )
+
+            if result["success"]:
+                embed = discord.Embed(
+                    title="🎫 Free Claim Used!",
+                    description=(
+                        f"You used a **Free Claim ticket**.\n"
+                        f"✅ **Claims Available:** {result['claims_remaining']}\n"
+                        f"🎫 **Tickets Remaining:** {result['free_claims_left']}"
+                    ),
+                    color=discord.Color.green()
+                )
+                embed.set_footer(text="Use /claim to grab a card now!")
+            else:
+                embed = discord.Embed(
+                    title="❌ Cannot Use Free Claim",
+                    description=result["message"],
+                    color=discord.Color.red()
+                )
+
+            await interaction.followup.send(embed=embed)
+            
+        except Exception as e:
+            print(f"Error in freeclaim: {e}")
+            await interaction.followup.send("An error occurred while processing your request.", ephemeral=True)
+        finally:
+            session.close()
 
 async def setup(bot):
     await bot.add_cog(GachaCog(bot))
