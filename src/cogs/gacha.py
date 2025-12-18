@@ -468,6 +468,111 @@ class GachaCog(commands.Cog):
             await interaction.followup.send("Failed to load profile.")
         finally:
             session.close()
+    
+    @app_commands.command(name="view", description="View a player card.")
+    async def view(self, interaction: discord.Interaction, player_name: str):
+        await interaction.response.defer()
+        session = get_session()
+        service = GachaService(session)
+        
+        try:
+            # Pass guild_id now
+            result = service.view_player(str(interaction.user.id), str(interaction.guild_id), player_name)
+            
+            if result["success"]:
+                p = result["player"]
+                owner = result["owner"]
+                
+                # Rarity Styling
+                if p.rarity == "Legend":
+                    color = 0xFFD700
+                    icon = "🌟"
+                elif p.rarity == "Ultra Rare":
+                    color = 0x9400D3 
+                    icon = ""
+                else:
+                    color = 0xAF0000
+                    icon = ""
+
+                embed = discord.Embed(
+                    title=f"{icon} {p.name}",
+                    description=f"**{p.club}**\n{p.nationality}",
+                    color=color
+                )
+                embed.add_field(name="Rating", value=f"{p.rating} 💠", inline=True)
+                embed.add_field(name="Position", value=p.positions, inline=True)
+                embed.add_field(name="Rarity", value=p.rarity, inline=True)
+
+                if p.image_url and p.image_url != "N/A":
+                    embed.set_image(url=p.image_url)
+
+                if owner:
+                    embed.set_footer(text=f"Owned by {owner} | ID: {p.id}")
+                else:
+                    embed.set_footer(text=f"Unclaimed | ID: {p.id}")
+                
+                await interaction.followup.send(embed=embed)
+            
+            elif result["reason"] == "multiple":
+                matches = "\n".join([f"• {m}" for m in result["matches"]])
+                if len(matches) > 1000: matches = matches[:1000] + "..."
+                await interaction.followup.send(f"🔍 Found multiple players. Be more specific:\n{matches}", ephemeral=True)
+            else:
+                await interaction.followup.send(f"❌ Player **{player_name}** not found.", ephemeral=True)
+        finally:
+            session.close()
+
+    @app_commands.command(name="listclub", description="List players from a specific club.")
+    async def club_checklist(self, interaction: discord.Interaction, club_name: str):
+        await interaction.response.defer()
+        session = get_session()
+        service = GachaService(session)
+        
+        try:
+            result = service.get_club_checklist(str(interaction.user.id), str(interaction.guild_id), club_name)
+            
+            if not result["success"]:
+                if result.get("reason") == "multiple":
+                    matches = "\n".join([f"• {c}" for c in result["matches"]])
+                    await interaction.followup.send(f"🔍 Multiple clubs found:\n{matches}", ephemeral=True)
+                else:
+                    await interaction.followup.send(result["message"], ephemeral=True)
+                return
+
+            # Build the Checklist Embed
+            club = result["club_name"]
+            count = result["owned_count"]
+            total = result["total_count"]
+            percent = int((count / total) * 100) if total > 0 else 0
+            
+            embed = discord.Embed(
+                title=f"Club Checklist: {club}",
+                description=f"You own **{count}/{total}** players ({percent}%)",
+                color=discord.Color.blue()
+            )
+            
+            # Create the text list with checkmarks
+            lines = []
+            for p in result["checklist"]:
+                status = "✅" if p["owned"] else "⬜" 
+                lines.append(f"`{status}` **[{p['rating']}]** {p['name']}")
+            
+            full_text = "\n".join(lines)
+            
+            # Handle Discord's 4096 char limit
+            if len(full_text) > 4000:
+                full_text = full_text[:3900] + "\n... (list truncated)"
+                
+            embed.description += "\n\n" + full_text
+            
+            await interaction.followup.send(embed=embed)
+            
+        except Exception as e:
+            print(f"Error in club command: {e}")
+            await interaction.followup.send("Failed to load club list.")
+        finally:
+            session.close()
+
 
 async def setup(bot):
     await bot.add_cog(GachaCog(bot))

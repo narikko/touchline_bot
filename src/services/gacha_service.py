@@ -4,6 +4,11 @@ from sqlalchemy.sql.expression import func
 from src.database.models import User, PlayerBase, Card
 from sqlalchemy import func, desc
 import time
+import unicodedata
+
+def normalize_text(text):
+    return ''.join(c for c in unicodedata.normalize('NFD', text)
+                   if unicodedata.category(c) != 'Mn').lower()
 
 class GachaService:
     def __init__(self, session):
@@ -253,7 +258,6 @@ class GachaService:
         """
         Moves a player to a specific page index.
         """
-
         user = self.get_or_create_user(discord_id, guild_id, "Unknown")
 
         cards = self.session.query(Card)\
@@ -388,3 +392,104 @@ class GachaService:
             
         # No Matches
         return {"success": False, "reason": "none", "matches": []}
+    
+    def view_player(self, discord_id, guild_id, player_name):
+        """
+        Finds a player and checks if anyone in the guild owns it.
+        """
+        player_name = normalize_text(player_name)
+        # 1. Fuzzy Search
+        search_term = f"%{player_name}%"
+        matches = self.session.query(PlayerBase)\
+            .filter(PlayerBase.name.ilike(search_term))\
+            .limit(15)\
+            .all()
+            
+        if not matches:
+            return {"success": False, "reason": "none"}
+            
+        # 2. Exact Match Logic
+        exact = next((p for p in matches if p.name.lower() == player_name.lower()), None)
+        target_player = exact if exact else (matches[0] if len(matches) == 1 else None)
+
+        if not target_player:
+            return {"success": False, "reason": "multiple", "matches": [p.name for p in matches]}
+
+        # 3. OWNERSHIP CHECK (The new logic)
+        # Check if a card exists for this player in this guild
+        card = self.session.query(Card).join(User).filter(
+            User.guild_id == guild_id,
+            Card.player_base_id == target_player.id
+        ).first()
+
+        owner_name = card.owner.username if card else None
+
+        return {
+            "success": True, 
+            "player": target_player, 
+            "owner": owner_name  # <--- Return the owner's name (or None)
+        }
+    
+    def get_club_checklist(self, discord_id, guild_id, club_query):
+        """
+        Returns ALL players in a club and flags which ones the user owns.
+        """
+        user = self.get_or_create_user(discord_id, guild_id, "Unknown")
+        
+        club_match = self.session.query(PlayerBase.club)\
+            .filter(PlayerBase.club.ilike(f"%{club_query}%"))\
+            .distinct()\
+            .limit(10)\
+            .all()
+            
+        if not club_match:
+            return {"success": False, "message": "Club not found."}
+        
+        found_clubs = [c[0] for c in club_match]
+        
+        target_club = None
+        exact = next((c for c in found_clubs if c.lower() == club_query.lower()), None)
+        
+        if exact:
+            target_club = exact
+        elif len(found_clubs) == 1:
+            target_club = found_clubs[0]
+        else:
+            return {"success": False, "reason": "multiple", "matches": found_clubs}
+
+        all_players = self.session.query(PlayerBase)\
+            .filter(PlayerBase.club == target_club)\
+            .order_by(PlayerBase.rating.desc())\
+            .all()
+
+        owned_rows = self.session.query(Card.player_base_id)\
+            .filter(Card.user_id == user.id)\
+            .all()
+        
+        owned_ids = {row[0] for row in owned_rows}
+        
+        checklist = []
+        owned_count = 0
+        
+        for p in all_players:
+
+            is_owned = p.id in owned_ids
+            if is_owned:
+                owned_count += 1
+            
+            checklist.append({
+                "name": p.name,
+                "rating": p.rating,
+                "rarity": p.rarity,
+                "owned": is_owned 
+            })
+            
+        return {
+            "success": True,
+            "club_name": target_club,
+            "checklist": checklist,
+            "owned_count": owned_count,
+            "total_count": len(all_players)
+        }
+            
+        
