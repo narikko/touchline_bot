@@ -4,6 +4,7 @@ from discord import app_commands
 from src.services.gacha_service import GachaService
 from src.database.db import get_session
 from datetime import datetime, timedelta
+from src.views.free_claim_view import FreeClaimView
 
 class ClaimView(discord.ui.View):
     def __init__(self, service, guild_id, player_id):
@@ -59,6 +60,19 @@ class ClaimView(discord.ui.View):
                     f"✅ **{interaction.user.mention}** successfully claimed **{player_name}**!", 
                     ephemeral=False
                 )
+
+                try:
+                    from src.services.tutorial_service import TutorialService
+
+                    tut_service = TutorialService(session) 
+                    tut_msg = tut_service.complete_step(interaction.user.id, interaction.guild_id, "1_claim")
+
+                    if tut_msg:
+                        await interaction.followup.send(tut_msg)
+    
+                except Exception as e:
+                    print(f"Tutorial Error: {e}")
+
                 self.stop() 
             else:
                 print(f"DEBUG: Result failed - {result['message']}")
@@ -207,6 +221,25 @@ class GachaCog(commands.Cog):
                 
                 view.message = message
 
+            pings = result.get("shortlist_pings", [])
+            if pings:
+                mentions = " ".join([f"<@{pid}>" for pid in pings])
+                await interaction.channel.send(
+                    f"🔔 **Scout Alert!** {mentions} — **{result['player'].name}** just appeared!"
+                )
+        
+            try:
+                from src.services.tutorial_service import TutorialService
+
+                tut_service = TutorialService(session) 
+                tut_msg = tut_service.complete_step(interaction.user.id, interaction.guild_id, "1_roll")
+
+                if tut_msg:
+                    await interaction.followup.send(tut_msg)
+    
+            except Exception as e:
+                print(f"Tutorial Error: {e}")
+
         except Exception as e:
             await interaction.followup.send("An unexpected error occurred during the roll.")
             print(f"Error in roll slash command: {e}")
@@ -230,7 +263,8 @@ class GachaCog(commands.Cog):
             data = service.get_user_collection(str(interaction.user.id), str(interaction.guild_id), page=start_page, per_page=1, target_user_id=target_id_str)
             
             if data["total"] == 0:
-                await interaction.followup.send("You don't have any players yet! Type `/r` to start rolling.")
+                msg = "This user has no players!" if user else "You don't have any players yet! Type `/r` to start rolling."
+                await interaction.followup.send(msg)
                 return
             
             if start_page > data["max_page"]:
@@ -280,6 +314,26 @@ class GachaCog(commands.Cog):
                 view.children[1].disabled = True
 
             await interaction.followup.send(embed=embed, view=view)
+
+            # --- TUTORIAL HOOK ---
+            try:
+                from src.services.tutorial_service import TutorialService
+                tut_service = TutorialService(session) 
+                
+                # Check if viewing self or other
+                if not user or user.id == interaction.user.id:
+                    # Tutorial 3: View Collection
+                    tut_msg = tut_service.complete_step(interaction.user.id, interaction.guild_id, "3_view")
+                else:
+                    # Tutorial 3: View Other
+                    tut_msg = tut_service.complete_step(interaction.user.id, interaction.guild_id, "3_view_other")
+
+                if tut_msg:
+                    await interaction.followup.send(tut_msg)
+        
+            except Exception as e:
+                print(f"Tutorial Error: {e}")
+            # ---------------------
             
         except Exception as e:
             print(f"Error in collection: {e}")
@@ -289,7 +343,7 @@ class GachaCog(commands.Cog):
 
     @app_commands.command(name="sell", description="Sell a player for coins.")
     async def sell(self, interaction: discord.Interaction, player_name: str):
-        await interaction.response.defer(ephemeral=True) # Ephemeral so others don't see your business
+        await interaction.response.defer(ephemeral=True)
         session = get_session()
         service = GachaService(session)
         
@@ -298,6 +352,16 @@ class GachaCog(commands.Cog):
             
             if result["success"]:
                 await interaction.followup.send(f"Sold **{result['player_name']}** for **{result['coins']}** 💠.\n New Balance: {result['new_balance']} 💠", ephemeral=True)
+                
+                # --- TUTORIAL HOOK ---
+                try:
+                    from src.services.tutorial_service import TutorialService
+                    tut_service = TutorialService(session)
+                    tut_msg = tut_service.complete_step(interaction.user.id, interaction.guild_id, "3_sell")
+                    if tut_msg: await interaction.followup.send(tut_msg, ephemeral=True)
+                except Exception as e: print(f"Tutorial Error: {e}")
+                # ---------------------
+
             else:
                 await interaction.followup.send(f"❌ {result['message']}", ephemeral=True)
         finally:
@@ -314,6 +378,18 @@ class GachaCog(commands.Cog):
             
             if result["success"]:
                 await interaction.followup.send(f"Collection sorted! Your **{result['count']}** cards are now ordered by Value (Highest to Lowest). Check `/collection`.")
+
+                try:
+                    from src.services.tutorial_service import TutorialService
+
+                    tut_service = TutorialService(session) 
+                    tut_msg = tut_service.complete_step(interaction.user.id, interaction.guild_id, "3_sort")
+
+                    if tut_msg:
+                        await interaction.followup.send(tut_msg)
+            
+                except Exception as e:
+                    print(f"Tutorial Error: {e}")
             else:
                 await interaction.followup.send(f"❌ {result['message']}")
         finally:
@@ -330,6 +406,16 @@ class GachaCog(commands.Cog):
             
             if result["success"]:
                 await interaction.followup.send(f"Moved **{result['player']}** to Page **{result['page']}**.")
+
+                # --- TUTORIAL HOOK ---
+                try:
+                    from src.services.tutorial_service import TutorialService
+                    tut_service = TutorialService(session)
+                    tut_msg = tut_service.complete_step(interaction.user.id, interaction.guild_id, "3_move")
+                    if tut_msg: await interaction.followup.send(tut_msg)
+                except Exception as e: print(f"Tutorial Error: {e}")
+                # ---------------------
+
             else:
                 await interaction.followup.send(f"❌ {result['message']}", ephemeral=True)
         finally:
@@ -354,6 +440,18 @@ class GachaCog(commands.Cog):
                 embed.description = desc
                 
                 await interaction.followup.send(embed=embed)
+
+                try:
+                    from src.services.tutorial_service import TutorialService
+
+                    tut_service = TutorialService(session) 
+                    tut_msg = tut_service.complete_step(interaction.user.id, interaction.guild_id, "2_daily")
+
+                    if tut_msg:
+                        await interaction.followup.send(tut_msg)
+            
+                except Exception as e:
+                    print(f"Tutorial Error: {e}")
             else:
                 await interaction.followup.send(result["message"], ephemeral=True)
         finally:
@@ -371,6 +469,18 @@ class GachaCog(commands.Cog):
             if result["success"]:
                 # Success Case
                 await interaction.followup.send(f"Your favorite club has been set to **{result['club']}**!")
+
+                try:
+                    from src.services.tutorial_service import TutorialService
+
+                    tut_service = TutorialService(session) 
+                    tut_msg = tut_service.complete_step(interaction.user.id, interaction.guild_id, "2_setclub")
+
+                    if tut_msg:
+                        await interaction.followup.send(tut_msg)
+            
+                except Exception as e:
+                    print(f"Tutorial Error: {e}")
             
             elif result["reason"] == "multiple":
                 # Multiple Matches Case
@@ -460,6 +570,18 @@ class GachaCog(commands.Cog):
             embed.add_field(name="💠 Coins", value=f"**{user.coins:,}**", inline=False)
 
             await interaction.followup.send(embed=embed)
+        
+            try:
+                from src.services.tutorial_service import TutorialService
+
+                tut_service = TutorialService(session) 
+                tut_msg = tut_service.complete_step(interaction.user.id, interaction.guild_id, "2_profile")
+
+                if tut_msg:
+                    await interaction.followup.send(tut_msg)
+        
+            except Exception as e:
+                print(f"Tutorial Error: {e}")
 
         except Exception as e:
             print(f"Error in profile: {e}")
@@ -476,14 +598,12 @@ class GachaCog(commands.Cog):
         service = GachaService(session)
         
         try:
-            # Pass guild_id now
             result = service.view_player(str(interaction.user.id), str(interaction.guild_id), player_name)
             
             if result["success"]:
                 p = result["player"]
                 owner = result["owner"]
                 
-                # Rarity Styling
                 if p.rarity == "Legend":
                     color = 0xFFD700
                     icon = "🌟"
@@ -512,6 +632,15 @@ class GachaCog(commands.Cog):
                     embed.set_footer(text=f"Unclaimed | ID: {p.id}")
                 
                 await interaction.followup.send(embed=embed)
+
+                # --- TUTORIAL HOOK ---
+                try:
+                    from src.services.tutorial_service import TutorialService
+                    tut_service = TutorialService(session)
+                    tut_msg = tut_service.complete_step(interaction.user.id, interaction.guild_id, "4_view")
+                    if tut_msg: await interaction.followup.send(tut_msg)
+                except Exception as e: print(f"Tutorial Error: {e}")
+                # ---------------------
             
             elif result["reason"] == "multiple":
                 matches = "\n".join([f"• {m}" for m in result["matches"]])
@@ -539,7 +668,6 @@ class GachaCog(commands.Cog):
                     await interaction.followup.send(result["message"], ephemeral=True)
                 return
 
-            # Build the Checklist Embed
             club = result["club_name"]
             count = result["owned_count"]
             total = result["total_count"]
@@ -551,7 +679,6 @@ class GachaCog(commands.Cog):
                 color=discord.Color.blue()
             )
             
-            # Create the text list with checkmarks
             lines = []
             for p in result["checklist"]:
                 status = "✅" if p["owned"] else "⬜" 
@@ -559,13 +686,21 @@ class GachaCog(commands.Cog):
             
             full_text = "\n".join(lines)
             
-            # Handle Discord's 4096 char limit
             if len(full_text) > 4000:
                 full_text = full_text[:3900] + "\n... (list truncated)"
                 
             embed.description += "\n\n" + full_text
             
             await interaction.followup.send(embed=embed)
+
+            # --- TUTORIAL HOOK ---
+            try:
+                from src.services.tutorial_service import TutorialService
+                tut_service = TutorialService(session)
+                tut_msg = tut_service.complete_step(interaction.user.id, interaction.guild_id, "4_listclub")
+                if tut_msg: await interaction.followup.send(tut_msg)
+            except Exception as e: print(f"Tutorial Error: {e}")
+            # ---------------------
             
         except Exception as e:
             print(f"Error in club command: {e}")
@@ -575,42 +710,112 @@ class GachaCog(commands.Cog):
 
     @app_commands.command(name="freeclaim", description="Use a Free Claim ticket to instantly refresh your claim.")
     async def free_claim(self, interaction: discord.Interaction):
-        await interaction.response.defer()
+        await interaction.response.defer(ephemeral=True) # Ephemeral so only they see the confirm prompt
         
-        # 1. Initialize Session & Service (This was missing!)
         session = get_session()
         service = GachaService(session)
 
         try:
-            # 2. Call the service using the local 'service' variable
-            result = service.use_free_claim(
-                str(interaction.user.id), 
-                str(interaction.guild_id)
-            )
-
-            if result["success"]:
+            # 1. Check if user even has tickets first (Read-Only check)
+            user = service.get_or_create_user(str(interaction.user.id), str(interaction.guild_id), interaction.user.name)
+            
+            if user.free_claims <= 0:
                 embed = discord.Embed(
-                    title="🎫 Free Claim Used!",
-                    description=(
-                        f"You used a **Free Claim ticket**.\n"
-                        f"✅ **Claims Available:** {result['claims_remaining']}\n"
-                        f"🎫 **Tickets Remaining:** {result['free_claims_left']}"
-                    ),
-                    color=discord.Color.green()
-                )
-                embed.set_footer(text="Use /claim to grab a card now!")
-            else:
-                embed = discord.Embed(
-                    title="❌ Cannot Use Free Claim",
-                    description=result["message"],
+                    title="❌ No Tickets", 
+                    description="You don't have any **Free Claim Tickets** to use!", 
                     color=discord.Color.red()
                 )
+                await interaction.followup.send(embed=embed)
+                return
 
-            await interaction.followup.send(embed=embed)
+            # 2. If they have tickets, ask for confirmation
+            embed = discord.Embed(
+                title="🎫 Use Free Claim Ticket?",
+                description=(
+                    f"You currently have **{user.free_claims}** ticket(s).\n"
+                    "This will instantly reset your claim cooldown.\n\n"
+                    "**Do you want to proceed?**"
+                ),
+                color=discord.Color.blue()
+            )
+            
+            view = FreeClaimView(interaction.user.id, interaction.guild_id)
+            await interaction.followup.send(embed=embed, view=view)
             
         except Exception as e:
             print(f"Error in freeclaim: {e}")
-            await interaction.followup.send("An error occurred while processing your request.", ephemeral=True)
+            await interaction.followup.send("An error occurred while checking your tickets.", ephemeral=True)
+        finally:
+            session.close()
+
+    @app_commands.command(name="shortlist", description="Manage your scout shortlist.")
+    @app_commands.describe(action="Add, Remove, or View", player_name="Player name")
+    @app_commands.choices(action=[
+        app_commands.Choice(name="👀 View List", value="view"),
+        app_commands.Choice(name="➕ Add Player", value="add"),
+        app_commands.Choice(name="➖ Remove Player", value="remove")
+    ])
+    async def shortlist(self, interaction: discord.Interaction, action: app_commands.Choice[str], player_name: str = None):
+        await interaction.response.defer()
+        session = get_session()
+        service = GachaService(session)
+        
+        try:
+            choice = action.value
+            user_id = str(interaction.user.id)
+            guild_id = str(interaction.guild_id)
+            
+            if choice == "view":
+                data = service.get_user_shortlist(user_id, guild_id)
+                
+                embed = discord.Embed(title="🔭 Transfer Shortlist", color=discord.Color.blue())
+                embed.set_footer(text=f"Capacity: {data['count']}/{data['max']} (Upgrade Scout to increase)")
+                
+                if not data["items"]:
+                    embed.description = "Your shortlist is empty.\nUse `/shortlist add` to track players!"
+                else:
+                    lines = [f"• **{p.name}** ({p.rating})" for p in data["items"]]
+                    embed.description = "\n".join(lines)
+                
+                await interaction.followup.send(embed=embed)
+
+            elif choice == "add":
+                if not player_name:
+                    await interaction.followup.send("❌ Please specify a player name.", ephemeral=True)
+                    return
+                
+                result = service.add_to_shortlist(user_id, guild_id, player_name)
+                
+                if result["success"]:
+                    await interaction.followup.send(f"✅ Added **{result['player']}** to shortlist! ({result['slots']})")
+                    
+                    # --- TUTORIAL HOOK ---
+                    try:
+                        from src.services.tutorial_service import TutorialService
+                        tut_service = TutorialService(session)
+                        tut_msg = tut_service.complete_step(interaction.user.id, interaction.guild_id, "4_shortlist")
+                        if tut_msg: await interaction.followup.send(tut_msg)
+                    except Exception as e: print(f"Tutorial Error: {e}")
+                    # ---------------------
+
+                else:
+                    await interaction.followup.send(result["message"], ephemeral=True)
+
+            elif choice == "remove":
+                if not player_name:
+                    await interaction.followup.send("❌ Please specify a player name.", ephemeral=True)
+                    return
+
+                result = service.remove_from_shortlist(user_id, guild_id, player_name)
+                
+                if result["success"]:
+                    await interaction.followup.send(result["message"])
+                else:
+                    await interaction.followup.send(result["message"], ephemeral=True)
+
+        except Exception as e:
+            print(f"Error in shortlist command: {e}")
+            await interaction.followup.send(f"❌ An error occurred: `{e}`", ephemeral=True)
         finally:
             session.close()
 

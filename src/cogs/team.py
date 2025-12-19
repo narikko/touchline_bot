@@ -43,6 +43,16 @@ class TeamCog(commands.Cog):
             embed.add_field(name="🔥 Forwards", value=f"F1: {get_field('F1')}\nF2: {get_field('F2')}\nF3: {get_field('F3')}", inline=False)
             
             await interaction.followup.send(embed=embed)
+
+            # --- TUTORIAL HOOK: 5_view_team ---
+            try:
+                from src.services.tutorial_service import TutorialService
+                tut_service = TutorialService(session)
+                tut_msg = tut_service.complete_step(interaction.user.id, interaction.guild_id, "5_view_team")
+                if tut_msg: await interaction.followup.send(tut_msg)
+            except Exception as e: print(f"Tutorial Error: {e}")
+            # ----------------------------------
+
         finally:
             session.close()
 
@@ -57,6 +67,18 @@ class TeamCog(commands.Cog):
         try:
             result = service.set_lineup_player(interaction.user.id, interaction.guild_id, position, player_name)
             await interaction.followup.send(result["message"])
+
+            # --- TUTORIAL HOOK: 5_set ---
+            # Only trigger if action was successful
+            if result.get("success"):
+                try:
+                    from src.services.tutorial_service import TutorialService
+                    tut_service = TutorialService(session)
+                    tut_msg = tut_service.complete_step(interaction.user.id, interaction.guild_id, "5_set")
+                    if tut_msg: await interaction.followup.send(tut_msg)
+                except Exception as e: print(f"Tutorial Error: {e}")
+            # ----------------------------
+
         finally:
             session.close()
 
@@ -71,6 +93,17 @@ class TeamCog(commands.Cog):
         try:
             result = service.remove_from_lineup(interaction.user.id, interaction.guild_id, player_name)
             await interaction.followup.send(result["message"])
+
+            # --- TUTORIAL HOOK: 5_bench ---
+            if result.get("success"):
+                try:
+                    from src.services.tutorial_service import TutorialService
+                    tut_service = TutorialService(session)
+                    tut_msg = tut_service.complete_step(interaction.user.id, interaction.guild_id, "5_bench")
+                    if tut_msg: await interaction.followup.send(tut_msg)
+                except Exception as e: print(f"Tutorial Error: {e}")
+            # ------------------------------
+
         finally:
             session.close()
 
@@ -85,6 +118,17 @@ class TeamCog(commands.Cog):
         try:
             result = service.rename_club(interaction.user.id, interaction.guild_id, new_name)
             await interaction.followup.send(result["message"])
+
+            # --- TUTORIAL HOOK: 5_rename ---
+            if result.get("success"):
+                try:
+                    from src.services.tutorial_service import TutorialService
+                    tut_service = TutorialService(session)
+                    tut_msg = tut_service.complete_step(interaction.user.id, interaction.guild_id, "5_rename")
+                    if tut_msg: await interaction.followup.send(tut_msg)
+                except Exception as e: print(f"Tutorial Error: {e}")
+            # -------------------------------
+
         finally:
             session.close()
 
@@ -119,6 +163,16 @@ class TeamCog(commands.Cog):
             embed.set_footer(text="Rewards are automatically applied when you reach the milestone!")
             
             await interaction.followup.send(embed=embed)
+
+            # --- TUTORIAL HOOK: 5_rewards ---
+            try:
+                from src.services.tutorial_service import TutorialService
+                tut_service = TutorialService(session)
+                tut_msg = tut_service.complete_step(interaction.user.id, interaction.guild_id, "5_rewards")
+                if tut_msg: await interaction.followup.send(tut_msg)
+            except Exception as e: print(f"Tutorial Error: {e}")
+            # --------------------------------
+
         finally:
             session.close()
 

@@ -1,7 +1,7 @@
 import random
 from datetime import datetime, timedelta
 from sqlalchemy.sql.expression import func
-from src.database.models import User, PlayerBase, Card
+from src.database.models import User, PlayerBase, Card, Shortlist
 from sqlalchemy import func, desc
 import time
 import unicodedata
@@ -15,9 +15,10 @@ class GachaService:
         self.session = session
         self.BOARD_MULTIPLIERS = [0, 0.05, 0.10, 0.15, 0.20, 0.25]
         self.STADIUM_MULTIPLIERS = [0, 0.5, 1, 2, 3, 5] 
+        self.SCOUT_CAPACITIES = [3, 4, 5, 7, 10]
 
-        self.MAX_ROLLS = 100
-        self.ROLL_RESET_MINUTES = 0
+        self.MAX_ROLLS = 9
+        self.ROLL_RESET_MINUTES = 60
         
         self.MAX_CLAIMS = 1
         self.CLAIM_RESET_MINUTES = 180
@@ -167,14 +168,25 @@ class GachaService:
                 "owner_name": existing_card.owner.username
             }
 
-        # 5. Not a duplicate: Ready to Claim
+        shortlist_pings = []
+        if player.rarity != "Legend":
+            # Find users in THIS guild who shortlisted this player
+            hits = self.session.query(User.discord_id).join(Shortlist).filter(
+                User.guild_id == str(guild_id),
+                Shortlist.player_base_id == player.id,
+                User.discord_id != str(discord_id)
+            ).all()
+            
+            shortlist_pings = [h[0] for h in hits]
+
         self.session.commit()
         
         return {
             "success": True,
-            "is_duplicate": False,
+            "is_duplicate": False, # or True based on logic
             "player": player,
-            "rolls_remaining": user.rolls_remaining
+            "rolls_remaining": user.rolls_remaining,
+            "shortlist_pings": shortlist_pings # <--- Return this!
         }
 
     def claim_card(self, discord_id, guild_id, player_id):
@@ -607,6 +619,80 @@ class GachaService:
             "success": True,
             "claims_remaining": user.claims_remaining,
             "free_claims_left": user.free_claims
+        }
+    
+    def get_shortlist_capacity(self, user):
+        """Returns max slots. Level 0 = 1 slot."""
+        upgrade_capacities = [3, 5, 10, 15, 25]
+        level = min(getattr(user, "upgrade_scout", 0), 5)
+        
+        if level == 0:
+            return 1 
+        else:
+            return upgrade_capacities[level - 1]
+
+    def add_to_shortlist(self, discord_id, guild_id, player_name):
+        user = self.get_or_create_user(discord_id, guild_id, "Unknown")
+        
+        # 1. Find Player
+        target_player = self.session.query(PlayerBase).filter(PlayerBase.name.ilike(f"%{player_name}%")).first()
+        if not target_player:
+            return {"success": False, "message": f"Player **{player_name}** not found."}
+
+        # 2. No Legends
+        if target_player.rarity == "Legend":
+            return {"success": False, "message": "❌ You cannot shortlist **Legend** cards! They must remain a surprise."}
+
+        # 3. Check Capacity
+        current_count = self.session.query(Shortlist).filter_by(user_id=user.id).count()
+        max_slots = self.get_shortlist_capacity(user)
+        
+        if current_count >= max_slots:
+            return {"success": False, "message": f"❌ Shortlist full ({current_count}/{max_slots})! Upgrade **Scout Network** for more."}
+
+        # 4. Check Duplicate
+        exists = self.session.query(Shortlist).filter_by(user_id=user.id, player_base_id=target_player.id).first()
+        if exists:
+            return {"success": False, "message": f"**{target_player.name}** is already in your shortlist."}
+
+        # 5. Add
+        new_item = Shortlist(user_id=user.id, player_base_id=target_player.id)
+        self.session.add(new_item)
+        self.session.commit()
+        
+        return {
+            "success": True, 
+            "player": target_player.name, 
+            "slots": f"{current_count + 1}/{max_slots}"
+        }
+
+    def remove_from_shortlist(self, discord_id, guild_id, player_name):
+        user = self.get_or_create_user(discord_id, guild_id, "Unknown")
+        
+        item = self.session.query(Shortlist).join(PlayerBase)\
+            .filter(Shortlist.user_id == user.id)\
+            .filter(PlayerBase.name.ilike(f"%{player_name}%"))\
+            .first()
+            
+        if not item:
+            return {"success": False, "message": f"**{player_name}** not found in your shortlist."}
+            
+        removed_name = item.player.name
+        self.session.delete(item)
+        self.session.commit()
+        
+        return {"success": True, "message": f"Removed **{removed_name}** from shortlist."}
+
+    def get_user_shortlist(self, discord_id, guild_id):
+        user = self.get_or_create_user(discord_id, guild_id, "Unknown")
+        items = self.session.query(Shortlist).filter_by(user_id=user.id).all()
+        
+        max_slots = self.get_shortlist_capacity(user)
+        
+        return {
+            "items": [item.player for item in items],
+            "count": len(items),
+            "max": max_slots
         }
             
         

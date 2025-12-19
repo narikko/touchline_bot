@@ -41,6 +41,7 @@ class User(Base):
     upgrade_board = Column(Integer, default=0)
     upgrade_training = Column(Integer, default=0)
     upgrade_transfer = Column(Integer, default=0)
+    upgrade_scout = Column(Integer, default=0)
 
     # Progress Flags
     # Stores [True, False, ...] for tutorial steps
@@ -109,3 +110,28 @@ class MarketListing(Base):
     
     seller = relationship("User", back_populates="market_listings")
     card = relationship("Card")
+
+class Shortlist(Base):
+    __tablename__ = 'shortlists'
+    
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    user_id = Column(Integer, ForeignKey('users.id'))
+    player_base_id = Column(Integer, ForeignKey('player_base.id'))
+    
+    # Relationships
+    user = relationship("User", backref="shortlist_items")
+    player = relationship("PlayerBase")
+
+    __table_args__ = (UniqueConstraint('user_id', 'player_base_id', name='_user_shortlist_uc'),)
+
+class GlobalTutorial(Base):
+    __tablename__ = 'global_tutorials'
+    
+    # Only linked to Discord ID, not Guild ID
+    discord_id = Column(String, primary_key=True) 
+    
+    # Stores { "1_roll": true, "2_daily": true }
+    tutorial_flags = Column(JSONB, default=dict) 
+    
+    # 0 = Tutorial 1, 1 = Tutorial 2, etc.
+    tutorial_progress = Column(Integer, default=0)

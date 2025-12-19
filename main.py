@@ -23,6 +23,11 @@ class SoccerBot(commands.Bot):
         await self.load_extension("src.cogs.gacha") 
         await self.load_extension("src.cogs.team")
         await self.load_extension("src.cogs.upgrade")
+        await self.load_extension("src.cogs.market")
+        await self.load_extension("src.cogs.trade")
+        await self.load_extension("src.cogs.match")
+        await self.load_extension("src.cogs.tutorial")
+        await self.load_extension("src.cogs.general")
         print("--- Cogs Loaded ---")
 
         # 3. TEMPORARY GUILD SYNC FOR FAST TESTING

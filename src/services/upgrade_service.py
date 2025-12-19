@@ -28,7 +28,14 @@ class UpgradeService:
                 "name": "Transfer Market 📜",
                 "description": "Reduces the **wait time** for transfers to be completed.",
                 "bonuses": ["2 days", "1 day", "12 hours", "6 hours", "3 hours"],
-                "prices": [2000, 5000, 8000, 18000, 32000]
+                "prices": [2000, 5000, 10000, 30000, 75000]
+            },
+            "scout": {
+                "name": "Scout Network 🔭",
+                "description": "Increases **Shortlist** size. Get notified when others roll your target players!",
+                # Capacities: Lvl0=1, Lvl1=3, Lvl2=5, Lvl3=10, Lvl4=15, Lvl5=25
+                "bonuses": ["3 Slots", "4 Slots", "5 Slots", "7 Slots", "10 Slots"], 
+                "prices": [750, 1500, 3000, 7500, 17500],
             }
         }
 

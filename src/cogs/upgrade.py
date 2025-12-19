@@ -61,6 +61,15 @@ class UpgradeCog(commands.Cog):
                 
                 await interaction.followup.send(embed=embed)
 
+                # --- TUTORIAL HOOK: 6_info ---
+                try:
+                    from src.services.tutorial_service import TutorialService
+                    tut_service = TutorialService(session)
+                    tut_msg = tut_service.complete_step(interaction.user.id, interaction.guild_id, "6_info")
+                    if tut_msg: await interaction.followup.send(tut_msg)
+                except Exception as e: print(f"Tutorial Error: {e}")
+                # -----------------------------
+
             # --- OPTION 2: BUY AN UPGRADE ---
             else:
                 # The 'choice' variable holds "stadium", "board", etc.
@@ -78,6 +87,16 @@ class UpgradeCog(commands.Cog):
                         color=discord.Color.green()
                     )
                     await interaction.followup.send(embed=embed)
+
+                    # --- TUTORIAL HOOK: 6_buy ---
+                    try:
+                        from src.services.tutorial_service import TutorialService
+                        tut_service = TutorialService(session)
+                        tut_msg = tut_service.complete_step(interaction.user.id, interaction.guild_id, "6_buy")
+                        if tut_msg: await interaction.followup.send(tut_msg)
+                    except Exception as e: print(f"Tutorial Error: {e}")
+                    # ----------------------------
+
                 else:
                     # Failure (Not enough money, max level, etc.)
                     embed = discord.Embed(
