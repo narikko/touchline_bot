@@ -10,7 +10,7 @@ class TutorialService:
             # TUTORIAL 1: BASICS
             {
                 "title": "Tutorial 1: The Basics",
-                "description": "Welcome! Let's get you started with your first player.",
+                "description": "Welcome to Touchline! Let's get you started with your first player.",
                 "reward_text": "1 Free Claim Ticket",
                 "steps": {
                     "1_roll": "Roll for a player (`/r`)",
