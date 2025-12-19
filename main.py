@@ -48,7 +48,7 @@ class SoccerBot(commands.Bot):
     async def on_ready(self):
         print(f"Logged in as {self.user} (ID: {self.user.id})")
         print("------")
-        await self.change_presence(activity=discord.Game(name="/tutorial | Touchline ⚽"))
+        await self.change_presence(activity=discord.Game(name="Start your journey with /tutorial"))
 async def main():
     bot = SoccerBot()
     token = DISCORD_TOKEN
