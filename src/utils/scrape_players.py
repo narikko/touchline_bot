@@ -26,6 +26,8 @@ def calculate_value(current, potential):
 def clean_name_from_slug(url):
     try:
         parts = [p for p in url.split('/') if p]
+        # SoFIFA URLs are usually /player/ID/SLUG/VERSION
+        # We want the slug (text part)
         slug = parts[-1] if not parts[-1].isdigit() else parts[-2]
         return slug.replace('-', ' ').title()
     except:
@@ -36,12 +38,10 @@ def scrape_sofifa():
         os.makedirs(OUTPUT_DIR)
         print(f"Created data directory at: {OUTPUT_DIR}")
 
-    # --- FIX 1: Open files once in 'w' (write) mode to clear old data ---
     f_ultra = open(os.path.join(OUTPUT_DIR, "ultra_rare_players_list.txt"), "w", encoding="utf-8")
     f_rare = open(os.path.join(OUTPUT_DIR, "rare_players.txt"), "w", encoding="utf-8")
     f_common = open(os.path.join(OUTPUT_DIR, "common_players.txt"), "w", encoding="utf-8")
 
-    # Map categories to the correct file handle
     files = {
         "ultra_rare": f_ultra,
         "rare": f_rare,
@@ -51,10 +51,7 @@ def scrape_sofifa():
         "trash": None
     }
 
-    # --- FIX 2: Deduplication Set ---
-    # Keeps track of player IDs we have already saved to prevent duplicates
     seen_ids = set()
-
     scraper = cloudscraper.create_scraper(browser={'browser': 'chrome', 'platform': 'windows', 'desktop': True})
     
     print(f"Starting scrape (~{TOTAL_PAGES} pages)...")
@@ -88,15 +85,27 @@ def scrape_sofifa():
                     # ID Check (Deduplication)
                     player_id = name_link['href'].split('/')[2]
                     if player_id in seen_ids:
-                        continue # Skip duplicate
+                        continue 
                     seen_ids.add(player_id)
 
-                    # Name Extraction
-                    name = name_link.get('data-tooltip')
-                    if not name or len(name) < 3:
-                        name = clean_name_from_slug(name_link['href'])
-                    if not name:
-                        name = name_link.get_text(strip=True)
+                    # --- UPDATED NAME LOGIC ---
+                    # 1. Get the short name displayed on the card (e.g., "Raphinha" or "C. Palmer")
+                    short_name = name_link.get_text(strip=True)
+
+                    # 2. Get the full name from tooltip or URL slug (e.g., "Raphael Dias Belloli")
+                    full_name = name_link.get('data-tooltip')
+                    if not full_name:
+                        full_name = clean_name_from_slug(name_link['href'])
+                    
+                    # 3. Apply the Logic: Only use full name if short name has a dot "."
+                    if "." in short_name:
+                        # Case: "C. Palmer" -> Use "Cole Palmer" (Full Name)
+                        # Fallback: if full_name is somehow missing, keep short_name
+                        name = full_name if full_name else short_name
+                    else:
+                        # Case: "Raphinha" -> Keep "Raphinha"
+                        name = short_name
+                    # ---------------------------
 
                     # 2. POSITIONS
                     name_col = row.select_one('td:nth-of-type(2)')
@@ -149,7 +158,6 @@ def scrape_sofifa():
             
             print(f"✅ Page {page + 1}: Saved {count} Players (Total Unique: {len(seen_ids)})")
             
-            # Stop if the page was empty or duplicate
             if count == 0 and len(rows) > 0:
                  print("⚠️ Zero new players found on this page. Stopping.")
                  break
@@ -159,7 +167,6 @@ def scrape_sofifa():
         except Exception as e:
             print(f"Page Error: {e}")
 
-    # Close file handles explicitly
     f_ultra.close()
     f_rare.close()
     f_common.close()
