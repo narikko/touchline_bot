@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  # 1. Your Bot Container
+  bot:
+    build: .
+    restart: always
+    depends_on:
+      - db
+    env_file:
+      - .env
+    environment:
+      # OVERRIDE the DB URL to point to the 'db' service name below
+      - DATABASE_URL=postgresql://gacha_user:gacha_pass@db:5432/gacha_db
+    volumes:
+      # Mount the code so you can edit locally and restart to see changes (optional but helpful)
+      - .:/app
+
+  # 2. The Database Container
+  db:
+    image: postgres:15-alpine
+    restart: always
+    environment:
+      - POSTGRES_USER=gacha_user
+      - POSTGRES_PASSWORD=gacha_pass
+      - POSTGRES_DB=gacha_db
+    ports:
+      - "5432:5432" # Allows you to connect via DBeaver on localhost:5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:

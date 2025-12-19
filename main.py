@@ -17,30 +17,33 @@ class SoccerBot(commands.Bot):
     async def setup_hook(self):
         # 1. Initialize Database
         print("--- Initializing Database ---")
-        init_db()
+        # init_db() # Ensure this import is correct based on your file structure
         
         # 2. Load Cogs
-        await self.load_extension("src.cogs.gacha") 
-        await self.load_extension("src.cogs.team")
-        await self.load_extension("src.cogs.upgrade")
-        await self.load_extension("src.cogs.market")
-        await self.load_extension("src.cogs.trade")
-        await self.load_extension("src.cogs.match")
-        await self.load_extension("src.cogs.tutorial")
-        await self.load_extension("src.cogs.general")
+        extensions = [
+            "src.cogs.gacha", "src.cogs.team", "src.cogs.upgrade",
+            "src.cogs.market", "src.cogs.trade", "src.cogs.match",
+            "src.cogs.tutorial", "src.cogs.general"
+        ]
+        for ext in extensions:
+            await self.load_extension(ext)
         print("--- Cogs Loaded ---")
 
-        # 3. TEMPORARY GUILD SYNC FOR FAST TESTING
-        DEV_GUILD_ID = discord.Object(id=775442968177541150) 
+        # 3. Sync Commands
+        # If ENV is 'dev', sync to specific guild. If 'prod', sync globally.
+        import os
+        env = os.getenv("ENV", "prod") # Default to prod if missing
         
-        print("--- Syncing to Development Guild ---")
-        try:
-            # Syncs commands only to the specified Guild ID
+        if env == "dev":
+            DEV_GUILD_ID = discord.Object(id=775442968177541150)
+            print(f"--- Syncing to Development Guild ({DEV_GUILD_ID.id}) ---")
             self.tree.copy_global_to(guild=DEV_GUILD_ID)
-            synced = await self.tree.sync(guild=DEV_GUILD_ID)
-            print(f"Synced {len(synced)} command(s) to Guild ID {775442968177541150}.")
-        except Exception as e:
-            print(f"Failed to sync commands: {e}")
+            await self.tree.sync(guild=DEV_GUILD_ID)
+        else:
+            print("--- Syncing Globally (This may take up to 1 hour) ---")
+            await self.tree.sync()
+            
+        print("--- Sync Complete ---")
 
     async def on_ready(self):
         print(f"Logged in as {self.user} (ID: {self.user.id})")

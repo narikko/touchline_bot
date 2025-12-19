@@ -23,7 +23,7 @@ def parse_value(raw_value):
 def seed_database():
     print("--- Starting Database Seeding ---")
     
-    # 1. Initialize Tables (Create them if they don't exist)
+    # 1. Initialize Tables
     init_db()
     
     session = SessionLocal()
@@ -31,9 +31,6 @@ def seed_database():
     total_added = 0
 
     try:
-        # 2. Clear existing players? (Optional: Uncomment next line to wipe DB before seeding)
-        # session.query(PlayerBase).delete() 
-
         # 3. Loop through files
         for filename, rarity in DATA_FILES.items():
             if not os.path.exists(filename):
@@ -77,11 +74,10 @@ def seed_database():
                         positions=positions,
                         club=club,
                         nationality=nationality,
-                        value=value,
+                        # value=value, <--- REMOVED THIS LINE. Value is read-only.
                         image_url=image_url,
                         rarity=rarity,
-                        # We use value as rating since we didn't scrape raw OVR separately, 
-                        # and your game logic relies on Value anyway.
+                        # We use 'rating' to store the value score
                         rating=value 
                     )
                     players_buffer.append(player)
@@ -89,12 +85,12 @@ def seed_database():
                 except Exception as e:
                     print(f"   Error parsing line: {line[:30]}... Error: {e}")
 
-            # 4. Bulk Insert (Much faster than adding one by one)
+            # 4. Bulk Insert
             if players_buffer:
                 print(f"   Inserting {len(players_buffer)} {rarity} players...")
                 session.bulk_save_objects(players_buffer)
                 total_added += len(players_buffer)
-                session.commit() # Commit after each file to save progress
+                session.commit() # Commit after each file
 
     except Exception as e:
         session.rollback()

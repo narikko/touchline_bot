@@ -178,7 +178,13 @@ class TeamService:
         # 2. Apply Training Facility Upgrade
         # "Boosts the overall value rating of your Starting XI."
         training_level = min(getattr(user, "upgrade_training", 0), 5)
-        multiplier = self.TRAINING_MULTIPLIERS[training_level]
+        
+        # --- FIX: Handle Level 0 and Percentages ---
+        if training_level == 0:
+            multiplier = 0
+        else:
+            # Level 1 is at index 0. Values are percents (3 = 0.03)
+            multiplier = self.TRAINING_MULTIPLIERS[training_level - 1] / 100.0
         
         # Calculate Final Boosted OVL
         ovl_value = int(base_ovl * (1 + multiplier))

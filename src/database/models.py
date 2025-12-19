@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Boolean, ForeignKey, DateTime, UniqueConstraint, BigInteger
+from sqlalchemy import Column, Integer, String, Boolean, ForeignKey, DateTime, UniqueConstraint, BigInteger, JSON
 from sqlalchemy.orm import relationship, declarative_base
 from sqlalchemy.dialects.postgresql import JSONB
 from datetime import datetime
@@ -7,31 +7,23 @@ Base = declarative_base()
 
 class User(Base):
     __tablename__ = 'users'
-
-    # Internal Database ID (e.g., User #1, User #2)
-    # We use this to link Cards to Users efficiently.
-    id = Column(Integer, primary_key=True, autoincrement=True)
     
-    # The combination of these two MUST be unique
+    id = Column(Integer, primary_key=True, autoincrement=True)
     discord_id = Column(String, nullable=False)
     guild_id = Column(String, nullable=False)
+    username = Column(String, nullable=False)
     
-    username = Column(String)
-    
-    # Economy
+    # Economy & Stats
     coins = Column(Integer, default=0)
+    club_name = Column(String, nullable=True)
+    favorite_club = Column(String, nullable=True)
     
-    # Game State
-    club_name = Column(String, default="My Club")
-    favorite_club = Column(String, default="")
-    
-    # Gameplay Resources
+    # Timers
     rolls_remaining = Column(Integer, default=9)
     claims_remaining = Column(Integer, default=1)
     max_rolls = Column(Integer, default=9)
     free_claims = Column(Integer, default=0)
     
-    # Timers (Stored as UTC timestamps)
     last_roll_reset = Column(DateTime, default=datetime.utcnow)
     last_claim_reset = Column(DateTime, default=datetime.utcnow)
     last_daily_claim = Column(DateTime, nullable=True)
@@ -43,73 +35,59 @@ class User(Base):
     upgrade_transfer = Column(Integer, default=0)
     upgrade_scout = Column(Integer, default=0)
 
-    # Progress Flags
-    # Stores [True, False, ...] for tutorial steps
-    tutorial_flags = Column(JSONB, default=list) 
+    # JSON with variant for SQLite/Postgres compatibility
+    tutorial_flags = Column(JSON().with_variant(JSONB, "postgresql"), default=dict)
     tutorial_progress = Column(Integer, default=0)
-    
-    # Stores [True, False, ...] for team value rewards (300, 400, etc.)
-    team_rewards_flags = Column(JSONB, default=list)
-    
-    # Relationships
-    cards = relationship("Card", back_populates="owner")
-    market_listings = relationship("MarketListing", back_populates="seller")
+    team_rewards_flags = Column(JSON().with_variant(JSONB, "postgresql"), default=list)
 
-    # Ensures one user cannot have duplicate rows for the same server
-    __table_args__ = (UniqueConstraint('discord_id', 'guild_id', name='_user_server_uc'),)
-
-
-class PlayerBase(Base):
-    __tablename__ = 'player_base'
+    # --- EXPLICIT RELATIONSHIPS (The Fix) ---
+    # These replace the old 'backrefs'
+    cards = relationship("Card", back_populates="user", cascade="all, delete-orphan")
+    shortlist_items = relationship("Shortlist", back_populates="user", cascade="all, delete-orphan")
     
-    # This represents the "Definition" of a player 
-    id = Column(Integer, primary_key=True, autoincrement=True)
-    
-    name = Column(String, nullable=False)
-    club = Column(String)
-    nationality = Column(String)
-    positions = Column(String) # e.g. "ST/CF"
-    rating = Column(Integer)
-    rarity = Column(String) # "Common", "Rare", "Ultra", "Legend"
-    image_url = Column(String)
-    
-    value = Column(Integer)
-
+    __table_args__ = (UniqueConstraint('discord_id', 'guild_id', name='_user_guild_uc'),)
 
 class Card(Base):
     __tablename__ = 'cards'
     
     id = Column(Integer, primary_key=True, autoincrement=True)
-    
-    # Links to the User's internal ID (which represents User+Server)
     user_id = Column(Integer, ForeignKey('users.id'))
     player_base_id = Column(Integer, ForeignKey('player_base.id'))
-    
+    position_in_xi = Column(String, nullable=True) 
     obtained_at = Column(DateTime, default=datetime.utcnow)
     sort_priority = Column(BigInteger, default=0)
+
+    # Link back to User explicitly
+    user = relationship("User", back_populates="cards")
     
-    # Team Management
-    # "F1", "F2", "GK", etc. or None if on bench
-    position_in_xi = Column(String, nullable=True) 
-    
-    owner = relationship("User", back_populates="cards")
+    # Simple join for details
     details = relationship("PlayerBase")
 
+class PlayerBase(Base):
+    __tablename__ = 'player_base'
+    
+    id = Column(Integer, primary_key=True) 
+    name = Column(String, nullable=False)
+    club = Column(String, nullable=False)
+    nationality = Column(String, nullable=False)
+    positions = Column(String, nullable=False)
+    rating = Column(Integer, nullable=False)
+    rarity = Column(String, nullable=False) 
+    image_url = Column(String, nullable=True)
+    
+    @property
+    def value(self):
+        return self.rating 
 
 class MarketListing(Base):
     __tablename__ = 'market_listings'
     
     id = Column(Integer, primary_key=True, autoincrement=True)
-    
     user_id = Column(Integer, ForeignKey('users.id'))
     card_id = Column(Integer, ForeignKey('cards.id'))
-    
-    listed_price = Column(Integer)
+    listed_price = Column(Integer, nullable=False)
+    available_at = Column(DateTime, nullable=False)
     listed_at = Column(DateTime, default=datetime.utcnow)
-    available_at = Column(DateTime)
-    
-    seller = relationship("User", back_populates="market_listings")
-    card = relationship("Card")
 
 class Shortlist(Base):
     __tablename__ = 'shortlists'
@@ -118,20 +96,15 @@ class Shortlist(Base):
     user_id = Column(Integer, ForeignKey('users.id'))
     player_base_id = Column(Integer, ForeignKey('player_base.id'))
     
-    # Relationships
-    user = relationship("User", backref="shortlist_items")
+    # Link back to User explicitly
+    user = relationship("User", back_populates="shortlist_items")
     player = relationship("PlayerBase")
-
+    
     __table_args__ = (UniqueConstraint('user_id', 'player_base_id', name='_user_shortlist_uc'),)
 
 class GlobalTutorial(Base):
     __tablename__ = 'global_tutorials'
     
-    # Only linked to Discord ID, not Guild ID
-    discord_id = Column(String, primary_key=True) 
-    
-    # Stores { "1_roll": true, "2_daily": true }
-    tutorial_flags = Column(JSONB, default=dict) 
-    
-    # 0 = Tutorial 1, 1 = Tutorial 2, etc.
+    discord_id = Column(String, primary_key=True)
+    tutorial_flags = Column(JSON().with_variant(JSONB, "postgresql"), default=dict)
     tutorial_progress = Column(Integer, default=0)
