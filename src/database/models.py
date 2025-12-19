@@ -40,6 +40,9 @@ class User(Base):
     tutorial_progress = Column(Integer, default=0)
     team_rewards_flags = Column(JSON().with_variant(JSONB, "postgresql"), default=list)
 
+    redeemed_referral = Column(Boolean, default=False)
+    roll_refreshes = Column(Integer, default=0)
+
     # --- EXPLICIT RELATIONSHIPS (The Fix) ---
     # These replace the old 'backrefs'
     cards = relationship("Card", back_populates="user", cascade="all, delete-orphan")
