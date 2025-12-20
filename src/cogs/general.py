@@ -189,7 +189,7 @@ class GeneralCog(commands.Cog):
                 await interaction.response.send_message("❌ Run /tutorial first!", ephemeral=True)
                 return
 
-            # Check Inventory
+            # 1. Check Inventory
             if user.roll_refreshes <= 0:
                 await interaction.response.send_message(
                     "❌ You don't have any Refresh Tickets!\n"
@@ -198,34 +198,65 @@ class GeneralCog(commands.Cog):
                 )
                 return
 
-            # Check if they actually need it (Optional, prevents wasting items)
-            # Assuming you track 'rolls' column. 
-            # If your max is 3, checking if they are already full is nice.
-            # if user.rolls >= 3:
-            #    await interaction.response.send_message("❌ Your rolls are already full!", ephemeral=True)
-            #    return
+            # 2. Check if they are already full (Prevent Waste)
+            # using 'rolls_remaining' based on your screenshot
+            if user.rolls_remaining >= user.max_rolls:
+                await interaction.response.send_message(
+                    f"❌ Your rolls are already full (**{user.rolls_remaining}/{user.max_rolls}**)! \nSave your ticket for later.", 
+                    ephemeral=True
+                )
+                return
 
-            # Consume Item
-            user.roll_refreshes -= 1
-            
-            # Refill Rolls (Set to Max, e.g., 3)
-            # You might need to adjust '3' if you have upgrades that increase max capacity
-            MAX_ROLLS = user.max_rolls 
-            user.rolls = MAX_ROLLS 
-            
-            session.commit()
-
-            await interaction.response.send_message(
-                f"🎟️ **Ticket Used!**\n"
-                f"Your rolls have been refilled to **{MAX_ROLLS}**! ⚽\n"
-                f"Tickets remaining: **{user.roll_refreshes}**"
+            # 3. Create the Confirmation View
+            embed = discord.Embed(
+                title="🎟️ Use Refresh Ticket?",
+                description=(
+                    f"You have **{user.roll_refreshes}** tickets.\n"
+                    f"This will restore your rolls to **{user.max_rolls}/{user.max_rolls}**."
+                ),
+                color=discord.Color.blue()
             )
+
+            # Define the Buttons
+            class ConfirmView(discord.ui.View):
+                def __init__(self, db_session, db_user):
+                    super().__init__(timeout=30)
+                    self.session = db_session
+                    self.user = db_user
+                    self.value = None
+
+                @discord.ui.button(label="Confirm", style=discord.ButtonStyle.green)
+                async def confirm(self, interaction: discord.Interaction, button: discord.ui.Button):
+                    # Re-check inventory just in case
+                    if self.user.roll_refreshes <= 0:
+                        await interaction.response.send_message("❌ Error: Ticket already used.", ephemeral=True)
+                        return
+                    
+                    # --- EXECUTE LOGIC ---
+                    self.user.roll_refreshes -= 1
+                    self.user.rolls_remaining = self.user.max_rolls
+                    self.session.commit()
+                    
+                    await interaction.response.edit_message(
+                        content=f"✅ **Success!** Used 1 Ticket. Rolls refilled to **{self.user.max_rolls}**! ⚽", 
+                        embed=None, 
+                        view=None
+                    )
+                    self.stop()
+
+                @discord.ui.button(label="Cancel", style=discord.ButtonStyle.red)
+                async def cancel(self, interaction: discord.Interaction, button: discord.ui.Button):
+                    await interaction.response.edit_message(content="❌ Cancelled.", embed=None, view=None)
+                    self.stop()
+
+            # Send the confirmation
+            view = ConfirmView(session, user)
+            await interaction.response.send_message(embed=embed, view=view, ephemeral=True)
 
         except Exception as e:
             print(f"Error in use_refresh: {e}")
             await interaction.response.send_message("❌ An error occurred.", ephemeral=True)
-        finally:
-            session.close()
+            session.close() # Close session if error
 
 async def setup(bot):
     await bot.add_cog(GeneralCog(bot))
