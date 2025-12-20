@@ -21,3 +21,5 @@ COPY . .
 
 # The command to start your bot
 CMD ["python", "main.py"]
+
+ENV PYTHONUNBUFFERED=1
