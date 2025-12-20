@@ -63,7 +63,7 @@ class MarketCog(commands.Cog):
                 status = service.check_transfer_status(str(interaction.user.id), str(interaction.guild_id))
                 
                 if status["status"] == "completed":
-                    embed = discord.Embed(title="💰 Transfer Complete!", color=discord.Color.gold())
+                    embed = discord.Embed(title="Transfer Complete!", color=discord.Color.gold())
                     embed.description = (
                         f"**{status['player']}** has been sold!\n"
                         f"You received: **{status['value']:,}** 💠"

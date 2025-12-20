@@ -19,7 +19,7 @@ class GeneralCog(commands.Cog):
 
         # 1. Gacha & Collection (Added /freeclaim)
         embed.add_field(
-            name="🎰 Scouting & Collection",
+            name="🗃️ Scouting & Collection",
             value=(
                 "`/r` - Roll for a new player.\n"
                 "`/daily` - Claim daily rewards.\n"

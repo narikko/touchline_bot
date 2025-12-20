@@ -207,7 +207,7 @@ class GachaCog(commands.Cog):
                 coins = result['coins_gained']
                 
                 embed.description += f"\n\n🔒 **Already claimed by {owner}**"
-                embed.add_field(name="Duplicate Bonus", value=f"💰 +{coins} Coins", inline=False)
+                embed.add_field(name="Duplicate Bonus", value=f"+{coins} 💠", inline=False)
                 
                 await interaction.followup.send(embed=embed)
             
@@ -558,9 +558,9 @@ class GachaCog(commands.Cog):
                 embed.set_thumbnail(url=interaction.user.avatar.url)
             
             # Timers Row
-            embed.add_field(name="✋ Claim", value=claims_display, inline=True)
-            embed.add_field(name="🎰 Rolls", value=rolls_display, inline=True)
-            embed.add_field(name="🌞 Daily", value=daily_display, inline=True)
+            embed.add_field(name="Claim", value=claims_display, inline=True)
+            embed.add_field(name="Rolls", value=rolls_display, inline=True)
+            embed.add_field(name="Daily", value=daily_display, inline=True)
 
             # Info Row
             embed.add_field(name="❤️ Favorite Club", value=fav_club, inline=False)
@@ -751,7 +751,7 @@ class GachaCog(commands.Cog):
     @app_commands.command(name="shortlist", description="Manage your scout shortlist.")
     @app_commands.describe(action="Add, Remove, or View", player_name="Player name")
     @app_commands.choices(action=[
-        app_commands.Choice(name="👀 View List", value="view"),
+        app_commands.Choice(name="View List", value="view"),
         app_commands.Choice(name="➕ Add Player", value="add"),
         app_commands.Choice(name="➖ Remove Player", value="remove")
     ])
