@@ -101,7 +101,11 @@ class UpgradeCog(commands.Cog):
                     # Failure (Not enough money, max level, etc.)
                     embed = discord.Embed(
                         title="❌ Upgrade Failed",
-                        description=result["message"],
+                        description=(
+                            f"{result['message']}\n\n"
+                            "💸 **Need cash fast?**\n"
+                            "Invite a friend with **/invite** to instantly earn **1,000 Coins**!"
+                        ),
                         color=discord.Color.red()
                     )
                     await interaction.followup.send(embed=embed)

@@ -438,6 +438,8 @@ class GachaCog(commands.Cog):
 
                 desc += f"\n\nNew Balance: **{result['new_balance']}** 💠"
                 embed.description = desc
+
+                embed.set_footer(text="💡 Tip: Run /invite to earn 1,000 Coins for every friend you recruit!")
                 
                 await interaction.followup.send(embed=embed)
 
