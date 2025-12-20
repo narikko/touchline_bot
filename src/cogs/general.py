@@ -83,7 +83,7 @@ class GeneralCog(commands.Cog):
 
         await interaction.response.send_message(embed=embed)
 
-    @app_commands.command(name="invite", description="Get the link to add Touchline to your server!")
+    @app_commands.command(name="invite_now", description="Get the link to add Touchline to your server!")
     async def invite(self, interaction: discord.Interaction):
         # Replace CLIENT_ID with your actual Bot ID from Developer Portal
         invite_url = "https://discord.com/oauth2/authorize?client_id=1132170181012115556&permissions=378944&integration_type=0&scope=bot+applications.commands"
@@ -103,7 +103,7 @@ class GeneralCog(commands.Cog):
         
         await interaction.response.send_message(embed=embed, view=view)
 
-    @app_commands.command(name="refer", description="Enter the friend who invited you to get rewards!")
+    @app_commands.command(name="refer_now", description="Enter the friend who invited you to get rewards!")
     @app_commands.describe(friend="The veteran manager who invited you")
     async def refer(self, interaction: discord.Interaction, friend: discord.User):
         session = get_session()
@@ -180,7 +180,7 @@ class GeneralCog(commands.Cog):
         finally:
             session.close()
 
-    @app_commands.command(name="use_refresh", description="Use a ticket to instantly refill your rolls!")
+    @app_commands.command(name="use_refresh_now", description="Use a ticket to instantly refill your rolls!")
     async def use_refresh(self, interaction: discord.Interaction):
         session = get_session()
         try:
