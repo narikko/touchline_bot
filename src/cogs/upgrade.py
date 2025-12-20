@@ -16,6 +16,7 @@ class UpgradeCog(commands.Cog):
         app_commands.Choice(name="👔 Buy: Board", value="board"),
         app_commands.Choice(name="🏋️‍♂️ Buy: Training Facility", value="training"),
         app_commands.Choice(name="📜 Buy: Transfer Market", value="transfer"),
+        app_commands.Choice(name="🔭 Buy: Scout Network", value="scout"),
     ])
     async def upgrades(self, interaction: discord.Interaction, action: app_commands.Choice[str]):
         # 1. Defer response (db ops might take a moment)

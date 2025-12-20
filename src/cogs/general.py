@@ -235,6 +235,7 @@ class GeneralCog(commands.Cog):
                     # --- EXECUTE LOGIC ---
                     self.user.roll_refreshes -= 1
                     self.user.rolls_remaining = self.user.max_rolls
+                    self.user.last_roll_reset = datetime.utcnow()
                     self.session.commit()
                     
                     await interaction.response.edit_message(

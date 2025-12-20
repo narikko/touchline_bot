@@ -51,6 +51,15 @@ class SoccerBot(commands.Bot):
         await self.change_presence(activity=discord.Game(name="Start your journey with /tutorial"))
 async def main():
     bot = SoccerBot()
+
+    @bot.command(name="sync")
+    @commands.is_owner()
+    async def sync(ctx):
+        # This syncs to the specific server (guild) immediately
+        bot.tree.copy_global_to(guild=ctx.guild)
+        synced = await bot.tree.sync(guild=ctx.guild)
+        await ctx.send(f"✅ Synced {len(synced)} commands to this server!")
+        
     token = DISCORD_TOKEN
     if not token:
         print("FATAL ERROR: DISCORD_TOKEN not found in environment.")
