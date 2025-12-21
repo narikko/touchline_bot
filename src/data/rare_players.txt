@@ -1,132 +1,833 @@
-Rúben Neves, CDM/CM, Al Hilal, Portugal, Value: 722, https://cdn.sofifa.net/players/224/293/26_180.png, 224293
-Giuliano Simeone, RM/RW, Atlético Madrid, Argentina, Value: 700, https://cdn.sofifa.net/players/253/396/26_180.png, 253396
-Rayan Cherki, RW/RM/CAM, Manchester City, France, Value: 704, https://cdn.sofifa.net/players/251/570/26_180.png, 251570
-Adam Wharton, CDM/CM, Crystal Palace, England, Value: 702, https://cdn.sofifa.net/players/259/240/26_180.png, 259240
-Gavi, CM/CDM, FC Barcelona, Spain, Value: 718, https://cdn.sofifa.net/players/264/240/26_180.png, 264240
-Arda Guler, RM/CAM/CM/RW, Real Madrid, Türkiye, Value: 714, https://cdn.sofifa.net/players/264/309/26_180.png, 264309
-Lucas Chevalier, GK, Paris Saint-Germain, France, Value: 720, https://cdn.sofifa.net/players/251/752/26_180.png, 251752
-Angelo Stiller, CDM/CM, VfB Stuttgart, Germany, Value: 718, https://cdn.sofifa.net/players/250/959/26_180.png, 250959
-Piero Hincapie, CB/LB, Arsenal, Ecuador, Value: 722, https://cdn.sofifa.net/players/256/197/26_180.png, 256197
-Morgan Rogers, CAM/RM/LM/CM, Aston Villa, England, Value: 708, https://cdn.sofifa.net/players/260/247/26_180.png, 260247
-Pablo Barrios, CM/CDM, Atlético Madrid, Spain, Value: 720, https://cdn.sofifa.net/players/272/449/26_180.png, 272449
-Fermín, CAM/ST, FC Barcelona, Spain, Value: 702, https://cdn.sofifa.net/players/277/179/26_180.png, 277179
-Dean Huijsen, CB, Real Madrid, Spain, Value: 714, https://cdn.sofifa.net/players/278/349/26_180.png, 278349
-Thiago Silva, CB, Chelsea, Brazil, Value: 720, https://cdn.sofifa.net/players/164/240/24_180.png, 164240
-Mario Gotze, CM/CAM/RM/CDM, Eintracht Frankfurt, Germany, Value: 700, https://cdn.sofifa.net/players/192/318/26_180.png, 192318
-Antoine Griezmann, ST/CAM, Atlético Madrid, France, Value: 720, https://cdn.sofifa.net/players/194/765/26_180.png, 194765
-Leon Goretzka, CDM/CM/CB, FC Bayern München, Germany, Value: 700, https://cdn.sofifa.net/players/209/658/26_180.png, 209658
-Álex Baena, LM/LW, Atlético Madrid, Spain, Value: 728, https://cdn.sofifa.net/players/257/279/26_180.png, 257279
-Giorgi Mamardashvili, GK, Liverpool, Georgia, Value: 726, https://cdn.sofifa.net/players/262/621/26_180.png, 262621
-Micky Van De Ven, CB/LB, Tottenham Hotspur, Netherlands, Value: 716, https://cdn.sofifa.net/players/264/453/26_180.png, 264453
-John Stones, CB/RB/CDM, Manchester City, England, Value: 700, https://cdn.sofifa.net/players/203/574/26_180.png, 203574
-Willi Orban, CB, RB Leipzig, Hungary, Value: 720, https://cdn.sofifa.net/players/204/638/26_180.png, 204638
-Rodrigo De Paul, CM/CDM/RM/CAM, Inter Miami, Argentina, Value: 710, https://cdn.sofifa.net/players/212/616/26_180.png, 212616
-Malcom, RW/CAM/RM, Al Hilal, Brazil, Value: 700, https://cdn.sofifa.net/players/222/737/26_180.png, 222737
-Mile Svilar, GK, Roma, Serbia, Value: 726, https://cdn.sofifa.net/players/230/872/26_180.png, 230872
-Cristian Romero, CB, Tottenham Hotspur, Argentina, Value: 704, https://cdn.sofifa.net/players/232/488/26_180.png, 232488
-Kai Havertz, ST/CM/CAM, Arsenal, Germany, Value: 704, https://cdn.sofifa.net/players/235/790/26_180.png, 235790
-Eberechi Eze, CAM/LW/CM/LM, Arsenal, England, Value: 722, https://cdn.sofifa.net/players/235/794/26_180.png, 235794
-Matteo Guendouzi, CDM/CM, Lazio, France, Value: 706, https://cdn.sofifa.net/players/236/496/26_180.png, 236496
-Ferran Torres, ST/LW/CAM, FC Barcelona, Spain, Value: 716, https://cdn.sofifa.net/players/241/461/26_180.png, 241461
-Moussa Diaby, RM/RW, Al Ittihad, France, Value: 722, https://cdn.sofifa.net/players/241/852/26_180.png, 241852
-Anthony Gordon, LW/RW/LM, Newcastle United, England, Value: 706, https://cdn.sofifa.net/players/242/964/26_180.png, 242964
-Sancet, CAM/CM/ST, Athletic Club, Spain, Value: 720, https://cdn.sofifa.net/players/244/675/26_180.png, 244675
-Mason Greenwood, RM/CAM/RW, Olympique de Marseille, England, Value: 718, https://cdn.sofifa.net/players/246/147/26_180.png, 246147
-Felix Nmecha, CM/CDM, Borussia Dortmund, Germany, Value: 716, https://cdn.sofifa.net/players/246/863/26_180.png, 246863
-Dejan Kulusevski, CM/RW/CAM, Tottenham Hotspur, Sweden, Value: 716, https://cdn.sofifa.net/players/247/394/26_180.png, 247394
-Charles De Ketelaere, CAM/ST/CM, Atalanta, Belgium, Value: 708, https://cdn.sofifa.net/players/251/470/26_180.png, 251470
-Jeremie Frimpong, RB/RM/RW, Liverpool, Netherlands, Value: 714, https://cdn.sofifa.net/players/253/149/26_180.png, 253149
-Savinho, RW/LW/RM, Manchester City, Brazil, Value: 700, https://cdn.sofifa.net/players/270/409/26_180.png, 270409
-Pau Cubarsí, CB, FC Barcelona, Spain, Value: 712, https://cdn.sofifa.net/players/278/046/26_180.png, 278046
-Gonçalo Inácio, CB, Sporting CP, Portugal, Value: 700, https://cdn.sofifa.net/players/257/179/26_180.png, 257179
-Bradley Barcola, LW/RW/LM, Paris Saint-Germain, France, Value: 728, https://cdn.sofifa.net/players/264/652/26_180.png, 264652
-Boubacar Kamara, CDM/CM, Aston Villa, France, Value: 714, https://cdn.sofifa.net/players/236/987/26_180.png, 236987
-Daniel Munoz, RB/RM, Crystal Palace, Colombia, Value: 700, https://cdn.sofifa.net/players/237/646/26_180.png, 237646
-Éder Militão, CB, Real Madrid, Brazil, Value: 726, https://cdn.sofifa.net/players/240/130/26_180.png, 240130
-Marc Guehi, CB, Crystal Palace, England, Value: 714, https://cdn.sofifa.net/players/241/159/26_180.png, 241159
-Rafael Leão, LW/LM/ST, AC Milan, Portugal, Value: 722, https://cdn.sofifa.net/players/241/721/26_180.png, 241721
-Cody Gakpo, LM/LW, Liverpool, Netherlands, Value: 722, https://cdn.sofifa.net/players/242/516/26_180.png, 242516
-Lois Openda, ST, Juventus, Belgium, Value: 704, https://cdn.sofifa.net/players/243/580/26_180.png, 243580
-Mohamed Simakan, CB/RB, Al Nassr, France, Value: 700, https://cdn.sofifa.net/players/243/854/26_180.png, 243854
-Andriy Lunin, GK, Real Madrid, Ukraine, Value: 700, https://cdn.sofifa.net/players/243/952/26_180.png, 243952
-Amir Rrahmani, CB, Napoli, Kosovo, Value: 710, https://cdn.sofifa.net/players/244/263/26_180.png, 244263
-Xavi Simons, CAM/LM/ST, Tottenham Hotspur, Netherlands, Value: 716, https://cdn.sofifa.net/players/245/367/26_180.png, 245367
-Ibañez, CB, Al Ahli SFC, Brazil, Value: 704, https://cdn.sofifa.net/players/247/257/26_180.png, 247257
-Zubimendi, CDM/CM, Arsenal, Spain, Value: 726, https://cdn.sofifa.net/players/248/148/26_180.png, 248148
-Jurrien Timber, RB/LB/CB/RM, Arsenal, Netherlands, Value: 726, https://cdn.sofifa.net/players/251/805/26_180.png, 251805
-Karim Adeyemi, RM/LW/CAM/RW, Borussia Dortmund, Germany, Value: 708, https://cdn.sofifa.net/players/251/852/26_180.png, 251852
-Grimaldo, LM/LB/LW, Bayer 04 Leverkusen, Spain, Value: 720, https://cdn.sofifa.net/players/210/035/26_180.png, 210035
-Salem Al Dawsari, LM/LW, Al Hilal, Saudi Arabia, Value: 700, https://cdn.sofifa.net/players/210/602/26_180.png, 210602
-Julian Brandt, CAM/CM, Borussia Dortmund, Germany, Value: 710, https://cdn.sofifa.net/players/212/194/26_180.png, 212194
-Geronimo Rulli, GK, Olympique de Marseille, Argentina, Value: 700, https://cdn.sofifa.net/players/215/316/26_180.png, 215316
-Giovanni Di Lorenzo, RB/CB/RM, Napoli, Italy, Value: 710, https://cdn.sofifa.net/players/217/870/26_180.png, 217870
-Leroy Sane, RM/LM/RW, Galatasaray SK, Germany, Value: 700, https://cdn.sofifa.net/players/222/492/26_180.png, 222492
-Jarrod Bowen, RM/ST/RW, West Ham United, England, Value: 710, https://cdn.sofifa.net/players/224/371/26_180.png, 224371
-Ivan Provedel, GK, Lazio, Italy, Value: 700, https://cdn.sofifa.net/players/224/987/26_180.png, 224987
-Manuel Akanji, CB, Inter, Switzerland, Value: 700, https://cdn.sofifa.net/players/229/237/26_180.png, 229237
-Antonee Robinson, LB/LM, Fulham FC, United States, Value: 700, https://cdn.sofifa.net/players/229/348/26_180.png, 229348
-Palhinha, CDM/CM, Tottenham Hotspur, Portugal, Value: 710, https://cdn.sofifa.net/players/229/391/26_180.png, 229391
-Unai Simón, GK, Athletic Club, Spain, Value: 722, https://cdn.sofifa.net/players/230/869/26_180.png, 230869
-Ademola Lookman, ST/CAM, Atalanta, Nigeria, Value: 710, https://cdn.sofifa.net/players/230/899/26_180.png, 230899
-Exequiel Palacios, CM/CDM, Bayer 04 Leverkusen, Argentina, Value: 722, https://cdn.sofifa.net/players/231/521/26_180.png, 231521
-Benjamin White, RB/RM, Arsenal, England, Value: 710, https://cdn.sofifa.net/players/231/936/26_180.png, 231936
-Ritsu Doan, RM/CAM/RB, Eintracht Frankfurt, Japan, Value: 700, https://cdn.sofifa.net/players/232/639/26_180.png, 232639
-Theo Hernandez, LB/LM, Al Hilal, France, Value: 720, https://cdn.sofifa.net/players/232/656/26_180.png, 232656
-Alphonso Davies, LB/LM, FC Bayern München, Canada, Value: 726, https://cdn.sofifa.net/players/234/396/26_180.png, 234396
-Moise Kean, ST, Fiorentina, Italy, Value: 716, https://cdn.sofifa.net/players/236/610/26_180.png, 236610
-Riyad Mahrez, RM/RW, Al Ahli SFC, Algeria, Value: 720, https://cdn.sofifa.net/players/204/485/26_180.png, 204485
-Emre Can, CB/CDM/CM, Borussia Dortmund, Germany, Value: 700, https://cdn.sofifa.net/players/208/333/26_180.png, 208333
-Sadio Mane, LM/RM/ST/LW, Al Nassr, Senegal, Value: 710, https://cdn.sofifa.net/players/208/722/26_180.png, 208722
-Éderson, CM/CDM, Atalanta, Brazil, Value: 706, https://cdn.sofifa.net/players/266/866/26_180.png, 266866
-Johnny Cardoso, CDM/CM, Atlético Madrid, United States, Value: 700, https://cdn.sofifa.net/players/259/516/26_180.png, 259516
-Alessandro Buongiorno, CB, Napoli, Italy, Value: 708, https://cdn.sofifa.net/players/243/241/26_180.png, 243241
-Jonathan Burkardt, ST, Eintracht Frankfurt, Germany, Value: 706, https://cdn.sofifa.net/players/244/257/26_180.png, 244257
-Dani Olmo, CAM/CM/ST, FC Barcelona, Spain, Value: 722, https://cdn.sofifa.net/players/244/260/26_180.png, 244260
-Trincão, CAM/RM/RW/ST, Sporting CP, Portugal, Value: 704, https://cdn.sofifa.net/players/244/778/26_180.png, 244778
-Guglielmo Vicario, GK, Tottenham Hotspur, Italy, Value: 714, https://cdn.sofifa.net/players/240/091/26_180.png, 240091
-Matheus Cunha, CAM/LW/ST, Manchester United, Brazil, Value: 714, https://cdn.sofifa.net/players/240/243/26_180.png, 240243
-Pedro Gonçalves, LM/CAM/LW, Sporting CP, Portugal, Value: 710, https://cdn.sofifa.net/players/240/950/26_180.png, 240950
-Aurelien Tchouameni, CDM/CM/CB, Real Madrid, France, Value: 726, https://cdn.sofifa.net/players/241/637/26_180.png, 241637
-Mateo Retegui, ST, Al Qadsiah FC, Italy, Value: 712, https://cdn.sofifa.net/players/241/850/26_180.png, 241850
-Jean Philippe Mateta, ST, Crystal Palace, France, Value: 700, https://cdn.sofifa.net/players/236/461/26_180.png, 236461
-Nikola Milenkovic, CB, Nottingham Forest, Serbia, Value: 702, https://cdn.sofifa.net/players/238/095/26_180.png, 238095
-Morgan Gibbs White, CAM, Nottingham Forest, England, Value: 704, https://cdn.sofifa.net/players/236/015/26_180.png, 236015
-Oyarzabal, ST/LM/LW, Real Sociedad, Spain, Value: 700, https://cdn.sofifa.net/players/230/142/26_180.png, 230142
-Denzel Dumfries, RB/RM, Inter, Netherlands, Value: 720, https://cdn.sofifa.net/players/233/096/26_180.png, 233096
-Marcos Llorente, RB/CM/RM, Atlético Madrid, Spain, Value: 720, https://cdn.sofifa.net/players/226/161/26_180.png, 226161
-Giovani Lo Celso, CAM/CM, Real Betis Balompié, Argentina, Value: 700, https://cdn.sofifa.net/players/226/226/26_180.png, 226226
-Benjamin Pavard, CB, Olympique de Marseille, France, Value: 710, https://cdn.sofifa.net/players/226/851/26_180.png, 226851
-Maximilian Mittelstadt, LB/LM, VfB Stuttgart, Germany, Value: 700, https://cdn.sofifa.net/players/227/647/26_180.png, 227647
-Vangelis Pavlidis, ST/CAM, SL Benfica, Greece, Value: 712, https://cdn.sofifa.net/players/229/188/26_180.png, 229188
-Denis Zakaria, CDM/CM, AS Monaco, Switzerland, Value: 700, https://cdn.sofifa.net/players/229/261/26_180.png, 229261
-Waldemar Anton, CB, Borussia Dortmund, Germany, Value: 700, https://cdn.sofifa.net/players/229/476/26_180.png, 229476
-Gianluca Mancini, CB, Roma, Italy, Value: 720, https://cdn.sofifa.net/players/229/582/26_180.png, 229582
-Davinson Sanchez, CB/RB, Galatasaray SK, Colombia, Value: 700, https://cdn.sofifa.net/players/220/793/26_180.png, 220793
-Lucas Torreira, CDM/CM, Galatasaray SK, Uruguay, Value: 710, https://cdn.sofifa.net/players/223/959/26_180.png, 223959
-Alex Meret, GK, Napoli, Italy, Value: 704, https://cdn.sofifa.net/players/225/116/26_180.png, 225116
-Mikel Merino, CM/ST/CDM, Arsenal, Spain, Value: 710, https://cdn.sofifa.net/players/225/193/26_180.png, 225193
-Iñaki Williams, RM/ST/RW, Athletic Club, Ghana, Value: 710, https://cdn.sofifa.net/players/216/201/26_180.png, 216201
-Jose Maria Gimenez, CB, Atlético Madrid, Uruguay, Value: 710, https://cdn.sofifa.net/players/216/460/26_180.png, 216460
-Rafa, CAM/ST/LM, Beşiktaş JK, Portugal, Value: 700, https://cdn.sofifa.net/players/216/547/26_180.png, 216547
-Alexander Sorloth, ST, Atlético Madrid, Norway, Value: 710, https://cdn.sofifa.net/players/216/549/26_180.png, 216549
-Fabinho, CDM/CM, Al Ittihad, Brazil, Value: 700, https://cdn.sofifa.net/players/209/499/26_180.png, 209499
-Yassine Bounou, GK, Al Hilal, Morocco, Value: 700, https://cdn.sofifa.net/players/209/981/26_180.png, 209981
-Adrien Rabiot, CM/CAM, AC Milan, France, Value: 720, https://cdn.sofifa.net/players/210/008/26_180.png, 210008
-João Cancelo, RB/LB/RM, Al Hilal, Portugal, Value: 720, https://cdn.sofifa.net/players/210/514/26_180.png, 210514
-Domenico Berardi, RW/RM, Sassuolo, Italy, Value: 700, https://cdn.sofifa.net/players/210/935/26_180.png, 210935
-Kingsley Coman, LM/RM/LW, Al Nassr, France, Value: 710, https://cdn.sofifa.net/players/213/345/26_180.png, 213345
-Pierre Emile Hojbjerg, CDM/CM, Olympique de Marseille, Denmark, Value: 700, https://cdn.sofifa.net/players/213/648/26_180.png, 213648
-Serge Gnabry, LM/RM/CAM/LW, FC Bayern München, Germany, Value: 700, https://cdn.sofifa.net/players/206/113/26_180.png, 206113
-Leandro Trossard, LW/ST/LM, Arsenal, Belgium, Value: 710, https://cdn.sofifa.net/players/207/421/26_180.png, 207421
-Wissam Ben Yedder, ST, AS Monaco, France, Value: 700, https://cdn.sofifa.net/players/199/451/24_180.png, 199451
-Wojciech Szczesny, GK, FC Barcelona, Poland, Value: 720, https://cdn.sofifa.net/players/186/153/26_180.png, 186153
-Pierre Emerick Aubameyang, ST, Olympique de Marseille, Gabon, Value: 700, https://cdn.sofifa.net/players/188/567/26_180.png, 188567
-Thiago, CM, Liverpool, Spain, Value: 700, https://cdn.sofifa.net/players/189/509/24_180.png, 189509
-Nicolas Otamendi, CB, SL Benfica, Argentina, Value: 700, https://cdn.sofifa.net/players/192/366/26_180.png, 192366
-Henrikh Mkhitaryan, CM/CDM, Inter, Armenia, Value: 710, https://cdn.sofifa.net/players/192/883/26_180.png, 192883
-Luka Modric, CM/CAM/CDM, AC Milan, Croatia, Value: 720, https://cdn.sofifa.net/players/177/003/26_180.png, 177003
-Sergio Ramos, CB, Sevilla FC, Spain, Value: 710, https://cdn.sofifa.net/players/155/862/24_180.png, 155862
-Victor Valdés, GK, Middlesbrough, Spain, Value: 700, https://cdn.sofifa.net/players/106/573/17_180.png, 106573
-Clarence Seedorf, CAM, Botafogo, Netherlands, Value: 700, https://cdn.sofifa.net/players/001/256/14_180.png, 1256
-Kaoru Mitoma, LM/LW, Brighton & Hove Albion, Japan, Value: 700, https://cdn.sofifa.net/players/255/565/26_180.png, 255565
-Malik Tillman, CAM/CM/LW, Bayer 04 Leverkusen, United States, Value: 710, https://cdn.sofifa.net/players/256/853/26_180.png, 256853
+Bradley Barcola, LW/RW/LM, Paris Saint-Germain, France, Value: 826, https://cdn.sofifa.net/players/264/652/26_180.png, 264652
+Giorgi Mamardashvili, GK, Liverpool, Georgia, Value: 817, https://cdn.sofifa.net/players/262/621/26_180.png, 262621
+Joan García, GK, FC Barcelona, Spain, Value: 834, https://cdn.sofifa.net/players/259/532/26_180.png, 259532
+Hugo Ekitike, ST/CAM, Liverpool, France, Value: 826, https://cdn.sofifa.net/players/257/289/26_180.png, 257289
+Álex Baena, LM/LW, Atlético Madrid, Spain, Value: 826, https://cdn.sofifa.net/players/257/279/26_180.png, 257279
+Marco Carnesecchi, GK, Atalanta, Italy, Value: 826, https://cdn.sofifa.net/players/252/154/26_180.png, 252154
+Jurrien Timber, RB/LB/CB/RM, Arsenal, Netherlands, Value: 817, https://cdn.sofifa.net/players/251/805/26_180.png, 251805
+Vivian, CB, Athletic Club, Spain, Value: 817, https://cdn.sofifa.net/players/248/550/26_180.png, 248550
+Zubimendi, CDM/CM, Arsenal, Spain, Value: 817, https://cdn.sofifa.net/players/248/148/26_180.png, 248148
+Dani Olmo, CAM/CM/ST, FC Barcelona, Spain, Value: 800, https://cdn.sofifa.net/players/244/260/26_180.png, 244260
+Rodrygo, LM/RM/ST/LW, Real Madrid, Brazil, Value: 834, https://cdn.sofifa.net/players/243/812/26_180.png, 243812
+Cody Gakpo, LM/LW, Liverpool, Netherlands, Value: 800, https://cdn.sofifa.net/players/242/516/26_180.png, 242516
+Moussa Diaby, RM/RW, Al Ittihad, France, Value: 800, https://cdn.sofifa.net/players/241/852/26_180.png, 241852
+Rafael Leão, LW/LM/ST, AC Milan, Portugal, Value: 800, https://cdn.sofifa.net/players/241/721/26_180.png, 241721
+Aurelien Tchouameni, CDM/CM/CB, Real Madrid, France, Value: 817, https://cdn.sofifa.net/players/241/637/26_180.png, 241637
+Éder Militão, CB, Real Madrid, Brazil, Value: 817, https://cdn.sofifa.net/players/240/130/26_180.png, 240130
+Eberechi Eze, CAM/LW/CM/LM, Arsenal, England, Value: 800, https://cdn.sofifa.net/players/235/794/26_180.png, 235794
+Diogo Costa, GK, FC Porto, Portugal, Value: 834, https://cdn.sofifa.net/players/234/577/26_180.png, 234577
+Alphonso Davies, LB/LM, FC Bayern München, Canada, Value: 817, https://cdn.sofifa.net/players/234/396/26_180.png, 234396
+Denzel Dumfries, RB/RM, Inter, Netherlands, Value: 791, https://cdn.sofifa.net/players/233/096/26_180.png, 233096
+Theo Hernandez, LB/LM, Al Hilal, France, Value: 791, https://cdn.sofifa.net/players/232/656/26_180.png, 232656
+Exequiel Palacios, CM/CDM, Bayer 04 Leverkusen, Argentina, Value: 800, https://cdn.sofifa.net/players/231/521/26_180.png, 231521
+Mile Svilar, GK, Roma, Serbia, Value: 817, https://cdn.sofifa.net/players/230/872/26_180.png, 230872
+Unai Simón, GK, Athletic Club, Spain, Value: 800, https://cdn.sofifa.net/players/230/869/26_180.png, 230869
+Gianluca Mancini, CB, Roma, Italy, Value: 791, https://cdn.sofifa.net/players/229/582/26_180.png, 229582
+Marcos Llorente, RB/CM/RM, Atlético Madrid, Spain, Value: 791, https://cdn.sofifa.net/players/226/161/26_180.png, 226161
+Rúben Neves, CDM/CM, Al Hilal, Portugal, Value: 800, https://cdn.sofifa.net/players/224/293/26_180.png, 224293
+Sergej Milinkovic Savic, CM/CDM/CAM, Al Hilal, Serbia, Value: 791, https://cdn.sofifa.net/players/223/848/26_180.png, 223848
+Manuel Locatelli, CDM/CM, Juventus, Italy, Value: 800, https://cdn.sofifa.net/players/222/077/26_180.png, 222077
+James Maddison, CM/CAM, Tottenham Hotspur, England, Value: 791, https://cdn.sofifa.net/players/220/697/26_180.png, 220697
+Mattia Zaccagni, LM/LW, Lazio, Italy, Value: 791, https://cdn.sofifa.net/players/220/502/26_180.png, 220502
+Bernardo Silva, CM/RM/CDM/CAM, Manchester City, Portugal, Value: 791, https://cdn.sofifa.net/players/218/667/26_180.png, 218667
+João Cancelo, RB/LB/RM, Al Hilal, Portugal, Value: 791, https://cdn.sofifa.net/players/210/514/26_180.png, 210514
+Grimaldo, LM/LB/LW, Bayer 04 Leverkusen, Spain, Value: 791, https://cdn.sofifa.net/players/210/035/26_180.png, 210035
+Adrien Rabiot, CM/CAM, AC Milan, France, Value: 791, https://cdn.sofifa.net/players/210/008/26_180.png, 210008
+Jordan Pickford, GK, Everton, England, Value: 791, https://cdn.sofifa.net/players/204/935/26_180.png, 204935
+Willi Orban, CB, RB Leipzig, Hungary, Value: 791, https://cdn.sofifa.net/players/204/638/26_180.png, 204638
+Riyad Mahrez, RM/RW, Al Ahli SFC, Algeria, Value: 791, https://cdn.sofifa.net/players/204/485/26_180.png, 204485
+Francesco Acerbi, CB, Inter, Italy, Value: 791, https://cdn.sofifa.net/players/199/845/26_180.png, 199845
+Isco, CAM/LM/CM, Real Betis Balompié, Spain, Value: 791, https://cdn.sofifa.net/players/197/781/26_180.png, 197781
+Antoine Griezmann, ST/CAM, Atlético Madrid, France, Value: 791, https://cdn.sofifa.net/players/194/765/26_180.png, 194765
+Romelu Lukaku, ST, Napoli, Belgium, Value: 791, https://cdn.sofifa.net/players/192/505/26_180.png, 192505
+Wojciech Szczesny, GK, FC Barcelona, Poland, Value: 791, https://cdn.sofifa.net/players/186/153/26_180.png, 186153
+Luka Modric, CM/CAM/CDM, AC Milan, Croatia, Value: 791, https://cdn.sofifa.net/players/177/003/26_180.png, 177003
+Manuel Neuer, GK, FC Bayern München, Germany, Value: 791, https://cdn.sofifa.net/players/167/495/26_180.png, 167495
+Pablo Barrios, CM/CDM, Atlético Madrid, Spain, Value: 777, https://cdn.sofifa.net/players/272/449/26_180.png, 272449
+Micky Van De Ven, CB/LB, Tottenham Hotspur, Netherlands, Value: 760, https://cdn.sofifa.net/players/264/453/26_180.png, 264453
+Gavi, CM/CDM, FC Barcelona, Spain, Value: 769, https://cdn.sofifa.net/players/264/240/26_180.png, 264240
+Balde, LB/LM, FC Barcelona, Spain, Value: 769, https://cdn.sofifa.net/players/263/578/26_180.png, 263578
+Omar Marmoush, LW/ST/LM, Manchester City, Egypt, Value: 743, https://cdn.sofifa.net/players/256/675/26_180.png, 256675
+Piero Hincapie, CB/LB, Arsenal, Ecuador, Value: 786, https://cdn.sofifa.net/players/256/197/26_180.png, 256197
+Jeremie Frimpong, RB/RM/RW, Liverpool, Netherlands, Value: 752, https://cdn.sofifa.net/players/253/149/26_180.png, 253149
+Lucas Chevalier, GK, Paris Saint-Germain, France, Value: 777, https://cdn.sofifa.net/players/251/752/26_180.png, 251752
+Angelo Stiller, CDM/CM, VfB Stuttgart, Germany, Value: 769, https://cdn.sofifa.net/players/250/959/26_180.png, 250959
+Eduardo Camavinga, CM/CDM/LB, Real Madrid, France, Value: 769, https://cdn.sofifa.net/players/248/243/26_180.png, 248243
+Dejan Kulusevski, CM/RW/CAM, Tottenham Hotspur, Sweden, Value: 760, https://cdn.sofifa.net/players/247/394/26_180.png, 247394
+David Hancko, LB/CB, Atlético Madrid, Slovakia, Value: 735, https://cdn.sofifa.net/players/247/103/26_180.png, 247103
+Felix Nmecha, CM/CDM, Borussia Dortmund, Germany, Value: 760, https://cdn.sofifa.net/players/246/863/26_180.png, 246863
+Mason Greenwood, RM/CAM/RW, Olympique de Marseille, England, Value: 769, https://cdn.sofifa.net/players/246/147/26_180.png, 246147
+Xavi Simons, CAM/LM/ST, Tottenham Hotspur, Netherlands, Value: 760, https://cdn.sofifa.net/players/245/367/26_180.png, 245367
+Sancet, CAM/CM/ST, Athletic Club, Spain, Value: 777, https://cdn.sofifa.net/players/244/675/26_180.png, 244675
+Morten Hjulmand, CDM/CM, Sporting CP, Denmark, Value: 760, https://cdn.sofifa.net/players/244/669/26_180.png, 244669
+Amir Rrahmani, CB, Napoli, Kosovo, Value: 735, https://cdn.sofifa.net/players/244/263/26_180.png, 244263
+Mateo Retegui, ST, Al Qadsiah FC, Italy, Value: 743, https://cdn.sofifa.net/players/241/850/26_180.png, 241850
+Ferran Torres, ST/LW/CAM, FC Barcelona, Spain, Value: 760, https://cdn.sofifa.net/players/241/461/26_180.png, 241461
+Marc Guehi, CB, Crystal Palace, England, Value: 752, https://cdn.sofifa.net/players/241/159/26_180.png, 241159
+Pedro Gonçalves, LM/CAM/LW, Sporting CP, Portugal, Value: 735, https://cdn.sofifa.net/players/240/950/26_180.png, 240950
+Matheus Cunha, CAM/LW/ST, Manchester United, Brazil, Value: 752, https://cdn.sofifa.net/players/240/243/26_180.png, 240243
+Guglielmo Vicario, GK, Tottenham Hotspur, Italy, Value: 752, https://cdn.sofifa.net/players/240/091/26_180.png, 240091
+Reece James, RB/CDM, Chelsea, England, Value: 752, https://cdn.sofifa.net/players/238/074/26_180.png, 238074
+Boubacar Kamara, CDM/CM, Aston Villa, France, Value: 752, https://cdn.sofifa.net/players/236/987/26_180.png, 236987
+Moise Kean, ST, Fiorentina, Italy, Value: 760, https://cdn.sofifa.net/players/236/610/26_180.png, 236610
+Riccardo Orsolini, RM/RW, Bologna, Italy, Value: 735, https://cdn.sofifa.net/players/233/556/26_180.png, 233556
+Benjamin White, RB/RM, Arsenal, England, Value: 735, https://cdn.sofifa.net/players/231/936/26_180.png, 231936
+Ademola Lookman, ST/CAM, Atalanta, Nigeria, Value: 735, https://cdn.sofifa.net/players/230/899/26_180.png, 230899
+Ronaldo Cabrais, CAM/RM/CM, Botafogo, Brazil, Value: 735, https://cdn.sofifa.net/players/230/481/26_180.png, 230481
+Palhinha, CDM/CM, Tottenham Hotspur, Portugal, Value: 735, https://cdn.sofifa.net/players/229/391/26_180.png, 229391
+Vangelis Pavlidis, ST/CAM, SL Benfica, Greece, Value: 743, https://cdn.sofifa.net/players/229/188/26_180.png, 229188
+Aleix García, CM/CDM, Bayer 04 Leverkusen, Spain, Value: 735, https://cdn.sofifa.net/players/228/813/26_180.png, 228813
+Ezri Konsa, CB, Aston Villa, England, Value: 743, https://cdn.sofifa.net/players/227/678/26_180.png, 227678
+Andre Franck Zambo Anguissa, CM/CAM, Napoli, Cameroon, Value: 735, https://cdn.sofifa.net/players/227/236/26_180.png, 227236
+Benjamin Pavard, CB, Olympique de Marseille, France, Value: 735, https://cdn.sofifa.net/players/226/851/26_180.png, 226851
+Konrad Laimer, RB/CDM/CM/RM, FC Bayern München, Austria, Value: 735, https://cdn.sofifa.net/players/225/375/26_180.png, 225375
+Mikel Merino, CM/ST/CDM, Arsenal, Spain, Value: 735, https://cdn.sofifa.net/players/225/193/26_180.png, 225193
+Jarrod Bowen, RM/ST/RW, West Ham United, England, Value: 735, https://cdn.sofifa.net/players/224/371/26_180.png, 224371
+Lucas Torreira, CDM/CM, Galatasaray SK, Uruguay, Value: 735, https://cdn.sofifa.net/players/223/959/26_180.png, 223959
+Giovanni Di Lorenzo, RB/CB/RM, Napoli, Italy, Value: 735, https://cdn.sofifa.net/players/217/870/26_180.png, 217870
+Alexander Sorloth, ST, Atlético Madrid, Norway, Value: 735, https://cdn.sofifa.net/players/216/549/26_180.png, 216549
+Jose Maria Gimenez, CB, Atlético Madrid, Uruguay, Value: 735, https://cdn.sofifa.net/players/216/460/26_180.png, 216460
+Stanislav Lobotka, CM/CDM, Napoli, Slovakia, Value: 735, https://cdn.sofifa.net/players/216/435/26_180.png, 216435
+Iñaki Williams, RM/ST/RW, Athletic Club, Ghana, Value: 735, https://cdn.sofifa.net/players/216/201/26_180.png, 216201
+Ayoze, ST/CAM, Villarreal CF, Spain, Value: 735, https://cdn.sofifa.net/players/215/590/26_180.png, 215590
+Kingsley Coman, LM/RM/LW, Al Nassr, France, Value: 735, https://cdn.sofifa.net/players/213/345/26_180.png, 213345
+Rodrigo De Paul, CM/CDM/RM/CAM, Inter Miami, Argentina, Value: 735, https://cdn.sofifa.net/players/212/616/26_180.png, 212616
+Julian Brandt, CAM/CM, Borussia Dortmund, Germany, Value: 735, https://cdn.sofifa.net/players/212/194/26_180.png, 212194
+Sadio Mane, LM/RM/ST/LW, Al Nassr, Senegal, Value: 735, https://cdn.sofifa.net/players/208/722/26_180.png, 208722
+Leandro Trossard, LW/ST/LM, Arsenal, Belgium, Value: 735, https://cdn.sofifa.net/players/207/421/26_180.png, 207421
+Stefan De Vrij, CB, Inter, Netherlands, Value: 735, https://cdn.sofifa.net/players/198/176/26_180.png, 198176
+Oliver Baumann, GK, TSG 1899 Hoffenheim, Germany, Value: 735, https://cdn.sofifa.net/players/193/698/26_180.png, 193698
+Henrikh Mkhitaryan, CM/CDM, Inter, Armenia, Value: 735, https://cdn.sofifa.net/players/192/883/26_180.png, 192883
+Ilkay Gundogan, CM/CDM/CAM, Galatasaray SK, Germany, Value: 735, https://cdn.sofifa.net/players/186/942/26_180.png, 186942
+Dean Huijsen, CB, Real Madrid, Spain, Value: 737, https://cdn.sofifa.net/players/278/349/26_180.png, 278349
+Pau Cubarsí, CB, FC Barcelona, Spain, Value: 729, https://cdn.sofifa.net/players/278/046/26_180.png, 278046
+Murillo, CB, Nottingham Forest, Brazil, Value: 712, https://cdn.sofifa.net/players/278/016/26_180.png, 278016
+Éderson, CM/CDM, Atalanta, Brazil, Value: 703, https://cdn.sofifa.net/players/266/866/26_180.png, 266866
+Arda Guler, RM/CAM/CM/RW, Real Madrid, Türkiye, Value: 737, https://cdn.sofifa.net/players/264/309/26_180.png, 264309
+Iliman Ndiaye, RM/LM/RW, Everton, Senegal, Value: 703, https://cdn.sofifa.net/players/261/188/26_180.png, 261188
+Morgan Rogers, CAM/RM/LM/CM, Aston Villa, England, Value: 712, https://cdn.sofifa.net/players/260/247/26_180.png, 260247
+Malik Tillman, CAM/CM/LW, Bayer 04 Leverkusen, United States, Value: 720, https://cdn.sofifa.net/players/256/853/26_180.png, 256853
+Kaoru Mitoma, LM/LW, Brighton & Hove Albion, Japan, Value: 678, https://cdn.sofifa.net/players/255/565/26_180.png, 255565
+Elliot Anderson, CDM/CM, Nottingham Forest, England, Value: 712, https://cdn.sofifa.net/players/254/243/26_180.png, 254243
+Ronald Araujo, CB/RB/CDM, FC Barcelona, Uruguay, Value: 703, https://cdn.sofifa.net/players/253/163/26_180.png, 253163
+Karim Adeyemi, RM/LW/CAM/RW, Borussia Dortmund, Germany, Value: 712, https://cdn.sofifa.net/players/251/852/26_180.png, 251852
+Sven Botman, CB, Newcastle United, Netherlands, Value: 703, https://cdn.sofifa.net/players/251/809/26_180.png, 251809
+Charles De Ketelaere, CAM/ST/CM, Atalanta, Belgium, Value: 712, https://cdn.sofifa.net/players/251/470/26_180.png, 251470
+Ibañez, CB, Al Ahli SFC, Brazil, Value: 695, https://cdn.sofifa.net/players/247/257/26_180.png, 247257
+Jeremy Doku, LW/RW/LM, Manchester City, Belgium, Value: 712, https://cdn.sofifa.net/players/246/420/26_180.png, 246420
+Trincão, CAM/RM/RW/ST, Sporting CP, Portugal, Value: 695, https://cdn.sofifa.net/players/244/778/26_180.png, 244778
+Jonathan Burkardt, ST, Eintracht Frankfurt, Germany, Value: 703, https://cdn.sofifa.net/players/244/257/26_180.png, 244257
+Lois Openda, ST, Juventus, Belgium, Value: 695, https://cdn.sofifa.net/players/243/580/26_180.png, 243580
+Pedro Porro, RB/RM, Tottenham Hotspur, Spain, Value: 703, https://cdn.sofifa.net/players/243/576/26_180.png, 243576
+Orkun Kokcu, CM/CAM/CDM, Beşiktaş JK, Türkiye, Value: 712, https://cdn.sofifa.net/players/243/245/26_180.png, 243245
+Alessandro Buongiorno, CB, Napoli, Italy, Value: 712, https://cdn.sofifa.net/players/243/241/26_180.png, 243241
+Anthony Gordon, LW/RW/LM, Newcastle United, England, Value: 703, https://cdn.sofifa.net/players/242/964/26_180.png, 242964
+Artem Dovbyk, ST, Roma, Ukraine, Value: 678, https://cdn.sofifa.net/players/242/458/26_180.png, 242458
+Pedro Neto, RM/LM/ST/RW, Chelsea, Portugal, Value: 695, https://cdn.sofifa.net/players/238/616/26_180.png, 238616
+Nikola Milenkovic, CB, Nottingham Forest, Serbia, Value: 686, https://cdn.sofifa.net/players/238/095/26_180.png, 238095
+Daniel Munoz, RB/RM, Crystal Palace, Colombia, Value: 678, https://cdn.sofifa.net/players/237/646/26_180.png, 237646
+Kim Min Jae, CB, FC Bayern München, Korea Republic, Value: 686, https://cdn.sofifa.net/players/237/086/26_180.png, 237086
+David Raum, LB/LM, RB Leipzig, Germany, Value: 686, https://cdn.sofifa.net/players/236/703/26_180.png, 236703
+Matteo Guendouzi, CDM/CM, Lazio, France, Value: 703, https://cdn.sofifa.net/players/236/496/26_180.png, 236496
+Jean Philippe Mateta, ST, Crystal Palace, France, Value: 678, https://cdn.sofifa.net/players/236/461/26_180.png, 236461
+Morgan Gibbs White, CAM, Nottingham Forest, England, Value: 695, https://cdn.sofifa.net/players/236/015/26_180.png, 236015
+Kai Havertz, ST/CM/CAM, Arsenal, Germany, Value: 695, https://cdn.sofifa.net/players/235/790/26_180.png, 235790
+Matthijs De Ligt, CB, Manchester United, Netherlands, Value: 695, https://cdn.sofifa.net/players/235/243/26_180.png, 235243
+Yoane Wissa, ST, Newcastle United, Congo DR, Value: 678, https://cdn.sofifa.net/players/234/824/26_180.png, 234824
+Robin Le Normand, CB, Atlético Madrid, Spain, Value: 686, https://cdn.sofifa.net/players/233/486/26_180.png, 233486
+Dean Henderson, GK, Crystal Palace, England, Value: 686, https://cdn.sofifa.net/players/233/306/26_180.png, 233306
+Ritsu Doan, RM/CAM/RB, Eintracht Frankfurt, Japan, Value: 678, https://cdn.sofifa.net/players/232/639/26_180.png, 232639
+Cristian Romero, CB, Tottenham Hotspur, Argentina, Value: 695, https://cdn.sofifa.net/players/232/488/26_180.png, 232488
+Dodi Lukebakio, RM/RW/LM, SL Benfica, Belgium, Value: 678, https://cdn.sofifa.net/players/231/416/26_180.png, 231416
+Lucas Mantela, GK, Palmeiras, Brazil, Value: 678, https://cdn.sofifa.net/players/230/182/26_180.png, 230182
+Oyarzabal, ST/LM/LW, Real Sociedad, Spain, Value: 678, https://cdn.sofifa.net/players/230/142/26_180.png, 230142
+Waldemar Anton, CB, Borussia Dortmund, Germany, Value: 678, https://cdn.sofifa.net/players/229/476/26_180.png, 229476
+Antonee Robinson, LB/LM, Fulham FC, United States, Value: 678, https://cdn.sofifa.net/players/229/348/26_180.png, 229348
+Denis Zakaria, CDM/CM, AS Monaco, Switzerland, Value: 678, https://cdn.sofifa.net/players/229/261/26_180.png, 229261
+Manuel Akanji, CB, Inter, Switzerland, Value: 678, https://cdn.sofifa.net/players/229/237/26_180.png, 229237
+Maximilian Mittelstadt, LB/LM, VfB Stuttgart, Germany, Value: 678, https://cdn.sofifa.net/players/227/647/26_180.png, 227647
+Álex Remiro, GK, Real Sociedad, Spain, Value: 686, https://cdn.sofifa.net/players/227/127/26_180.png, 227127
+Giovani Lo Celso, CAM/CM, Real Betis Balompié, Argentina, Value: 678, https://cdn.sofifa.net/players/226/226/26_180.png, 226226
+Berenguer, LM/RM/CAM/LW, Athletic Club, Spain, Value: 678, https://cdn.sofifa.net/players/225/201/26_180.png, 225201
+Alex Meret, GK, Napoli, Italy, Value: 695, https://cdn.sofifa.net/players/225/116/26_180.png, 225116
+Ivan Provedel, GK, Lazio, Italy, Value: 678, https://cdn.sofifa.net/players/224/987/26_180.png, 224987
+Malcom, RW/CAM/RM, Al Hilal, Brazil, Value: 678, https://cdn.sofifa.net/players/222/737/26_180.png, 222737
+Leroy Sane, RM/LM/RW, Galatasaray SK, Germany, Value: 678, https://cdn.sofifa.net/players/222/492/26_180.png, 222492
+Ollie Watkins, ST, Aston Villa, England, Value: 678, https://cdn.sofifa.net/players/221/697/26_180.png, 221697
+Davinson Sanchez, CB/RB, Galatasaray SK, Colombia, Value: 678, https://cdn.sofifa.net/players/220/793/26_180.png, 220793
+Rafa, CAM/ST/LM, Beşiktaş JK, Portugal, Value: 678, https://cdn.sofifa.net/players/216/547/26_180.png, 216547
+Duvan Zapata, ST, Torino, Colombia, Value: 678, https://cdn.sofifa.net/players/215/333/26_180.png, 215333
+Geronimo Rulli, GK, Olympique de Marseille, Argentina, Value: 678, https://cdn.sofifa.net/players/215/316/26_180.png, 215316
+Pierre Emile Hojbjerg, CDM/CM, Olympique de Marseille, Denmark, Value: 678, https://cdn.sofifa.net/players/213/648/26_180.png, 213648
+Aymeric Laporte, CB, Athletic Club, Spain, Value: 678, https://cdn.sofifa.net/players/212/218/26_180.png, 212218
+Domenico Berardi, RW/RM, Sassuolo, Italy, Value: 678, https://cdn.sofifa.net/players/210/935/26_180.png, 210935
+Wladimiro Falcone, GK, Lecce, Italy, Value: 678, https://cdn.sofifa.net/players/210/676/26_180.png, 210676
+Salem Al Dawsari, LM/LW, Al Hilal, Saudi Arabia, Value: 678, https://cdn.sofifa.net/players/210/602/26_180.png, 210602
+Alessio Romagnoli, CB, Lazio, Italy, Value: 678, https://cdn.sofifa.net/players/210/413/26_180.png, 210413
+Otávio, CAM/CM/CDM, Al Qadsiah FC, Portugal, Value: 678, https://cdn.sofifa.net/players/210/411/26_180.png, 210411
+Fabian Schar, CB, Newcastle United, Switzerland, Value: 678, https://cdn.sofifa.net/players/210/047/26_180.png, 210047
+Yassine Bounou, GK, Al Hilal, Morocco, Value: 678, https://cdn.sofifa.net/players/209/981/26_180.png, 209981
+Leon Goretzka, CDM/CM/CB, FC Bayern München, Germany, Value: 678, https://cdn.sofifa.net/players/209/658/26_180.png, 209658
+Fabinho, CDM/CM, Al Ittihad, Brazil, Value: 678, https://cdn.sofifa.net/players/209/499/26_180.png, 209499
+Nathan Ake, CB/LB, Manchester City, Netherlands, Value: 678, https://cdn.sofifa.net/players/208/920/26_180.png, 208920
+Emre Can, CB/CDM/CM, Borussia Dortmund, Germany, Value: 678, https://cdn.sofifa.net/players/208/333/26_180.png, 208333
+Matthias Ginter, CB, SC Freiburg, Germany, Value: 678, https://cdn.sofifa.net/players/207/862/26_180.png, 207862
+Mateo Kovacic, CM/CDM/CAM, Manchester City, Croatia, Value: 678, https://cdn.sofifa.net/players/207/410/26_180.png, 207410
+Jack Grealish, LM/LW, Everton, England, Value: 678, https://cdn.sofifa.net/players/206/517/26_180.png, 206517
+Serge Gnabry, LM/RM/CAM/LW, FC Bayern München, Germany, Value: 678, https://cdn.sofifa.net/players/206/113/26_180.png, 206113
+John Stones, CB/RB/CDM, Manchester City, England, Value: 678, https://cdn.sofifa.net/players/203/574/26_180.png, 203574
+Remo Freuler, CDM/CM, Bologna, Switzerland, Value: 678, https://cdn.sofifa.net/players/202/024/26_180.png, 202024
+Kalidou Koulibaly, CB, Al Hilal, Senegal, Value: 678, https://cdn.sofifa.net/players/201/024/26_180.png, 201024
+Matz Sels, GK, Nottingham Forest, Belgium, Value: 678, https://cdn.sofifa.net/players/199/641/26_180.png, 199641
+Koen Casteels, GK, Al Qadsiah FC, Belgium, Value: 678, https://cdn.sofifa.net/players/192/984/26_180.png, 192984
+Iago Aspas, RW/ST/RM, RC Celta, Spain, Value: 678, https://cdn.sofifa.net/players/192/629/26_180.png, 192629
+Nicolas Otamendi, CB, SL Benfica, Argentina, Value: 678, https://cdn.sofifa.net/players/192/366/26_180.png, 192366
+Mario Gotze, CM/CAM/RM/CDM, Eintracht Frankfurt, Germany, Value: 678, https://cdn.sofifa.net/players/192/318/26_180.png, 192318
+Pierre Emerick Aubameyang, ST, Olympique de Marseille, Gabon, Value: 678, https://cdn.sofifa.net/players/188/567/26_180.png, 188567
+Angel Di Maria, RW/RM/CAM, Rosario Central, Argentina, Value: 678, https://cdn.sofifa.net/players/183/898/26_180.png, 183898
+Fermín, CAM/ST, FC Barcelona, Spain, Value: 672, https://cdn.sofifa.net/players/277/179/26_180.png, 277179
+Savinho, RW/LW/RM, Manchester City, Brazil, Value: 663, https://cdn.sofifa.net/players/270/409/26_180.png, 270409
+Miguel Gutiérrez, LB/LM, Napoli, Spain, Value: 655, https://cdn.sofifa.net/players/261/865/26_180.png, 261865
+Milos Kerkez, LB/LM, Liverpool, Hungary, Value: 655, https://cdn.sofifa.net/players/260/908/26_180.png, 260908
+Johnny Cardoso, CDM/CM, Atlético Madrid, United States, Value: 663, https://cdn.sofifa.net/players/259/516/26_180.png, 259516
+Adam Wharton, CDM/CM, Crystal Palace, England, Value: 672, https://cdn.sofifa.net/players/259/240/26_180.png, 259240
+Carlos Augusto, LB/CB/LM, Inter, Brazil, Value: 629, https://cdn.sofifa.net/players/258/648/26_180.png, 258648
+Riccardo Calafiori, LB/CB/CDM, Arsenal, Italy, Value: 655, https://cdn.sofifa.net/players/257/711/26_180.png, 257711
+Gonçalo Inácio, CB, Sporting CP, Portugal, Value: 663, https://cdn.sofifa.net/players/257/179/26_180.png, 257179
+Christos Tzolis, LM/LW, Club Brugge KV, Greece, Value: 680, https://cdn.sofifa.net/players/256/948/26_180.png, 256948
+Antony, RM/RW, Real Betis Balompié, Brazil, Value: 646, https://cdn.sofifa.net/players/255/475/26_180.png, 255475
+Giuliano Simeone, RM/RW, Atlético Madrid, Argentina, Value: 663, https://cdn.sofifa.net/players/253/396/26_180.png, 253396
+Rayan Cherki, RW/RM/CAM, Manchester City, France, Value: 680, https://cdn.sofifa.net/players/251/570/26_180.png, 251570
+Gabriel Martinelli, LW/LM, Arsenal, Brazil, Value: 646, https://cdn.sofifa.net/players/251/566/26_180.png, 251566
+Edmond Tapsoba, CB, Bayer 04 Leverkusen, Burkina Faso, Value: 638, https://cdn.sofifa.net/players/247/263/26_180.png, 247263
+Khephren Thuram, CM/CDM, Juventus, France, Value: 655, https://cdn.sofifa.net/players/247/246/26_180.png, 247246
+Dusan Vlahovic, ST, Juventus, Serbia, Value: 646, https://cdn.sofifa.net/players/246/430/26_180.png, 246430
+Youssouf Fofana, CDM/CM, AC Milan, France, Value: 646, https://cdn.sofifa.net/players/245/630/26_180.png, 245630
+Mohammed Kudus, RW/RM/ST, Tottenham Hotspur, Ghana, Value: 638, https://cdn.sofifa.net/players/245/155/26_180.png, 245155
+Eric García, CB/RB/CDM, FC Barcelona, Spain, Value: 655, https://cdn.sofifa.net/players/245/037/26_180.png, 245037
+Nayef Aguerd, CB, Olympique de Marseille, Morocco, Value: 629, https://cdn.sofifa.net/players/244/749/26_180.png, 244749
+Maxence Lacroix, CB, Crystal Palace, France, Value: 638, https://cdn.sofifa.net/players/244/067/26_180.png, 244067
+Andriy Lunin, GK, Real Madrid, Ukraine, Value: 663, https://cdn.sofifa.net/players/243/952/26_180.png, 243952
+Mohamed Simakan, CB/RB, Al Nassr, France, Value: 663, https://cdn.sofifa.net/players/243/854/26_180.png, 243854
+Jonathan David, ST, Juventus, Canada, Value: 646, https://cdn.sofifa.net/players/243/630/26_180.png, 243630
+Leonardo Balerdi, CB, Olympique de Marseille, Argentina, Value: 646, https://cdn.sofifa.net/players/242/835/26_180.png, 242835
+Rayan Ait Nouri, LB/LM, Manchester City, Algeria, Value: 655, https://cdn.sofifa.net/players/242/641/26_180.png, 242641
+Luis Milla, CM/CDM, Getafe CF, Spain, Value: 621, https://cdn.sofifa.net/players/242/201/26_180.png, 242201
+Antoine Semenyo, RM/LM/RW, AFC Bournemouth, Ghana, Value: 638, https://cdn.sofifa.net/players/241/236/26_180.png, 241236
+Davide Frattesi, CM/CDM, Inter, Italy, Value: 638, https://cdn.sofifa.net/players/239/807/26_180.png, 239807
+Lisandro Martinez, CB, Manchester United, Argentina, Value: 629, https://cdn.sofifa.net/players/239/301/26_180.png, 239301
+Takefusa Kubo, RM/RW, Real Sociedad, Japan, Value: 655, https://cdn.sofifa.net/players/237/681/26_180.png, 237681
+David Neres, LW/LM, Napoli, Brazil, Value: 621, https://cdn.sofifa.net/players/236/632/26_180.png, 236632
+Robin Koch, CB, Eintracht Frankfurt, Germany, Value: 621, https://cdn.sofifa.net/players/236/532/26_180.png, 236532
+Evan Ndicka, CB, Roma, Côte d'Ivoire, Value: 638, https://cdn.sofifa.net/players/236/403/26_180.png, 236403
+Michele Di Gregorio, GK, Juventus, Italy, Value: 646, https://cdn.sofifa.net/players/235/840/26_180.png, 235840
+Federico Chiesa, RM/LM/ST/RW, Liverpool, Italy, Value: 621, https://cdn.sofifa.net/players/235/805/26_180.png, 235805
+Youssef En Nesyri, ST, Fenerbahçe SK, Morocco, Value: 621, https://cdn.sofifa.net/players/235/410/26_180.png, 235410
+Yangel Herrera, CM/CDM/CAM, Real Sociedad, Venezuela, Value: 629, https://cdn.sofifa.net/players/234/060/26_180.png, 234060
+Fikayo Tomori, CB, AC Milan, England, Value: 638, https://cdn.sofifa.net/players/232/756/26_180.png, 232756
+Isi, CAM/RM/ST/CM, Rayo Vallecano, Spain, Value: 621, https://cdn.sofifa.net/players/232/498/26_180.png, 232498
+Christopher Nkunku, CAM/LM/ST/CM, AC Milan, France, Value: 621, https://cdn.sofifa.net/players/232/411/26_180.png, 232411
+Milan Skriniar, CB, Fenerbahçe SK, Slovakia, Value: 621, https://cdn.sofifa.net/players/232/363/26_180.png, 232363
+Marcus Rashford, LM/ST/LW, FC Barcelona, England, Value: 621, https://cdn.sofifa.net/players/231/677/26_180.png, 231677
+Brahim, RM/LM/RW, Real Madrid, Morocco, Value: 629, https://cdn.sofifa.net/players/231/410/26_180.png, 231410
+Oswaldinato, ST, Flamengo, Brazil, Value: 621, https://cdn.sofifa.net/players/230/430/26_180.png, 230430
+Nailton Suzuki, CAM/ST/CM, Atlético Mineiro, Brazil, Value: 621, https://cdn.sofifa.net/players/230/384/26_180.png, 230384
+Welington Dano, LB/LM/LW, Atlético Mineiro, Brazil, Value: 621, https://cdn.sofifa.net/players/230/347/26_180.png, 230347
+Rosival Dourado, CDM/CM/CAM, Corinthians, Brazil, Value: 621, https://cdn.sofifa.net/players/230/258/26_180.png, 230258
+Raíllo, CB, RCD Mallorca, Spain, Value: 621, https://cdn.sofifa.net/players/228/805/26_180.png, 228805
+Ferland Mendy, LB/LM, Real Madrid, France, Value: 621, https://cdn.sofifa.net/players/228/618/26_180.png, 228618
+Fornals, CDM/CAM/RM/CM, Real Betis Balompié, Spain, Value: 621, https://cdn.sofifa.net/players/226/456/26_180.png, 226456
+Nicolas Pepe, RM/ST/RW, Villarreal CF, Côte d'Ivoire, Value: 621, https://cdn.sofifa.net/players/226/110/26_180.png, 226110
+Nadiem Amiri, CM/CAM, 1. FSV Mainz 05, Germany, Value: 621, https://cdn.sofifa.net/players/225/309/26_180.png, 225309
+David Soria, GK, Getafe CF, Spain, Value: 621, https://cdn.sofifa.net/players/223/952/26_180.png, 223952
+Alexander Nubel, GK, VfB Stuttgart, Germany, Value: 629, https://cdn.sofifa.net/players/223/885/26_180.png, 223885
+Joelinton, CM/LW/CDM, Newcastle United, Brazil, Value: 621, https://cdn.sofifa.net/players/223/334/26_180.png, 223334
+Dani Ceballos, CM/CDM, Real Madrid, Spain, Value: 621, https://cdn.sofifa.net/players/222/509/26_180.png, 222509
+Franck Honorat, RM/RW/ST, Borussia Mönchengladbach, France, Value: 621, https://cdn.sofifa.net/players/220/876/26_180.png, 220876
+Lucas Hernandez, CB/LB, Paris Saint-Germain, France, Value: 621, https://cdn.sofifa.net/players/220/814/26_180.png, 220814
+Corentin Tolisso, CM/CDM/CAM, Olympique Lyonnais, France, Value: 621, https://cdn.sofifa.net/players/219/683/26_180.png, 219683
+Álvaro García, LM/LW, Rayo Vallecano, Spain, Value: 621, https://cdn.sofifa.net/players/216/447/26_180.png, 216447
+Matteo Politano, RW/RM, Napoli, Italy, Value: 621, https://cdn.sofifa.net/players/216/409/26_180.png, 216409
+Andrej Kramaric, CAM/CM, TSG 1899 Hoffenheim, Croatia, Value: 621, https://cdn.sofifa.net/players/216/354/26_180.png, 216354
+Andrew Robertson, LB/LM, Liverpool, Scotland, Value: 621, https://cdn.sofifa.net/players/216/267/26_180.png, 216267
+Tim Kleindienst, ST, Borussia Mönchengladbach, Germany, Value: 621, https://cdn.sofifa.net/players/214/096/26_180.png, 214096
+Ricardo Horta, CAM/LM/RM/CM, Sporting Clube de Braga, Portugal, Value: 621, https://cdn.sofifa.net/players/213/516/26_180.png, 213516
+Anderson Talisca, CAM/ST/CM, Fenerbahçe SK, Brazil, Value: 621, https://cdn.sofifa.net/players/212/523/26_180.png, 212523
+Ivan Toney, ST, Al Ahli SFC, England, Value: 621, https://cdn.sofifa.net/players/212/228/26_180.png, 212228
+John Mcginn, LM/RM/CAM/LB, Aston Villa, Scotland, Value: 621, https://cdn.sofifa.net/players/210/881/26_180.png, 210881
+Rui Silva, GK, Sporting CP, Portugal, Value: 621, https://cdn.sofifa.net/players/210/385/26_180.png, 210385
+Thomas Partey, CDM/CM/RB, Villarreal CF, Ghana, Value: 621, https://cdn.sofifa.net/players/209/989/26_180.png, 209989
+Marten De Roon, CM/CDM, Atalanta, Netherlands, Value: 621, https://cdn.sofifa.net/players/208/461/26_180.png, 208461
+Yannick Carrasco, LW/LM, Al Shabab, Belgium, Value: 621, https://cdn.sofifa.net/players/208/418/26_180.png, 208418
+Bryan Cristante, CM/CDM, Roma, Italy, Value: 621, https://cdn.sofifa.net/players/208/268/26_180.png, 208268
+Gerard Moreno, ST/CAM, Villarreal CF, Spain, Value: 621, https://cdn.sofifa.net/players/208/093/26_180.png, 208093
+Jacob Murphy, RW/RM, Newcastle United, England, Value: 621, https://cdn.sofifa.net/players/206/085/26_180.png, 206085
+Marcel Sabitzer, CDM/CM, Borussia Dortmund, Austria, Value: 621, https://cdn.sofifa.net/players/204/923/26_180.png, 204923
+Konstantinos Fortounis, CAM/ST/CM, Al Khaleej, Greece, Value: 621, https://cdn.sofifa.net/players/203/980/26_180.png, 203980
+Nick Pope, GK, Newcastle United, England, Value: 621, https://cdn.sofifa.net/players/203/841/26_180.png, 203841
+Memphis Depay, ST/LW/CAM, Free Agent, Netherlands, Value: 621, https://cdn.sofifa.net/players/202/556/26_180.png, 202556
+Danilo Pereira, CB, Al Ittihad, Portugal, Value: 621, https://cdn.sofifa.net/players/200/888/26_180.png, 200888
+Nacho Fernández, CB/LB/RB, Al Qadsiah FC, Spain, Value: 621, https://cdn.sofifa.net/players/200/724/26_180.png, 200724
+Hans Vanaken, CAM/CM/CDM, Club Brugge KV, Belgium, Value: 621, https://cdn.sofifa.net/players/200/155/26_180.png, 200155
+David Alaba, CB, Real Madrid, Austria, Value: 621, https://cdn.sofifa.net/players/197/445/26_180.png, 197445
+Koke, CM/CDM, Atlético Madrid, Spain, Value: 621, https://cdn.sofifa.net/players/193/747/26_180.png, 193747
+Chris Wood, ST, Nottingham Forest, New Zealand, Value: 621, https://cdn.sofifa.net/players/192/123/26_180.png, 192123
+Lukas Hradecky, GK, AS Monaco, Finland, Value: 621, https://cdn.sofifa.net/players/190/941/26_180.png, 190941
+Parejo, CM/CDM, Villarreal CF, Spain, Value: 621, https://cdn.sofifa.net/players/189/513/26_180.png, 189513
+Ante Budimir, ST, CA Osasuna, Croatia, Value: 621, https://cdn.sofifa.net/players/188/335/26_180.png, 188335
+Ivan Perisic, RW/LW/RM, PSV, Croatia, Value: 621, https://cdn.sofifa.net/players/181/458/26_180.png, 181458
+Edin Dzeko, ST, Fiorentina, Bosnia and Herzegovina, Value: 621, https://cdn.sofifa.net/players/180/930/26_180.png, 180930
+Jauregizar, CM/CDM, Athletic Club, Spain, Value: 623, https://cdn.sofifa.net/players/279/604/26_180.png, 279604
+Kenan Yildiz, CAM/LM/LW/CM, Juventus, Türkiye, Value: 640, https://cdn.sofifa.net/players/277/954/26_180.png, 277954
+Nico Paz, CAM/CM, Como, Argentina, Value: 640, https://cdn.sofifa.net/players/277/846/26_180.png, 277846
+Aleksandar Pavlovic, CDM/CM, FC Bayern München, Germany, Value: 623, https://cdn.sofifa.net/players/275/298/26_180.png, 275298
+Andrey Santos, CM/CDM, Chelsea, Brazil, Value: 623, https://cdn.sofifa.net/players/273/018/26_180.png, 273018
+Carlos Baleba, CDM/CM, Brighton & Hove Albion, Cameroon, Value: 615, https://cdn.sofifa.net/players/272/500/26_180.png, 272500
+Yankuba Minteh, RM/RW, Brighton & Hove Albion, Gambia, Value: 615, https://cdn.sofifa.net/players/271/800/26_180.png, 271800
+Igor Paixão, LM/LW, Olympique de Marseille, Brazil, Value: 589, https://cdn.sofifa.net/players/271/400/26_180.png, 271400
+Warren Zaire Emery, CM/CDM/RB/CAM, Paris Saint-Germain, France, Value: 623, https://cdn.sofifa.net/players/270/673/26_180.png, 270673
+Ousmane Diomande, CB, Sporting CP, Côte d'Ivoire, Value: 623, https://cdn.sofifa.net/players/270/531/26_180.png, 270531
+Dorde Petrovic, GK, AFC Bournemouth, Serbia, Value: 606, https://cdn.sofifa.net/players/269/626/26_180.png, 269626
+Alexsandro, CB, Lille OSC, Brazil, Value: 598, https://cdn.sofifa.net/players/269/493/26_180.png, 269493
+Álvaro Carreras, LB/LM, Real Madrid, Spain, Value: 632, https://cdn.sofifa.net/players/268/889/26_180.png, 268889
+Mario Gila, CB, Lazio, Spain, Value: 598, https://cdn.sofifa.net/players/268/804/26_180.png, 268804
+Federico Gatti, CB, Juventus, Italy, Value: 589, https://cdn.sofifa.net/players/266/872/26_180.png, 266872
+Lewis Hall, LB/LM, Newcastle United, England, Value: 615, https://cdn.sofifa.net/players/266/127/26_180.png, 266127
+Maghnes Akliouche, RM/CAM/RW, AS Monaco, France, Value: 615, https://cdn.sofifa.net/players/264/862/26_180.png, 264862
+Mohamed Amoura, ST/LW/LM/CAM, VfL Wolfsburg, Algeria, Value: 598, https://cdn.sofifa.net/players/264/697/26_180.png, 264697
+Moleiro, LM/CAM/LW, Villarreal CF, Spain, Value: 623, https://cdn.sofifa.net/players/264/388/26_180.png, 264388
+Baris Alper Yilmaz, LM/RM/ST/LW, Galatasaray SK, Türkiye, Value: 589, https://cdn.sofifa.net/players/263/205/26_180.png, 263205
+Levi Colwill, CB, Chelsea, England, Value: 598, https://cdn.sofifa.net/players/262/859/26_180.png, 262859
+Sergi Cardona, LB/LM, Villarreal CF, Spain, Value: 589, https://cdn.sofifa.net/players/262/402/26_180.png, 262402
+Castello Lukeba, CB/LB, RB Leipzig, France, Value: 632, https://cdn.sofifa.net/players/262/138/26_180.png, 262138
+Tino Livramento, RB/LB/RM, Newcastle United, England, Value: 615, https://cdn.sofifa.net/players/262/118/26_180.png, 262118
+Alan Varela, CDM/CM, FC Porto, Argentina, Value: 606, https://cdn.sofifa.net/players/260/599/26_180.png, 260599
+Benjamin Sesko, ST, Manchester United, Slovenia, Value: 632, https://cdn.sofifa.net/players/260/592/26_180.png, 260592
+Georgiy Sudakov, CAM/CM/LM, SL Benfica, Ukraine, Value: 623, https://cdn.sofifa.net/players/259/913/26_180.png, 259913
+Pape Matar Sarr, CM/CDM, Tottenham Hotspur, Senegal, Value: 606, https://cdn.sofifa.net/players/259/868/26_180.png, 259868
+Mingueza, RM/LM/RB/RW, RC Celta, Spain, Value: 572, https://cdn.sofifa.net/players/259/694/26_180.png, 259694
+Destiny Udogie, LB/LM, Tottenham Hotspur, Italy, Value: 598, https://cdn.sofifa.net/players/259/583/26_180.png, 259583
+Ismael Saibari, CAM/CM, PSV, Morocco, Value: 606, https://cdn.sofifa.net/players/259/480/26_180.png, 259480
+Yeremy Pino, LW/RW/CAM/LM, Crystal Palace, Spain, Value: 632, https://cdn.sofifa.net/players/259/377/26_180.png, 259377
+Nicolas Jackson, ST, FC Bayern München, Senegal, Value: 598, https://cdn.sofifa.net/players/259/197/26_180.png, 259197
+Andrea Cambiaso, LB/RB/LM, Juventus, Italy, Value: 581, https://cdn.sofifa.net/players/258/966/26_180.png, 258966
+Jan Paul Van Hecke, CB, Brighton & Hove Albion, Netherlands, Value: 589, https://cdn.sofifa.net/players/258/908/26_180.png, 258908
+Illia Zabarnyi, CB, Paris Saint-Germain, Ukraine, Value: 606, https://cdn.sofifa.net/players/258/781/26_180.png, 258781
+Kerem Akturkoglu, LW/LM, Fenerbahçe SK, Türkiye, Value: 564, https://cdn.sofifa.net/players/258/580/26_180.png, 258580
+Anthony Elanga, RW/RM, Newcastle United, Sweden, Value: 589, https://cdn.sofifa.net/players/257/470/26_180.png, 257470
+Arthur Theate, CB/LB, Eintracht Frankfurt, Belgium, Value: 598, https://cdn.sofifa.net/players/257/278/26_180.png, 257278
+Amadou Onana, CDM/CM, Aston Villa, Belgium, Value: 589, https://cdn.sofifa.net/players/257/057/26_180.png, 257057
+Gonçalo Ramos, ST, Paris Saint-Germain, Portugal, Value: 598, https://cdn.sofifa.net/players/256/903/26_180.png, 256903
+Evanilson, ST, AFC Bournemouth, Brazil, Value: 589, https://cdn.sofifa.net/players/256/612/26_180.png, 256612
+Malick Thiaw, CB, Newcastle United, Germany, Value: 606, https://cdn.sofifa.net/players/256/261/26_180.png, 256261
+Pierre Kalulu, CB/RB/RM/CDM, Juventus, France, Value: 606, https://cdn.sofifa.net/players/255/654/26_180.png, 255654
+Nico González, CDM/CM, Manchester City, Spain, Value: 606, https://cdn.sofifa.net/players/255/069/26_180.png, 255069
+Noni Madueke, RW/RM, Arsenal, England, Value: 598, https://cdn.sofifa.net/players/254/796/26_180.png, 254796
+Nick Woltemade, ST/CAM, Newcastle United, Germany, Value: 606, https://cdn.sofifa.net/players/254/022/26_180.png, 254022
+Matheus Nunes, RB/CM/RM, Manchester City, Portugal, Value: 572, https://cdn.sofifa.net/players/253/124/26_180.png, 253124
+Joey Veerman, CM/CDM/CAM, PSV, Netherlands, Value: 572, https://cdn.sofifa.net/players/253/109/26_180.png, 253109
+Wilfried Singo, CB/RB, Galatasaray SK, Côte d'Ivoire, Value: 606, https://cdn.sofifa.net/players/252/802/26_180.png, 252802
+João Pedro, ST/CAM, Chelsea, Brazil, Value: 598, https://cdn.sofifa.net/players/252/042/26_180.png, 252042
+Quinten Timber, CM/CDM/CAM, Feyenoord, Netherlands, Value: 606, https://cdn.sofifa.net/players/251/806/26_180.png, 251806
+Maxim De Cuyper, LB/LM, Brighton & Hove Albion, Belgium, Value: 615, https://cdn.sofifa.net/players/251/479/26_180.png, 251479
+Anatoliy Trubin, GK, SL Benfica, Ukraine, Value: 623, https://cdn.sofifa.net/players/250/753/26_180.png, 250753
+Kouadio Manu Kone, CM/CDM, Roma, France, Value: 598, https://cdn.sofifa.net/players/250/723/26_180.png, 250723
+Victor Boniface, ST, SV Werder Bremen, Nigeria, Value: 598, https://cdn.sofifa.net/players/247/679/26_180.png, 247679
+Odilon Kossounou, CB, Atalanta, Côte d'Ivoire, Value: 606, https://cdn.sofifa.net/players/246/875/26_180.png, 246875
+Boulaye Dia, ST/CAM, Lazio, Senegal, Value: 564, https://cdn.sofifa.net/players/246/242/26_180.png, 246242
+Samuel Chukwueze, RM/RW, Fulham FC, Nigeria, Value: 564, https://cdn.sofifa.net/players/246/172/26_180.png, 246172
+Deniz Undav, ST/CAM, VfB Stuttgart, Germany, Value: 564, https://cdn.sofifa.net/players/244/176/26_180.png, 244176
+Lee Kang In, RW/CM/RM, Paris Saint-Germain, Korea Republic, Value: 606, https://cdn.sofifa.net/players/243/780/26_180.png, 243780
+Armand Lauriente, LW/LM, Sassuolo, France, Value: 564, https://cdn.sofifa.net/players/243/593/26_180.png, 243593
+Ayoub El Kaabi, ST, Olympiacos FC, Morocco, Value: 564, https://cdn.sofifa.net/players/243/586/26_180.png, 243586
+De Frutos, RM/ST/LM/RW, Rayo Vallecano, Spain, Value: 564, https://cdn.sofifa.net/players/243/559/26_180.png, 243559
+João Félix, CAM/ST/LM, Al Nassr, Portugal, Value: 589, https://cdn.sofifa.net/players/242/444/26_180.png, 242444
+Curtis Jones, CAM/CM/CDM, Liverpool, England, Value: 589, https://cdn.sofifa.net/players/242/434/26_180.png, 242434
+Mauro Júnior, LB/CDM/RB/LM, PSV, Brazil, Value: 589, https://cdn.sofifa.net/players/241/509/26_180.png, 241509
+Mikkel Damsgaard, CAM/CM, Brentford, Denmark, Value: 589, https://cdn.sofifa.net/players/241/508/26_180.png, 241508
+Pau Torres, CB, Aston Villa, Spain, Value: 564, https://cdn.sofifa.net/players/241/464/26_180.png, 241464
+Teun Koopmeiners, CAM/CM/CB, Juventus, Netherlands, Value: 564, https://cdn.sofifa.net/players/240/679/26_180.png, 240679
+Galeno, LM/LW, Al Ahli SFC, Brazil, Value: 564, https://cdn.sofifa.net/players/239/482/26_180.png, 239482
+Noa Lang, LW/LM, Napoli, Netherlands, Value: 572, https://cdn.sofifa.net/players/239/380/26_180.png, 239380
+Ermedin Demirovic, ST, VfB Stuttgart, Bosnia and Herzegovina, Value: 564, https://cdn.sofifa.net/players/238/900/26_180.png, 238900
+Conor Gallagher, CM/LM/CDM, Atlético Madrid, England, Value: 581, https://cdn.sofifa.net/players/238/216/26_180.png, 238216
+Valentin Castellanos, ST, Lazio, Argentina, Value: 572, https://cdn.sofifa.net/players/237/712/26_180.png, 237712
+Randal Kolo Muani, ST, Tottenham Hotspur, France, Value: 572, https://cdn.sofifa.net/players/237/679/26_180.png, 237679
+Douglas Luiz, CM/CDM, Nottingham Forest, Brazil, Value: 564, https://cdn.sofifa.net/players/236/499/26_180.png, 236499
+Noussair Mazraoui, RB/CB/RM, Manchester United, Morocco, Value: 564, https://cdn.sofifa.net/players/236/401/26_180.png, 236401
+Brais Méndez, CM/RM/CAM/CDM, Real Sociedad, Spain, Value: 564, https://cdn.sofifa.net/players/235/944/26_180.png, 235944
+Ismaila Sarr, RW/CAM/RM, Crystal Palace, Senegal, Value: 564, https://cdn.sofifa.net/players/235/353/26_180.png, 235353
+Jerdy Schouten, CDM/CM/CB, PSV, Netherlands, Value: 572, https://cdn.sofifa.net/players/235/149/26_180.png, 235149
+Harvey Barnes, LW/LM, Newcastle United, England, Value: 564, https://cdn.sofifa.net/players/234/742/26_180.png, 234742
+Edouard Mendy, GK, Al Ahli SFC, Senegal, Value: 564, https://cdn.sofifa.net/players/234/642/26_180.png, 234642
+Julian Quinones, ST/LW/LM, Al Qadsiah FC, Mexico, Value: 564, https://cdn.sofifa.net/players/234/579/26_180.png, 234579
+Florentino, CDM/CM/CB, Burnley, Portugal, Value: 589, https://cdn.sofifa.net/players/234/569/26_180.png, 234569
+Lucas Paquetá, CM/LM/CAM, West Ham United, Brazil, Value: 564, https://cdn.sofifa.net/players/233/927/26_180.png, 233927
+Rasmus Kristensen, RB/RM/CB, Eintracht Frankfurt, Denmark, Value: 564, https://cdn.sofifa.net/players/233/301/26_180.png, 233301
+Xaver Schlager, CDM/CM, RB Leipzig, Austria, Value: 572, https://cdn.sofifa.net/players/233/195/26_180.png, 233195
+Mauro Arambarri, CM/CDM, Getafe CF, Uruguay, Value: 564, https://cdn.sofifa.net/players/232/665/26_180.png, 232665
+Fredrik Aursnes, CM/RM/RB/CAM, SL Benfica, Norway, Value: 564, https://cdn.sofifa.net/players/231/913/26_180.png, 231913
+Franck Yannick Kessie, CDM/CM, Al Ahli SFC, Côte d'Ivoire, Value: 564, https://cdn.sofifa.net/players/230/938/26_180.png, 230938
+Trevoh Chalobah, CB/RB, Chelsea, England, Value: 581, https://cdn.sofifa.net/players/230/918/26_180.png, 230918
+Lucas Perri, GK, Leeds United, Brazil, Value: 581, https://cdn.sofifa.net/players/230/670/26_180.png, 230670
+Gabriel Jesus, ST/CAM, Arsenal, Brazil, Value: 564, https://cdn.sofifa.net/players/230/666/26_180.png, 230666
+Tony Abranjes, CB, Internacional, Brazil, Value: 564, https://cdn.sofifa.net/players/230/313/26_180.png, 230313
+Laure Santeiro, CAM/LM/LW/CM, Fluminense, Brazil, Value: 564, https://cdn.sofifa.net/players/230/271/26_180.png, 230271
+Heberto Gaúcho, CB/CDM, Atlético Mineiro, Brazil, Value: 564, https://cdn.sofifa.net/players/230/225/26_180.png, 230225
+Héniton Pires, GK, Flamengo, Brazil, Value: 564, https://cdn.sofifa.net/players/230/204/26_180.png, 230204
+Maikel Catarino, RB/RM, Corinthians, Brazil, Value: 564, https://cdn.sofifa.net/players/230/201/26_180.png, 230201
+Abdulkerim Bardakci, CB, Galatasaray SK, Türkiye, Value: 564, https://cdn.sofifa.net/players/229/905/26_180.png, 229905
+Robert Sánchez, GK, Chelsea, Spain, Value: 572, https://cdn.sofifa.net/players/228/789/26_180.png, 228789
+Benjamin Henrichs, RB/RM/LB, RB Leipzig, Germany, Value: 564, https://cdn.sofifa.net/players/228/579/26_180.png, 228579
+Lorenzo Pellegrini, CAM/CM, Roma, Italy, Value: 564, https://cdn.sofifa.net/players/228/251/26_180.png, 228251
+Rodrigo Bentancur, CDM/CM, Tottenham Hotspur, Uruguay, Value: 572, https://cdn.sofifa.net/players/227/535/26_180.png, 227535
+Matty Cash, RB/RM, Aston Villa, Poland, Value: 564, https://cdn.sofifa.net/players/227/174/26_180.png, 227174
+Ismael Bennacer, CDM/CM, Dinamo Zagreb, Algeria, Value: 564, https://cdn.sofifa.net/players/226/754/26_180.png, 226754
+Andre Onana, GK, Trabzonspor, Cameroon, Value: 564, https://cdn.sofifa.net/players/226/753/26_180.png, 226753
+Ugurcan Cakir, GK, Galatasaray SK, Türkiye, Value: 581, https://cdn.sofifa.net/players/226/300/26_180.png, 226300
+Steven Bergwijn, LM/LW, Al Ittihad, Netherlands, Value: 564, https://cdn.sofifa.net/players/225/953/26_180.png, 225953
+Denis Bouanga, LW/ST/LM, Los Angeles FC, Gabon, Value: 564, https://cdn.sofifa.net/players/225/951/26_180.png, 225951
+Dominic Solanke, ST, Tottenham Hotspur, England, Value: 564, https://cdn.sofifa.net/players/225/539/26_180.png, 225539
+Ola Aina, RB/LB/RM, Nottingham Forest, Nigeria, Value: 564, https://cdn.sofifa.net/players/224/656/26_180.png, 224656
+Ramy Bensebaini, CB/LB, Borussia Dortmund, Algeria, Value: 564, https://cdn.sofifa.net/players/224/196/26_180.png, 224196
+Borja Iglesias, ST, RC Celta, Spain, Value: 564, https://cdn.sofifa.net/players/224/179/26_180.png, 224179
+Vedat Muriqi, ST, RCD Mallorca, Kosovo, Value: 564, https://cdn.sofifa.net/players/223/710/26_180.png, 223710
+Marco Asensio, CAM/RW/CM, Fenerbahçe SK, Spain, Value: 564, https://cdn.sofifa.net/players/220/834/26_180.png, 220834
+Marcelo Brozovic, CDM/CM, Al Nassr, Croatia, Value: 564, https://cdn.sofifa.net/players/216/352/26_180.png, 216352
+Ruben Loftus Cheek, CM/CAM, AC Milan, England, Value: 564, https://cdn.sofifa.net/players/213/666/26_180.png, 213666
+Andreas Christensen, CB/CM/CDM, FC Barcelona, Denmark, Value: 572, https://cdn.sofifa.net/players/213/661/26_180.png, 213661
+Alex Iwobi, LM/RM/LW, Fulham FC, Nigeria, Value: 564, https://cdn.sofifa.net/players/213/655/26_180.png, 213655
+Diego Llorente, CB, Real Betis Balompié, Spain, Value: 564, https://cdn.sofifa.net/players/212/602/26_180.png, 212602
+Robert Andrich, CDM/CM/CB, Bayer 04 Leverkusen, Germany, Value: 564, https://cdn.sofifa.net/players/212/242/26_180.png, 212242
+Niklas Sule, CB/RB, Borussia Dortmund, Germany, Value: 564, https://cdn.sofifa.net/players/212/190/26_180.png, 212190
+Vincenzo Grifo, LM/LW, SC Freiburg, Italy, Value: 564, https://cdn.sofifa.net/players/212/096/26_180.png, 212096
+Christian Norgaard, CDM/CM, Arsenal, Denmark, Value: 564, https://cdn.sofifa.net/players/210/697/26_180.png, 210697
+Piotr Zielinski, CM/CDM, Inter, Poland, Value: 564, https://cdn.sofifa.net/players/210/406/26_180.png, 210406
+Raphael Guerreiro, LB/CM/RB/LM, FC Bayern München, Portugal, Value: 564, https://cdn.sofifa.net/players/209/889/26_180.png, 209889
+Filip Kostic, LM/LB/LW, Juventus, Serbia, Value: 564, https://cdn.sofifa.net/players/208/574/26_180.png, 208574
+Leandro Paredes, CM/CDM, Boca Juniors, Argentina, Value: 564, https://cdn.sofifa.net/players/207/439/26_180.png, 207439
+Ruiz de Galarreta, CDM/CM, Athletic Club, Spain, Value: 564, https://cdn.sofifa.net/players/205/157/26_180.png, 205157
+Brice Samba, GK, Stade Rennais FC, France, Value: 564, https://cdn.sofifa.net/players/204/883/26_180.png, 204883
+Harry Maguire, CB, Manchester United, England, Value: 564, https://cdn.sofifa.net/players/203/263/26_180.png, 203263
+James Tarkowski, CB, Everton, England, Value: 564, https://cdn.sofifa.net/players/202/695/26_180.png, 202695
+Sergi Darder, CM/CAM/LM, RCD Mallorca, Spain, Value: 564, https://cdn.sofifa.net/players/202/648/26_180.png, 202648
+Mauro Icardi, ST, Galatasaray SK, Argentina, Value: 564, https://cdn.sofifa.net/players/201/399/26_180.png, 201399
+Frederik Ronnow, GK, 1. FC Union Berlin, Denmark, Value: 564, https://cdn.sofifa.net/players/201/269/26_180.png, 201269
+Morata, ST/CAM, Como, Spain, Value: 564, https://cdn.sofifa.net/players/201/153/26_180.png, 201153
+Lucas Digne, LB/LM, Aston Villa, France, Value: 564, https://cdn.sofifa.net/players/200/458/26_180.png, 200458
+Casemiro, CDM/CM, Manchester United, Brazil, Value: 564, https://cdn.sofifa.net/players/200/145/26_180.png, 200145
+Dan Burn, CB/LB, Newcastle United, England, Value: 564, https://cdn.sofifa.net/players/198/032/26_180.png, 198032
+Bernd Leno, GK, Fulham FC, Germany, Value: 564, https://cdn.sofifa.net/players/192/563/26_180.png, 192563
+Benjamin Andre, CDM/CM, Lille OSC, France, Value: 564, https://cdn.sofifa.net/players/190/674/26_180.png, 190674
+Thomas Muller, CAM/ST/RM, Vancouver Whitecaps FC, Germany, Value: 564, https://cdn.sofifa.net/players/189/596/26_180.png, 189596
+Sergio Busquets, CDM/CM/CB, Inter Miami, Spain, Value: 564, https://cdn.sofifa.net/players/189/511/26_180.png, 189511
+Kevin Trapp, GK, Paris FC, Germany, Value: 564, https://cdn.sofifa.net/players/188/943/26_180.png, 188943
+Kieran Trippier, RB/RM, Newcastle United, England, Value: 564, https://cdn.sofifa.net/players/186/345/26_180.png, 186345
+Marcos Leonardo, ST/CAM/CM, Al Hilal, Brazil, Value: 558, https://cdn.sofifa.net/players/277/797/26_180.png, 277797
+Samu, ST, FC Porto, Spain, Value: 575, https://cdn.sofifa.net/players/277/581/26_180.png, 277581
+Marc Casadó, CDM/CM, FC Barcelona, Spain, Value: 566, https://cdn.sofifa.net/players/272/600/26_180.png, 272600
+Gabriel Sara, CM/CAM/RM/CDM, Galatasaray SK, Brazil, Value: 532, https://cdn.sofifa.net/players/270/571/26_180.png, 270571
+Matias Soule, CAM/RM/CM, Roma, Argentina, Value: 558, https://cdn.sofifa.net/players/265/695/26_180.png, 265695
+Jakub Kiwior, CB/LB, FC Porto, Poland, Value: 549, https://cdn.sofifa.net/players/265/693/26_180.png, 265693
+Abde, LM/LW, Real Betis Balompié, Morocco, Value: 541, https://cdn.sofifa.net/players/264/432/26_180.png, 264432
+Dominik Greif, GK, Olympique Lyonnais, Slovakia, Value: 532, https://cdn.sofifa.net/players/263/139/26_180.png, 263139
+Adem Zorgane, CDM/CM, Union Saint-Gilloise, Algeria, Value: 524, https://cdn.sofifa.net/players/262/925/26_180.png, 262925
+Richard Rios, CM/CDM, SL Benfica, Colombia, Value: 541, https://cdn.sofifa.net/players/262/881/26_180.png, 262881
+Francisco Conceição, CAM/RM/RW/CM, Juventus, Portugal, Value: 566, https://cdn.sofifa.net/players/261/050/26_180.png, 261050
+Malo Gusto, RB/RM, Chelsea, France, Value: 549, https://cdn.sofifa.net/players/259/307/26_180.png, 259307
+Gabri Veiga, CAM/CM/LM, FC Porto, Spain, Value: 566, https://cdn.sofifa.net/players/258/729/26_180.png, 258729
+Bart Verbruggen, GK, Brighton & Hove Albion, Netherlands, Value: 558, https://cdn.sofifa.net/players/258/498/26_180.png, 258498
+Nicolo Rovella, CDM/CM, Lazio, Italy, Value: 549, https://cdn.sofifa.net/players/255/001/26_180.png, 255001
+Maximilian Beier, ST/CAM/LM, Borussia Dortmund, Germany, Value: 549, https://cdn.sofifa.net/players/254/117/26_180.png, 254117
+Amad, CAM/RW/RB/CM, Manchester United, Côte d'Ivoire, Value: 558, https://cdn.sofifa.net/players/254/088/26_180.png, 254088
+Lukas Provod, CAM/LW/RW/CM, SK Slavia Praha, Czechia, Value: 506, https://cdn.sofifa.net/players/253/727/26_180.png, 253727
+Adrian Martinez, ST, Racing Club, Argentina, Value: 506, https://cdn.sofifa.net/players/253/242/26_180.png, 253242
+Darwin Nunez, ST/LW/LM, Al Hilal, Uruguay, Value: 532, https://cdn.sofifa.net/players/253/072/26_180.png, 253072
+Konstantinos Tzolakis, GK, Olympiacos FC, Greece, Value: 566, https://cdn.sofifa.net/players/252/552/26_180.png, 252552
+Fábio Silva, ST/LW/LM, Borussia Dortmund, Portugal, Value: 558, https://cdn.sofifa.net/players/252/037/26_180.png, 252037
+Sergino Dest, RB/LB/RM, PSV, United States, Value: 541, https://cdn.sofifa.net/players/251/804/26_180.png, 251804
+Brennan Johnson, RW/RM/LM, Tottenham Hotspur, Wales, Value: 541, https://cdn.sofifa.net/players/251/421/26_180.png, 251421
+Rodrigo Zalazar, CAM/CM/LM, Sporting Clube de Braga, Uruguay, Value: 532, https://cdn.sofifa.net/players/251/377/26_180.png, 251377
+Chris Richards, CB, Crystal Palace, United States, Value: 524, https://cdn.sofifa.net/players/250/954/26_180.png, 250954
+Wesley Fofana, CB, Chelsea, France, Value: 532, https://cdn.sofifa.net/players/248/695/26_180.png, 248695
+Nathan Collins, CB, Brentford, Republic of Ireland, Value: 532, https://cdn.sofifa.net/players/248/484/26_180.png, 248484
+Ian Maatsen, LB/LM, Aston Villa, Netherlands, Value: 549, https://cdn.sofifa.net/players/248/465/26_180.png, 248465
+Andrei Ratiu, RB/RM, Rayo Vallecano, Romania, Value: 515, https://cdn.sofifa.net/players/248/165/26_180.png, 248165
+Jarrad Branthwaite, CB, Everton, England, Value: 558, https://cdn.sofifa.net/players/247/649/26_180.png, 247649
+Jhon Duran, ST, Fenerbahçe SK, Colombia, Value: 558, https://cdn.sofifa.net/players/247/172/26_180.png, 247172
+Bafode Diakite, CB, AFC Bournemouth, France, Value: 549, https://cdn.sofifa.net/players/246/565/26_180.png, 246565
+Daizen Maeda, LW/ST/RW/LM, Celtic, Japan, Value: 506, https://cdn.sofifa.net/players/246/321/26_180.png, 246321
+Thiago Almada, CAM/LW/CM, Atlético Madrid, Argentina, Value: 566, https://cdn.sofifa.net/players/245/371/26_180.png, 245371
+Luis Javier Suarez, ST, Sporting CP, Colombia, Value: 506, https://cdn.sofifa.net/players/245/158/26_180.png, 245158
+Santiago Gimenez, ST, AC Milan, Mexico, Value: 549, https://cdn.sofifa.net/players/245/152/26_180.png, 245152
+Catena, CB, CA Osasuna, Spain, Value: 506, https://cdn.sofifa.net/players/243/976/26_180.png, 243976
+Djed Spence, LB/RB, Tottenham Hotspur, England, Value: 541, https://cdn.sofifa.net/players/243/702/26_180.png, 243702
+James Garner, CDM/CM, Everton, England, Value: 541, https://cdn.sofifa.net/players/243/657/26_180.png, 243657
+Neco Williams, LB/RB, Nottingham Forest, Wales, Value: 532, https://cdn.sofifa.net/players/243/057/26_180.png, 243057
+Riqui Puig, CM/CAM, LA Galaxy, Spain, Value: 532, https://cdn.sofifa.net/players/242/816/26_180.png, 242816
+Alexis Saelemaekers, RM/LM/RB/RW, AC Milan, Belgium, Value: 515, https://cdn.sofifa.net/players/242/664/26_180.png, 242664
+Musa Barrow, LW/LM/ST, Al Taawoun FC, Gambia, Value: 506, https://cdn.sofifa.net/players/242/374/26_180.png, 242374
+Sergio Gómez, LM/CM/LB, Real Sociedad, Spain, Value: 532, https://cdn.sofifa.net/players/241/811/26_180.png, 241811
+Predrag Rajkovic, GK, Al Ittihad, Serbia, Value: 515, https://cdn.sofifa.net/players/241/727/26_180.png, 241727
+Pape Gueye, CM/CDM, Villarreal CF, Senegal, Value: 532, https://cdn.sofifa.net/players/241/707/26_180.png, 241707
+Nikola Vlasic, CAM/LW/RW/CM, Torino, Croatia, Value: 506, https://cdn.sofifa.net/players/241/095/26_180.png, 241095
+Caoimhin Kelleher, GK, Brentford, Republic of Ireland, Value: 532, https://cdn.sofifa.net/players/240/913/26_180.png, 240913
+Amine Gouiri, ST/CAM, Olympique de Marseille, Algeria, Value: 549, https://cdn.sofifa.net/players/240/753/26_180.png, 240753
+Ridle Baku, RB/RM/RW, RB Leipzig, Germany, Value: 506, https://cdn.sofifa.net/players/240/709/26_180.png, 240709
+Nico Gonzalez, LM/RM/LW, Atlético Madrid, Argentina, Value: 506, https://cdn.sofifa.net/players/240/690/26_180.png, 240690
+Omar Alderete, CB, Sunderland, Paraguay, Value: 515, https://cdn.sofifa.net/players/240/359/26_180.png, 240359
+Matteo Gabbia, CB, AC Milan, Italy, Value: 541, https://cdn.sofifa.net/players/240/277/26_180.png, 240277
+Yunus Akgun, RM/LM/CAM/RW, Galatasaray SK, Türkiye, Value: 532, https://cdn.sofifa.net/players/239/892/26_180.png, 239892
+Edon Zhegrova, RM/RW, Juventus, Kosovo, Value: 515, https://cdn.sofifa.net/players/239/763/26_180.png, 239763
+Jonathan Clauss, RB/RM, OGC Nice, France, Value: 506, https://cdn.sofifa.net/players/239/093/26_180.png, 239093
+Kevin Danso, CB, Tottenham Hotspur, Austria, Value: 532, https://cdn.sofifa.net/players/237/985/26_180.png, 237985
+Pervis Estupinan, LB/LM, AC Milan, Ecuador, Value: 515, https://cdn.sofifa.net/players/237/942/26_180.png, 237942
+Nicolas Dominguez, CDM/CM, Nottingham Forest, Argentina, Value: 515, https://cdn.sofifa.net/players/237/819/26_180.png, 237819
+Juan Foyth, CB, Villarreal CF, Argentina, Value: 515, https://cdn.sofifa.net/players/237/221/26_180.png, 237221
+Cucho Hernández, ST/CAM, Real Betis Balompié, Colombia, Value: 532, https://cdn.sofifa.net/players/237/034/26_180.png, 237034
+Justin Kluivert, CAM/LM/CM, AFC Bournemouth, Netherlands, Value: 524, https://cdn.sofifa.net/players/236/920/26_180.png, 236920
+Facundo Medina, CB/LB, Olympique de Marseille, Argentina, Value: 541, https://cdn.sofifa.net/players/236/804/26_180.png, 236804
+Martin Terrier, ST/LM/LW/CAM, Bayer 04 Leverkusen, France, Value: 506, https://cdn.sofifa.net/players/236/786/26_180.png, 236786
+Marcos Senesi, CB, AFC Bournemouth, Argentina, Value: 506, https://cdn.sofifa.net/players/236/506/26_180.png, 236506
+Reinildo, LB/CB, Sunderland, Mozambique, Value: 506, https://cdn.sofifa.net/players/236/045/26_180.png, 236045
+Ferdi Kadioglu, RB/LB/RM, Brighton & Hove Albion, Türkiye, Value: 524, https://cdn.sofifa.net/players/235/152/26_180.png, 235152
+Evander, CAM/CM/ST, FC Cincinnati, Brazil, Value: 515, https://cdn.sofifa.net/players/234/505/26_180.png, 234505
+Aschraf El Mahdioui, CDM/CM/CB, Al Taawoun FC, Morocco, Value: 506, https://cdn.sofifa.net/players/234/200/26_180.png, 234200
+Jadon Sancho, LM/RM/LW, Aston Villa, England, Value: 524, https://cdn.sofifa.net/players/233/049/26_180.png, 233049
+Tyler Adams, CDM/CM, AFC Bournemouth, United States, Value: 524, https://cdn.sofifa.net/players/232/999/26_180.png, 232999
+Jens Stage, CM/CDM, SV Werder Bremen, Denmark, Value: 506, https://cdn.sofifa.net/players/232/711/26_180.png, 232711
+Danilho Doekhi, CB, 1. FC Union Berlin, Netherlands, Value: 524, https://cdn.sofifa.net/players/232/658/26_180.png, 232658
+Wataru Endo, CDM/CM, Liverpool, Japan, Value: 506, https://cdn.sofifa.net/players/232/487/26_180.png, 232487
+Richarlison, ST/LW/LM, Tottenham Hotspur, Brazil, Value: 506, https://cdn.sofifa.net/players/231/943/26_180.png, 231943
+Donyell Malen, RM/RW/LM, Aston Villa, Netherlands, Value: 515, https://cdn.sofifa.net/players/231/447/26_180.png, 231447
+Philipp Lienhart, CB, SC Freiburg, Austria, Value: 506, https://cdn.sofifa.net/players/231/366/26_180.png, 231366
+Luimo Boas Santos, ST, Bahia, Brazil, Value: 506, https://cdn.sofifa.net/players/230/498/26_180.png, 230498
+Gabri Prestão, GK, Internacional, Brazil, Value: 506, https://cdn.sofifa.net/players/230/312/26_180.png, 230312
+Jorge Andrão, CDM/CM, Fluminense, Brazil, Value: 506, https://cdn.sofifa.net/players/230/234/26_180.png, 230234
+Adnan Vidual, RB, Internacional, Brazil, Value: 506, https://cdn.sofifa.net/players/230/216/26_180.png, 230216
+Diego Essler, LB/LM, Atlético Mineiro, Brazil, Value: 506, https://cdn.sofifa.net/players/230/184/26_180.png, 230184
+Leon Bailey, RM/RW, Roma, Jamaica, Value: 506, https://cdn.sofifa.net/players/229/906/26_180.png, 229906
+Julian Ryerson, RB/LB/RM, Borussia Dortmund, Norway, Value: 506, https://cdn.sofifa.net/players/229/891/26_180.png, 229891
+Aaron Wan Bissaka, RB/RM/RW, West Ham United, Congo DR, Value: 506, https://cdn.sofifa.net/players/229/880/26_180.png, 229880
+Mario Hermoso, CB, Roma, Spain, Value: 506, https://cdn.sofifa.net/players/229/668/26_180.png, 229668
+Bryan Heynen, CDM/CM, KRC Genk, Belgium, Value: 506, https://cdn.sofifa.net/players/229/659/26_180.png, 229659
+Kamil Grabara, GK, VfL Wolfsburg, Poland, Value: 549, https://cdn.sofifa.net/players/228/383/26_180.png, 228383
+Cameron Carter Vickers, CB, Celtic, United States, Value: 532, https://cdn.sofifa.net/players/228/174/26_180.png, 228174
+Sander Berge, CDM/CM, Fulham FC, Norway, Value: 515, https://cdn.sofifa.net/players/228/092/26_180.png, 228092
+Marko Dmitrovic, GK, RCD Espanyol, Serbia, Value: 506, https://cdn.sofifa.net/players/227/290/26_180.png, 227290
+Augusto Batalla, GK, Rayo Vallecano, Argentina, Value: 515, https://cdn.sofifa.net/players/227/186/26_180.png, 227186
+Kaku, CAM/RM/CM, Al Ain, Paraguay, Value: 506, https://cdn.sofifa.net/players/226/376/26_180.png, 226376
+Nordi Mukiele, CB/RB/RM, Sunderland, France, Value: 506, https://cdn.sofifa.net/players/226/166/26_180.png, 226166
+Alexandr Golovin, LM/CAM/LW, AS Monaco, Russia, Value: 506, https://cdn.sofifa.net/players/225/663/26_180.png, 225663
+Ellyes Skhiri, CDM/CM, Eintracht Frankfurt, Tunisia, Value: 506, https://cdn.sofifa.net/players/225/126/26_180.png, 225126
+Joe Gomez, CB/RB/LB/RM, Liverpool, England, Value: 506, https://cdn.sofifa.net/players/225/100/26_180.png, 225100
+Vanja Milinkovic Savic, GK, Napoli, Serbia, Value: 524, https://cdn.sofifa.net/players/224/836/26_180.png, 224836
+Lewis Cook, CDM/RB/CM, AFC Bournemouth, England, Value: 515, https://cdn.sofifa.net/players/224/294/26_180.png, 224294
+Sofyan Amrabat, CDM/CM, Real Betis Balompié, Morocco, Value: 506, https://cdn.sofifa.net/players/224/158/26_180.png, 224158
+Sergio Herrera, GK, CA Osasuna, Spain, Value: 506, https://cdn.sofifa.net/players/224/003/26_180.png, 224003
+Valentin Rongier, CDM/CM, Stade Rennais FC, France, Value: 506, https://cdn.sofifa.net/players/223/874/26_180.png, 223874
+Robin Gosens, LB/LM, Fiorentina, Germany, Value: 506, https://cdn.sofifa.net/players/223/697/26_180.png, 223697
+Stefan Posch, RB, Como, Austria, Value: 506, https://cdn.sofifa.net/players/223/671/26_180.png, 223671
+Mario Pasalic, CM/CAM/CDM, Atalanta, Croatia, Value: 506, https://cdn.sofifa.net/players/223/273/26_180.png, 223273
+Angeliño, LB/LM, Roma, Spain, Value: 506, https://cdn.sofifa.net/players/220/651/26_180.png, 220651
+Clement Lenglet, CB, Atlético Madrid, France, Value: 506, https://cdn.sofifa.net/players/220/440/26_180.png, 220440
+Diego Carlos, CB, Como, Brazil, Value: 506, https://cdn.sofifa.net/players/219/693/26_180.png, 219693
+Davide Zappacosta, LM/RM/LB, Atalanta, Italy, Value: 506, https://cdn.sofifa.net/players/216/150/26_180.png, 216150
+Lucas Zelarayan, CAM/ST/LM, Belgrano de Córdoba, Armenia, Value: 506, https://cdn.sofifa.net/players/215/270/26_180.png, 215270
+Walter Benitez, GK, Crystal Palace, Argentina, Value: 506, https://cdn.sofifa.net/players/215/223/26_180.png, 215223
+Juan Musso, GK, Atlético Madrid, Argentina, Value: 506, https://cdn.sofifa.net/players/214/979/26_180.png, 214979
+Ryan Christie, CDM/CM, AFC Bournemouth, Scotland, Value: 506, https://cdn.sofifa.net/players/213/884/26_180.png, 213884
+Mario Lemina, CDM/CM/CB, Galatasaray SK, Gabon, Value: 506, https://cdn.sofifa.net/players/212/811/26_180.png, 212811
+Gayà, LB/LM, Valencia CF, Spain, Value: 506, https://cdn.sofifa.net/players/211/688/26_180.png, 211688
+Callum Mcgregor, CDM/CM, Celtic, Scotland, Value: 506, https://cdn.sofifa.net/players/211/093/26_180.png, 211093
+Carles Gil, CAM/RM/CM, New England Revolution, Spain, Value: 506, https://cdn.sofifa.net/players/210/930/26_180.png, 210930
+Christian Burgess, CB, Union Saint-Gilloise, England, Value: 506, https://cdn.sofifa.net/players/210/044/26_180.png, 210044
+Hany Mukhtar, CAM/ST, Nashville SC, Germany, Value: 506, https://cdn.sofifa.net/players/210/021/26_180.png, 210021
+Fred, CM/CDM/CAM, Fenerbahçe SK, Brazil, Value: 506, https://cdn.sofifa.net/players/209/297/26_180.png, 209297
+Romain Saiss, CB, Free Agent, Morocco, Value: 506, https://cdn.sofifa.net/players/208/295/26_180.png, 208295
+Berat Djimsiti, CB, Atalanta, Albania, Value: 506, https://cdn.sofifa.net/players/208/165/26_180.png, 208165
+Kepa, GK, Arsenal, Spain, Value: 506, https://cdn.sofifa.net/players/206/585/26_180.png, 206585
+Maximilian Arnold, CDM/CM, VfL Wolfsburg, Germany, Value: 506, https://cdn.sofifa.net/players/206/511/26_180.png, 206511
+Luke Shaw, CB/LB/LM, Manchester United, England, Value: 506, https://cdn.sofifa.net/players/205/988/26_180.png, 205988
+Marko Livaja, ST/CAM, Hajduk Split, Croatia, Value: 506, https://cdn.sofifa.net/players/205/855/26_180.png, 205855
+Florian Thauvin, RW/ST/RM, RC Lens, France, Value: 506, https://cdn.sofifa.net/players/204/970/26_180.png, 204970
+Leonardo Spinazzola, LB/LM, Napoli, Italy, Value: 506, https://cdn.sofifa.net/players/202/884/26_180.png, 202884
+Eric Dier, CB, AS Monaco, England, Value: 506, https://cdn.sofifa.net/players/202/335/26_180.png, 202335
+Stefan Ortega, GK, Manchester City, Germany, Value: 506, https://cdn.sofifa.net/players/200/159/26_180.png, 200159
+Jasper Cillessen, GK, NEC Nijmegen, Netherlands, Value: 506, https://cdn.sofifa.net/players/199/987/26_180.png, 199987
+Jordy Clasie, CDM/CM, AZ Alkmaar, Netherlands, Value: 506, https://cdn.sofifa.net/players/199/422/26_180.png, 199422
+Bartra, CB, Real Betis Balompié, Spain, Value: 506, https://cdn.sofifa.net/players/198/141/26_180.png, 198141
+Sebastian Coates, CB, Club Nacional de Football, Uruguay, Value: 506, https://cdn.sofifa.net/players/197/655/26_180.png, 197655
+Paul Pogba, CM/CDM/CAM, AS Monaco, France, Value: 506, https://cdn.sofifa.net/players/195/864/26_180.png, 195864
+Idrissa Gueye, CDM/CM, Everton, Senegal, Value: 506, https://cdn.sofifa.net/players/193/474/26_180.png, 193474
+Marcos Alonso, CB/LB/LM, RC Celta, Spain, Value: 506, https://cdn.sofifa.net/players/192/638/26_180.png, 192638
+Pascal Gross, CDM/CM, Borussia Dortmund, Germany, Value: 506, https://cdn.sofifa.net/players/190/765/26_180.png, 190765
+Lukasz Skorupski, GK, Bologna, Poland, Value: 506, https://cdn.sofifa.net/players/189/908/26_180.png, 189908
+Chris Smalling, CB, Al Fayha, England, Value: 506, https://cdn.sofifa.net/players/189/881/26_180.png, 189881
+Kyle Walker, RB/RM, Burnley, England, Value: 506, https://cdn.sofifa.net/players/188/377/26_180.png, 188377
+Danny Welbeck, ST, Brighton & Hove Albion, England, Value: 506, https://cdn.sofifa.net/players/186/146/26_180.png, 186146
+Matteo Darmian, RB/CB/RM, Inter, Italy, Value: 506, https://cdn.sofifa.net/players/184/392/26_180.png, 184392
+Jordan Henderson, CDM/CM, Brentford, England, Value: 506, https://cdn.sofifa.net/players/183/711/26_180.png, 183711
+Yuri Berchiche, LB/LM, Athletic Club, Spain, Value: 506, https://cdn.sofifa.net/players/183/512/26_180.png, 183512
+Olivier Giroud, ST, Lille OSC, France, Value: 506, https://cdn.sofifa.net/players/178/509/26_180.png, 178509
+Luis Suarez, ST/CAM, Inter Miami, Uruguay, Value: 506, https://cdn.sofifa.net/players/176/580/26_180.png, 176580
+Estêvão, RM/CAM/RW, Chelsea, Brazil, Value: 592, https://cdn.sofifa.net/players/076/687/26_180.png, 76687
+Bento, GK, Al Nassr, Brazil, Value: 549, https://cdn.sofifa.net/players/073/562/26_180.png, 73562
+Kaishu Sano, CDM/CM, 1. FSV Mainz 05, Japan, Value: 541, https://cdn.sofifa.net/players/073/078/26_180.png, 73078
+Lucas Beraldo, CB, Paris Saint-Germain, Brazil, Value: 501, https://cdn.sofifa.net/players/279/709/26_180.png, 279709
+Victor Froholdt, CM/CDM/CAM, FC Porto, Denmark, Value: 535, https://cdn.sofifa.net/players/279/015/26_180.png, 279015
+Myles Lewis Skelly, LB/CM, Arsenal, England, Value: 526, https://cdn.sofifa.net/players/278/773/26_180.png, 278773
+Michael Kayode, RB/RM, Brentford, Italy, Value: 492, https://cdn.sofifa.net/players/277/869/26_180.png, 277869
+Natan, CB, Real Betis Balompié, Brazil, Value: 492, https://cdn.sofifa.net/players/277/537/26_180.png, 277537
+Nico Oreilly, LB/CM, Manchester City, England, Value: 509, https://cdn.sofifa.net/players/277/427/26_180.png, 277427
+Abdukodir Khusanov, CB, Manchester City, Uzbekistan, Value: 518, https://cdn.sofifa.net/players/277/031/26_180.png, 277031
+Igor Thiago, ST, Brentford, Brazil, Value: 484, https://cdn.sofifa.net/players/275/771/26_180.png, 275771
+Zakaria El Ouahdi, RB/RM/CM, KRC Genk, Morocco, Value: 509, https://cdn.sofifa.net/players/275/353/26_180.png, 275353
+João Gomes, CDM/CM, Wolverhampton Wanderers, Brazil, Value: 492, https://cdn.sofifa.net/players/273/463/26_180.png, 273463
+Jorrel Hato, LB/CB/CDM, Chelsea, Netherlands, Value: 535, https://cdn.sofifa.net/players/272/978/26_180.png, 272978
+Lucas Bergvall, CM/CDM/CAM, Tottenham Hotspur, Sweden, Value: 526, https://cdn.sofifa.net/players/272/926/26_180.png, 272926
+Carlos Romero, LB/LM/CM, RCD Espanyol, Spain, Value: 484, https://cdn.sofifa.net/players/270/728/26_180.png, 270728
+António Silva, CB, SL Benfica, Portugal, Value: 518, https://cdn.sofifa.net/players/270/086/26_180.png, 270086
+Nathaniel Brown, LB/LM, Eintracht Frankfurt, Germany, Value: 509, https://cdn.sofifa.net/players/269/701/26_180.png, 269701
+Leny Yoro, CB, Manchester United, France, Value: 518, https://cdn.sofifa.net/players/269/087/26_180.png, 269087
+Hugo Larsson, CM/CDM, Eintracht Frankfurt, Sweden, Value: 518, https://cdn.sofifa.net/players/268/896/26_180.png, 268896
+Alejandro Garnacho, LM/LW/CAM, Chelsea, Argentina, Value: 501, https://cdn.sofifa.net/players/268/438/26_180.png, 268438
+Geny Catamo, RM/LM/CAM/RW, Sporting CP, Mozambique, Value: 501, https://cdn.sofifa.net/players/266/097/26_180.png, 266097
+Tomás Araújo, CB/RB, SL Benfica, Portugal, Value: 518, https://cdn.sofifa.net/players/266/096/26_180.png, 266096
+Jamie Gittens, LM/LW, Chelsea, England, Value: 509, https://cdn.sofifa.net/players/266/032/26_180.png, 266032
+Guillaume Restes, GK, Toulouse FC, France, Value: 518, https://cdn.sofifa.net/players/265/526/26_180.png, 265526
+Johan Bakayoko, RW/RM, RB Leipzig, Belgium, Value: 509, https://cdn.sofifa.net/players/265/450/26_180.png, 265450
+Soufiane Rahimi, LM/ST/LW, Al Ain, Morocco, Value: 450, https://cdn.sofifa.net/players/264/348/26_180.png, 264348
+Conor Bradley, RB/RM, Liverpool, Northern Ireland, Value: 501, https://cdn.sofifa.net/players/264/298/26_180.png, 264298
+Diego López, LM/RM/LW, Valencia CF, Spain, Value: 518, https://cdn.sofifa.net/players/264/238/26_180.png, 264238
+Robin Roefs, GK, Sunderland, Netherlands, Value: 501, https://cdn.sofifa.net/players/263/798/26_180.png, 263798
+Romeo Lavia, CDM/CM, Chelsea, Belgium, Value: 509, https://cdn.sofifa.net/players/263/620/26_180.png, 263620
+Beñat Prados, CDM/CM/CB, Athletic Club, Spain, Value: 492, https://cdn.sofifa.net/players/263/617/26_180.png, 263617
+Raphael Onyedika, CDM/CM/CB, Club Brugge KV, Nigeria, Value: 509, https://cdn.sofifa.net/players/262/880/26_180.png, 262880
+Martin Baturina, CAM/CM, Como, Croatia, Value: 492, https://cdn.sofifa.net/players/262/842/26_180.png, 262842
+Noah Atubolu, GK, SC Freiburg, Germany, Value: 492, https://cdn.sofifa.net/players/262/659/26_180.png, 262659
+Hakon Arnar Haraldsson, CAM/LM/CM, Lille OSC, Iceland, Value: 501, https://cdn.sofifa.net/players/262/088/26_180.png, 262088
+Kevin Schade, LM/LW/ST, Brentford, Germany, Value: 492, https://cdn.sofifa.net/players/260/926/26_180.png, 260926
+Arnau Martínez, RB/RM/CM, Girona FC, Spain, Value: 492, https://cdn.sofifa.net/players/260/815/26_180.png, 260815
+Isak Hien, CB, Atalanta, Sweden, Value: 475, https://cdn.sofifa.net/players/260/697/26_180.png, 260697
+Daniel Svensson, LB/CM/LM, Borussia Dortmund, Sweden, Value: 492, https://cdn.sofifa.net/players/259/716/26_180.png, 259716
+Giannis Konstantelias, CAM/RW/CM, PAOK, Greece, Value: 501, https://cdn.sofifa.net/players/259/633/26_180.png, 259633
+Aitor Paredes, CB, Athletic Club, Spain, Value: 475, https://cdn.sofifa.net/players/259/524/26_180.png, 259524
+Ilaix Moriba, CM/CDM, RC Celta, Guinea, Value: 492, https://cdn.sofifa.net/players/259/233/26_180.png, 259233
+Yan Couto, RB/RM, Borussia Dortmund, Brazil, Value: 492, https://cdn.sofifa.net/players/259/075/26_180.png, 259075
+Flavien Enzo Boyomo, CB, CA Osasuna, Cameroon, Value: 509, https://cdn.sofifa.net/players/259/066/26_180.png, 259066
+Liam Delap, ST, Chelsea, England, Value: 509, https://cdn.sofifa.net/players/259/031/26_180.png, 259031
+Aimar Oroz, CM/CAM/LM, CA Osasuna, Spain, Value: 492, https://cdn.sofifa.net/players/258/937/26_180.png, 258937
+Toluwalase Arokodare, ST, Wolverhampton Wanderers, Nigeria, Value: 484, https://cdn.sofifa.net/players/258/911/26_180.png, 258911
+Evann Guessand, RM/RW/ST, Aston Villa, Côte d'Ivoire, Value: 492, https://cdn.sofifa.net/players/258/444/26_180.png, 258444
+Emanuel Emegha, ST, RC Strasbourg Alsace, Netherlands, Value: 492, https://cdn.sofifa.net/players/258/437/26_180.png, 258437
+Pep Chavarría, LB/LM, Rayo Vallecano, Spain, Value: 458, https://cdn.sofifa.net/players/258/371/26_180.png, 258371
+Dan Ndoye, LM/RM/LW, Nottingham Forest, Switzerland, Value: 475, https://cdn.sofifa.net/players/257/980/26_180.png, 257980
+Nicolas Seiwald, CDM/CM/CB, RB Leipzig, Austria, Value: 501, https://cdn.sofifa.net/players/257/876/26_180.png, 257876
+Yasin Ayari, CDM/CM, Brighton & Hove Albion, Sweden, Value: 501, https://cdn.sofifa.net/players/257/400/26_180.png, 257400
+Anton Stach, CM/CDM/CAM, Leeds United, Germany, Value: 458, https://cdn.sofifa.net/players/257/191/26_180.png, 257191
+Fábio Vieira, CAM/CM/RW, Hamburger SV, Portugal, Value: 475, https://cdn.sofifa.net/players/256/958/26_180.png, 256958
+Adrien Truffert, LB/LM, AFC Bournemouth, France, Value: 484, https://cdn.sofifa.net/players/256/769/26_180.png, 256769
+Luis Henrique, RM/LM/RW, Inter, Brazil, Value: 492, https://cdn.sofifa.net/players/256/632/26_180.png, 256632
+Malick Fofana, LM/LW, Olympique Lyonnais, Belgium, Value: 518, https://cdn.sofifa.net/players/256/420/26_180.png, 256420
+Josip Sutalo, CB, Ajax, Croatia, Value: 484, https://cdn.sofifa.net/players/256/325/26_180.png, 256325
+Alistair Johnston, RB/RM, Celtic, Canada, Value: 458, https://cdn.sofifa.net/players/256/107/26_180.png, 256107
+Santiago Hezze, CDM/CM, Olympiacos FC, Argentina, Value: 492, https://cdn.sofifa.net/players/255/971/26_180.png, 255971
+Samú Costa, CDM/CM, RCD Mallorca, Portugal, Value: 492, https://cdn.sofifa.net/players/255/566/26_180.png, 255566
+Loic Bade, CB, Bayer 04 Leverkusen, France, Value: 492, https://cdn.sofifa.net/players/255/106/26_180.png, 255106
+Oscar Dorley, CDM/CM/LM, SK Slavia Praha, Liberia, Value: 475, https://cdn.sofifa.net/players/254/909/26_180.png, 254909
+Senne Lammens, GK, Manchester United, Belgium, Value: 526, https://cdn.sofifa.net/players/254/803/26_180.png, 254803
+Georges Mikautadze, ST, Villarreal CF, Georgia, Value: 492, https://cdn.sofifa.net/players/254/551/26_180.png, 254551
+Zeno Debast, CDM/CB/CM, Sporting CP, Belgium, Value: 518, https://cdn.sofifa.net/players/254/262/26_180.png, 254262
+Samuele Ricci, CDM/CM, AC Milan, Italy, Value: 509, https://cdn.sofifa.net/players/253/473/26_180.png, 253473
+Manuel Ugarte, CDM/CM, Manchester United, Uruguay, Value: 484, https://cdn.sofifa.net/players/253/306/26_180.png, 253306
+Giacomo Raspadori, ST/LM/CAM, Atlético Madrid, Italy, Value: 475, https://cdn.sofifa.net/players/253/002/26_180.png, 253002
+Leonardo Fernandez, CAM/ST, Peñarol, Uruguay, Value: 458, https://cdn.sofifa.net/players/252/935/26_180.png, 252935
+Borja Sainz, LW/LM, FC Porto, Spain, Value: 501, https://cdn.sofifa.net/players/252/929/26_180.png, 252929
+Enzo Millot, CAM/CM, Al Ahli SFC, France, Value: 501, https://cdn.sofifa.net/players/252/259/26_180.png, 252259
+Ayase Ueda, ST, Feyenoord, Japan, Value: 458, https://cdn.sofifa.net/players/252/162/26_180.png, 252162
+Ladislav Krejci, CB/CM/CDM, Wolverhampton Wanderers, Czechia, Value: 484, https://cdn.sofifa.net/players/252/064/26_180.png, 252064
+Francisco Moura, LB/LM, FC Porto, Portugal, Value: 475, https://cdn.sofifa.net/players/251/615/26_180.png, 251615
+Kodjo Fo Doh Laba, ST, Al Ain, Togo, Value: 450, https://cdn.sofifa.net/players/251/353/26_180.png, 251353
+Josip Stanisic, CB/RB/LB/RM, FC Bayern München, Croatia, Value: 484, https://cdn.sofifa.net/players/250/955/26_180.png, 250955
+Pathe Ciss, CDM/CM/CB, Rayo Vallecano, Senegal, Value: 450, https://cdn.sofifa.net/players/250/858/26_180.png, 250858
+Dilane Bakwa, RM/RW, Nottingham Forest, France, Value: 501, https://cdn.sofifa.net/players/250/789/26_180.png, 250789
+Mats Wieffer, CDM/RB/CM, Brighton & Hove Albion, Netherlands, Value: 484, https://cdn.sofifa.net/players/248/793/26_180.png, 248793
+Moncayola, CM/CDM/RM, CA Osasuna, Spain, Value: 458, https://cdn.sofifa.net/players/247/495/26_180.png, 247495
+Raoul Bellanova, RM/RB, Atalanta, Italy, Value: 458, https://cdn.sofifa.net/players/247/229/26_180.png, 247229
+Barrenetxea, LM/LW, Real Sociedad, Spain, Value: 492, https://cdn.sofifa.net/players/246/672/26_180.png, 246672
+Álvaro Valles, GK, Real Betis Balompié, Spain, Value: 475, https://cdn.sofifa.net/players/246/657/26_180.png, 246657
+Harvey Elliott, CAM/CM/RW, Aston Villa, England, Value: 501, https://cdn.sofifa.net/players/246/174/26_180.png, 246174
+Jean Clair Todibo, CB, West Ham United, France, Value: 475, https://cdn.sofifa.net/players/245/388/26_180.png, 245388
+Carlos Vicente, RM/RW, Deportivo Alavés, Spain, Value: 458, https://cdn.sofifa.net/players/244/767/26_180.png, 244767
+Sem Steijn, CAM/CM, Feyenoord, Netherlands, Value: 492, https://cdn.sofifa.net/players/244/728/26_180.png, 244728
+Vitaliy Mykolenko, LB/LM, Everton, Ukraine, Value: 458, https://cdn.sofifa.net/players/244/380/26_180.png, 244380
+Mykola Shaparenko, CM/CAM/CDM, Dynamo Kyiv, Ukraine, Value: 458, https://cdn.sofifa.net/players/244/374/26_180.png, 244374
+Viktor Tsygankov, RM/RW, Girona FC, Ukraine, Value: 450, https://cdn.sofifa.net/players/244/369/26_180.png, 244369
+Lovro Majer, CM/CAM/RM, VfL Wolfsburg, Croatia, Value: 458, https://cdn.sofifa.net/players/244/261/26_180.png, 244261
+Chiquinho, CM/CAM/RM/CDM, Olympiacos FC, Portugal, Value: 450, https://cdn.sofifa.net/players/243/686/26_180.png, 243686
+Mahdi Camara, CM/CAM, Stade Rennais FC, France, Value: 458, https://cdn.sofifa.net/players/243/631/26_180.png, 243631
+Lewis Ferguson, CDM/CM/CAM, Bologna, Scotland, Value: 475, https://cdn.sofifa.net/players/242/280/26_180.png, 242280
+Oumar Solet, CB, Udinese, France, Value: 492, https://cdn.sofifa.net/players/242/238/26_180.png, 242238
+Christoph Baumgartner, CAM/ST/CM, RB Leipzig, Austria, Value: 467, https://cdn.sofifa.net/players/242/187/26_180.png, 242187
+Hidemasa Morita, CM/CDM, Sporting CP, Japan, Value: 450, https://cdn.sofifa.net/players/242/087/26_180.png, 242087
+Mehdi Taremi, ST, Olympiacos FC, Iran, Value: 450, https://cdn.sofifa.net/players/241/788/26_180.png, 241788
+Dominik Livakovic, GK, Girona FC, Croatia, Value: 450, https://cdn.sofifa.net/players/241/671/26_180.png, 241671
+Calvin Bassey, CB, Fulham FC, Nigeria, Value: 475, https://cdn.sofifa.net/players/241/436/26_180.png, 241436
+Lutsharel Geertruida, CB/RB/LB/RM, Sunderland, Netherlands, Value: 484, https://cdn.sofifa.net/players/241/187/26_180.png, 241187
+Denis Vavro, CB, VfL Wolfsburg, Slovakia, Value: 458, https://cdn.sofifa.net/players/240/988/26_180.png, 240988
+Tyrick Mitchell, LB/LM, Crystal Palace, England, Value: 467, https://cdn.sofifa.net/players/240/947/26_180.png, 240947
+Callum Hudson Odoi, LM/LW, Nottingham Forest, England, Value: 475, https://cdn.sofifa.net/players/240/740/26_180.png, 240740
+Matt Oriley, CAM/CM/CDM, Olympique de Marseille, Denmark, Value: 484, https://cdn.sofifa.net/players/240/734/26_180.png, 240734
+Matvey Safonov, GK, Paris Saint-Germain, Russia, Value: 484, https://cdn.sofifa.net/players/240/225/26_180.png, 240225
+Nicolas Kuhn, RW/RM, Como, Germany, Value: 475, https://cdn.sofifa.net/players/239/977/26_180.png, 239977
+Romano Schmid, CAM/CM/RM, SV Werder Bremen, Austria, Value: 475, https://cdn.sofifa.net/players/239/701/26_180.png, 239701
+Julian Chabot, CB, VfB Stuttgart, Germany, Value: 458, https://cdn.sofifa.net/players/239/340/26_180.png, 239340
+Pepê, CAM/RM/RW/CM, FC Porto, Brazil, Value: 450, https://cdn.sofifa.net/players/238/896/26_180.png, 238896
+Weston Mckennie, CM/CAM/RM, Juventus, United States, Value: 458, https://cdn.sofifa.net/players/238/744/26_180.png, 238744
+Marcin Bulka, GK, NEOM SC, Poland, Value: 492, https://cdn.sofifa.net/players/238/186/26_180.png, 238186
+Merih Demiral, CB, Al Ahli SFC, Türkiye, Value: 475, https://cdn.sofifa.net/players/238/160/26_180.png, 238160
+Albert Gudhmundsson, ST/CAM, Fiorentina, Iceland, Value: 450, https://cdn.sofifa.net/players/238/004/26_180.png, 238004
+Kiernan Dewsbury Hall, CAM/CM, Everton, England, Value: 458, https://cdn.sofifa.net/players/237/386/26_180.png, 237386
+Nathan Tella, RM/ST/CAM/RW, Bayer 04 Leverkusen, Nigeria, Value: 458, https://cdn.sofifa.net/players/237/328/26_180.png, 237328
+Oleksandr Zubkov, RW/CAM/RM, Trabzonspor, Ukraine, Value: 450, https://cdn.sofifa.net/players/237/055/26_180.png, 237055
+Anders Dreyer, RW/LW/RM, San Diego FC, Denmark, Value: 450, https://cdn.sofifa.net/players/236/918/26_180.png, 236918
+Sasa Lukic, CDM/CM, Fulham FC, Serbia, Value: 450, https://cdn.sofifa.net/players/236/699/26_180.png, 236699
+Anthony Caci, RB/RM/CB, 1. FSV Mainz 05, France, Value: 450, https://cdn.sofifa.net/players/236/636/26_180.png, 236636
+Yves Bissouma, CDM/CM, Tottenham Hotspur, Mali, Value: 450, https://cdn.sofifa.net/players/236/480/26_180.png, 236480
+Marc Roca, CDM/CM, Real Betis Balompié, Spain, Value: 450, https://cdn.sofifa.net/players/235/945/26_180.png, 235945
+Edson Alvarez, CDM/CM/CB, Fenerbahçe SK, Mexico, Value: 458, https://cdn.sofifa.net/players/235/844/26_180.png, 235844
+Santi Comesaña, CM/CDM, Villarreal CF, Spain, Value: 450, https://cdn.sofifa.net/players/235/781/26_180.png, 235781
+Yehvann Diouf, GK, OGC Nice, Senegal, Value: 492, https://cdn.sofifa.net/players/235/633/26_180.png, 235633
+Marcelino Moreno, CAM/LM/ST/CM, Lanús, Argentina, Value: 450, https://cdn.sofifa.net/players/235/467/26_180.png, 235467
+Manuel Lazzari, RB/RM, Lazio, Italy, Value: 450, https://cdn.sofifa.net/players/235/374/26_180.png, 235374
+Ibrahim Sangare, CDM/CM, Nottingham Forest, Côte d'Ivoire, Value: 458, https://cdn.sofifa.net/players/235/173/26_180.png, 235173
+Diogo Leite, CB, 1. FC Union Berlin, Portugal, Value: 475, https://cdn.sofifa.net/players/234/575/26_180.png, 234575
+Diogo Dalot, RB/LB/RM/CM, Manchester United, Portugal, Value: 467, https://cdn.sofifa.net/players/234/574/26_180.png, 234574
+Hiroki Ito, CB/LB, FC Bayern München, Japan, Value: 484, https://cdn.sofifa.net/players/234/205/26_180.png, 234205
+Roland Sallai, RM/RB/LM/RW, Galatasaray SK, Hungary, Value: 450, https://cdn.sofifa.net/players/234/171/26_180.png, 234171
+Dodô, RB/RM, Fiorentina, Brazil, Value: 458, https://cdn.sofifa.net/players/234/112/26_180.png, 234112
+Akram Afif, LW/CAM/ST/LM, Free Agent, Qatar, Value: 450, https://cdn.sofifa.net/players/234/051/26_180.png, 234051
+Alexis Vega, LW/ST/LM, Free Agent, Mexico, Value: 450, https://cdn.sofifa.net/players/233/260/26_180.png, 233260
+Mason Mount, CAM/CM/LW, Manchester United, England, Value: 458, https://cdn.sofifa.net/players/233/064/26_180.png, 233064
+Guruzeta, ST, Athletic Club, Spain, Value: 450, https://cdn.sofifa.net/players/231/184/26_180.png, 231184
+Jonatão Praz, LW/LM, Flamengo, Brazil, Value: 450, https://cdn.sofifa.net/players/230/460/26_180.png, 230460
+Jason Bardeira, ST, Corinthians, Brazil, Value: 450, https://cdn.sofifa.net/players/230/442/26_180.png, 230442
+Fredditinho, ST, Palmeiras, Brazil, Value: 450, https://cdn.sofifa.net/players/230/440/26_180.png, 230440
+Arturo Inálcio, CM/CAM/CDM, Flamengo, Brazil, Value: 450, https://cdn.sofifa.net/players/230/426/26_180.png, 230426
+Guilson Paiva, RM/RW, Flamengo, Brazil, Value: 450, https://cdn.sofifa.net/players/230/406/26_180.png, 230406
+Albertinho Dutra, LW/LM, São Paulo, Brazil, Value: 450, https://cdn.sofifa.net/players/230/385/26_180.png, 230385
+Vieirundinho, CB, Botafogo, Brazil, Value: 450, https://cdn.sofifa.net/players/230/379/26_180.png, 230379
+Pedrão Tofico, CB, Flamengo, Brazil, Value: 450, https://cdn.sofifa.net/players/230/285/26_180.png, 230285
+Zervandro, CB/LB, Internacional, Brazil, Value: 450, https://cdn.sofifa.net/players/230/212/26_180.png, 230212
+Wellington Sabrão, RB/LB, Flamengo, Brazil, Value: 450, https://cdn.sofifa.net/players/230/206/26_180.png, 230206
+Gerson Armão, LB/LM, Internacional, Brazil, Value: 450, https://cdn.sofifa.net/players/230/183/26_180.png, 230183
+Pierre Lees Melou, CDM/CM, Paris FC, France, Value: 450, https://cdn.sofifa.net/players/230/020/26_180.png, 230020
+Emil Audero, GK, Cremonese, Indonesia, Value: 458, https://cdn.sofifa.net/players/228/413/26_180.png, 228413
+Nélson Semedo, RB/RM, Fenerbahçe SK, Portugal, Value: 450, https://cdn.sofifa.net/players/227/928/26_180.png, 227928
+Nuno Santos, LM/LB/LW, Sporting CP, Portugal, Value: 450, https://cdn.sofifa.net/players/227/890/26_180.png, 227890
+Lukas Haraslin, LW/RW/ST/LM, Sparta Praha, Slovakia, Value: 450, https://cdn.sofifa.net/players/227/562/26_180.png, 227562
+Daniel Podence, LM/RM/LW, Olympiacos FC, Portugal, Value: 450, https://cdn.sofifa.net/players/226/766/26_180.png, 226766
+Gianluca Scamacca, ST, Atalanta, Italy, Value: 458, https://cdn.sofifa.net/players/226/710/26_180.png, 226710
+Takumi Minamino, LM/CAM/LW, AS Monaco, Japan, Value: 450, https://cdn.sofifa.net/players/226/627/26_180.png, 226627
+Thilo Kehrer, CB, AS Monaco, Germany, Value: 458, https://cdn.sofifa.net/players/226/229/26_180.png, 226229
+Emiliano Buendia, CAM/LM/RM/CM, Aston Villa, Argentina, Value: 450, https://cdn.sofifa.net/players/226/162/26_180.png, 226162
+Olivier Boscagli, CB, Brighton & Hove Albion, France, Value: 467, https://cdn.sofifa.net/players/225/863/26_180.png, 225863
+Moussa Niakhate, CB, Olympique Lyonnais, Senegal, Value: 450, https://cdn.sofifa.net/players/225/859/26_180.png, 225859
+Zeki Celik, RB/RM/CB, Roma, Türkiye, Value: 450, https://cdn.sofifa.net/players/224/490/26_180.png, 224490
+Luis Rioja, RM/LM/RW, Valencia CF, Spain, Value: 450, https://cdn.sofifa.net/players/224/415/26_180.png, 224415
+Joachim Andersen, CB, Fulham FC, Denmark, Value: 450, https://cdn.sofifa.net/players/224/221/26_180.png, 224221
+Adam Marusic, RB/LB/RM, Lazio, Montenegro, Value: 450, https://cdn.sofifa.net/players/224/031/26_180.png, 224031
+Wout Weghorst, ST, Ajax, Netherlands, Value: 450, https://cdn.sofifa.net/players/223/689/26_180.png, 223689
+Krzysztof Piatek, ST, Free Agent, Poland, Value: 450, https://cdn.sofifa.net/players/223/113/26_180.png, 223113
+Tosin Adarabioyo, CB, Chelsea, England, Value: 467, https://cdn.sofifa.net/players/222/104/26_180.png, 222104
+Julian Weigl, CDM/CM/CB, Al Qadsiah FC, Germany, Value: 450, https://cdn.sofifa.net/players/222/028/26_180.png, 222028
+Hirving Lozano, LW/RW/LM, San Diego FC, Mexico, Value: 450, https://cdn.sofifa.net/players/221/992/26_180.png, 221992
+Maffeo, RB/RM, RCD Mallorca, Argentina, Value: 450, https://cdn.sofifa.net/players/221/342/26_180.png, 221342
+Pau López, GK, Real Betis Balompié, Spain, Value: 450, https://cdn.sofifa.net/players/221/087/26_180.png, 221087
+Carl Starfelt, CB, RC Celta, Sweden, Value: 450, https://cdn.sofifa.net/players/220/821/26_180.png, 220821
+Jan Bednarek, CB, FC Porto, Poland, Value: 450, https://cdn.sofifa.net/players/220/570/26_180.png, 220570
+Martin Dubravka, GK, Burnley, Slovakia, Value: 450, https://cdn.sofifa.net/players/220/407/26_180.png, 220407
+Aarón Escandell, GK, Real Oviedo, Spain, Value: 458, https://cdn.sofifa.net/players/220/383/26_180.png, 220383
+Kenny Tete, RB, Fulham FC, Netherlands, Value: 450, https://cdn.sofifa.net/players/216/266/26_180.png, 216266
+Rodrigo Rey, GK, Independiente, Argentina, Value: 450, https://cdn.sofifa.net/players/215/069/26_180.png, 215069
+Aleksey Miranchuk, CAM/CM/LW, Atlanta United, Russia, Value: 450, https://cdn.sofifa.net/players/214/092/26_180.png, 214092
+Johan Mojica, LB/LM, RCD Mallorca, Colombia, Value: 450, https://cdn.sofifa.net/players/214/026/26_180.png, 214026
+Tyrone Mings, CB, Aston Villa, England, Value: 450, https://cdn.sofifa.net/players/212/419/26_180.png, 212419
+Brandon Mechele, CB, Club Brugge KV, Belgium, Value: 450, https://cdn.sofifa.net/players/212/204/26_180.png, 212204
+Rodinei, RB/RM, Olympiacos FC, Brazil, Value: 450, https://cdn.sofifa.net/players/212/091/26_180.png, 212091
+Mark Flekken, GK, Bayer 04 Leverkusen, Netherlands, Value: 450, https://cdn.sofifa.net/players/211/738/26_180.png, 211738
+Bruma, LW/LM/CAM, SL Benfica, Portugal, Value: 450, https://cdn.sofifa.net/players/211/368/26_180.png, 211368
+Nicolas Tagliafico, LB/LM, Olympique Lyonnais, Argentina, Value: 450, https://cdn.sofifa.net/players/211/256/26_180.png, 211256
+Rubén García, RM/RW/ST/RB, CA Osasuna, Spain, Value: 450, https://cdn.sofifa.net/players/211/022/26_180.png, 211022
+Jonas Hofmann, CAM/ST/CM, Bayer 04 Leverkusen, Germany, Value: 450, https://cdn.sofifa.net/players/210/324/26_180.png, 210324
+Ryan Gauld, LW/ST/RW/LM, Vancouver Whitecaps FC, Scotland, Value: 450, https://cdn.sofifa.net/players/208/919/26_180.png, 208919
+Adrien Thomasson, CM/CAM, RC Lens, France, Value: 450, https://cdn.sofifa.net/players/208/787/26_180.png, 208787
+Emil Forsberg, CAM/LM/CM, New York Red Bulls, Sweden, Value: 450, https://cdn.sofifa.net/players/208/448/26_180.png, 208448
+Lucas Torró, CDM/CM, CA Osasuna, Spain, Value: 450, https://cdn.sofifa.net/players/208/137/26_180.png, 208137
+Joel Veltman, RB, Brighton & Hove Albion, Netherlands, Value: 450, https://cdn.sofifa.net/players/208/004/26_180.png, 208004
+Sead Kolasinac, CB, Atalanta, Bosnia and Herzegovina, Value: 450, https://cdn.sofifa.net/players/207/993/26_180.png, 207993
+Mitchell Weiser, RB/RM, SV Werder Bremen, Germany, Value: 450, https://cdn.sofifa.net/players/206/591/26_180.png, 206591
+Alassane Plea, ST/CAM/LW, PSV, France, Value: 450, https://cdn.sofifa.net/players/206/467/26_180.png, 206467
+Pietro Terracciano, GK, AC Milan, Italy, Value: 450, https://cdn.sofifa.net/players/205/812/26_180.png, 205812
+Niclas Fullkrug, ST, West Ham United, Germany, Value: 450, https://cdn.sofifa.net/players/205/431/26_180.png, 205431
+Milan Borjan, GK, Al Riyadh, Canada, Value: 450, https://cdn.sofifa.net/players/205/211/26_180.png, 205211
+Paulo Gazzaniga, GK, Girona FC, Argentina, Value: 450, https://cdn.sofifa.net/players/205/186/26_180.png, 205186
+Arkadiusz Milik, ST, Juventus, Poland, Value: 450, https://cdn.sofifa.net/players/205/175/26_180.png, 205175
+Stefan Savic, CB, Trabzonspor, Montenegro, Value: 450, https://cdn.sofifa.net/players/204/639/26_180.png, 204639
+Raheem Sterling, LW/LM/RM, Chelsea, England, Value: 450, https://cdn.sofifa.net/players/202/652/26_180.png, 202652
+Geoffrey Kondogbia, CDM/CB, Olympique de Marseille, Central African Republic, Value: 450, https://cdn.sofifa.net/players/201/455/26_180.png, 201455
+Cristiano Biraghi, LB/LM, Torino, Italy, Value: 450, https://cdn.sofifa.net/players/201/389/26_180.png, 201389
+Steven Berghuis, RW/CAM/RM, Ajax, Netherlands, Value: 450, https://cdn.sofifa.net/players/200/260/26_180.png, 200260
+Marco Bizot, GK, Aston Villa, Netherlands, Value: 450, https://cdn.sofifa.net/players/200/110/26_180.png, 200110
+Mathew Ryan, GK, Levante UD, Australia, Value: 450, https://cdn.sofifa.net/players/199/005/26_180.png, 199005
+Wilfried Zaha, LM/LW/ST, Charlotte FC, Côte d'Ivoire, Value: 450, https://cdn.sofifa.net/players/198/717/26_180.png, 198717
+Mattia Perin, GK, Juventus, Italy, Value: 450, https://cdn.sofifa.net/players/198/009/26_180.png, 198009
+Florian Lejeune, CB, Rayo Vallecano, France, Value: 450, https://cdn.sofifa.net/players/197/948/26_180.png, 197948
+Callum Wilson, ST, West Ham United, England, Value: 450, https://cdn.sofifa.net/players/196/978/26_180.png, 196978
+Xherdan Shaqiri, CAM/RW/ST/CM, FC Basel, Switzerland, Value: 450, https://cdn.sofifa.net/players/193/348/26_180.png, 193348
+Alexandre Lacazette, ST, NEOM SC, France, Value: 450, https://cdn.sofifa.net/players/193/301/26_180.png, 193301
+Ciro Immobile, ST/CAM, Bologna, Italy, Value: 450, https://cdn.sofifa.net/players/192/387/26_180.png, 192387
+Stephan El Shaarawy, LM/LW/CAM, Roma, Italy, Value: 450, https://cdn.sofifa.net/players/190/813/26_180.png, 190813
+Luuk De Jong, ST, FC Porto, Netherlands, Value: 450, https://cdn.sofifa.net/players/189/805/26_180.png, 189805
+Jordi Alba, LB/LM/CM, Inter Miami, Spain, Value: 450, https://cdn.sofifa.net/players/189/332/26_180.png, 189332
+Marco Reus, CAM/CM, LA Galaxy, Germany, Value: 450, https://cdn.sofifa.net/players/188/350/26_180.png, 188350
+Azpilicueta, CB/RB, Sevilla FC, Spain, Value: 450, https://cdn.sofifa.net/players/184/432/26_180.png, 184432
+Fernando Muslera, GK, Estudiantes de La Plata, Uruguay, Value: 450, https://cdn.sofifa.net/players/182/494/26_180.png, 182494
+Georginio Wijnaldum, CAM/ST/CM, Al Ettifaq, Netherlands, Value: 450, https://cdn.sofifa.net/players/181/291/26_180.png, 181291
+Kasper Schmeichel, GK, Celtic, Denmark, Value: 450, https://cdn.sofifa.net/players/163/587/26_180.png, 163587
+Wesley, RB/RM/LM, Roma, Brazil, Value: 509, https://cdn.sofifa.net/players/080/170/26_180.png, 80170
+André, CDM/CM, Wolverhampton Wanderers, Brazil, Value: 492, https://cdn.sofifa.net/players/074/866/26_180.png, 74866
+Franco Mastantuono, RM/RW/CAM, Real Madrid, Argentina, Value: 487, https://cdn.sofifa.net/players/279/173/26_180.png, 279173
+Ayyoub Bouaddi, CDM/CM, Lille OSC, France, Value: 469, https://cdn.sofifa.net/players/278/901/26_180.png, 278901
+Santiago Mourino, RB/CB, Villarreal CF, Uruguay, Value: 461, https://cdn.sofifa.net/players/276/493/26_180.png, 276493
+Can Uzun, CAM/ST/CM, Eintracht Frankfurt, Türkiye, Value: 469, https://cdn.sofifa.net/players/275/328/26_180.png, 275328
+Lamine Camara, CM/CDM, AS Monaco, Senegal, Value: 461, https://cdn.sofifa.net/players/275/138/26_180.png, 275138
+Oscar Gloukh, CAM/LW/CM, Ajax, Israel, Value: 461, https://cdn.sofifa.net/players/274/288/26_180.png, 274288
+Renato Veiga, CB/LB/CDM, Villarreal CF, Portugal, Value: 452, https://cdn.sofifa.net/players/273/906/26_180.png, 273906
+Wouter Goes, CB, AZ Alkmaar, Netherlands, Value: 461, https://cdn.sofifa.net/players/273/752/26_180.png, 273752
+Endrick, ST, Real Madrid, Brazil, Value: 495, https://cdn.sofifa.net/players/272/505/26_180.png, 272505
+Rico Lewis, RB/LB/CM, Manchester City, England, Value: 452, https://cdn.sofifa.net/players/271/574/26_180.png, 271574
+Mateus Fernandes, CAM/CM, West Ham United, Portugal, Value: 461, https://cdn.sofifa.net/players/270/857/26_180.png, 270857
+Mika Biereth, ST, AS Monaco, Denmark, Value: 452, https://cdn.sofifa.net/players/270/050/26_180.png, 270050
+Arthur Vermeeren, CM/CDM/CAM, Olympique de Marseille, Belgium, Value: 478, https://cdn.sofifa.net/players/269/859/26_180.png, 269859
+Noah Sadiki, CM/CDM/CAM, Sunderland, Congo DR, Value: 452, https://cdn.sofifa.net/players/269/230/26_180.png, 269230
+Kobbie Mainoo, CM/CDM, Manchester United, England, Value: 461, https://cdn.sofifa.net/players/269/136/26_180.png, 269136
+Mathys Tel, ST/LW/CAM, Tottenham Hotspur, France, Value: 469, https://cdn.sofifa.net/players/268/421/26_180.png, 268421
+Javi Guerra, CM/CDM, Valencia CF, Spain, Value: 469, https://cdn.sofifa.net/players/266/436/26_180.png, 266436
+Giorgio Scalvini, CB, Atalanta, Italy, Value: 469, https://cdn.sofifa.net/players/265/188/26_180.png, 265188
+Cristhian Mosquera, CB, Arsenal, Spain, Value: 461, https://cdn.sofifa.net/players/264/846/26_180.png, 264846
+Tom Bischof, CM/CDM/RM/CAM, FC Bayern München, Germany, Value: 469, https://cdn.sofifa.net/players/263/765/26_180.png, 263765
+Antonio Nusa, LM/CAM/LW, RB Leipzig, Norway, Value: 478, https://cdn.sofifa.net/players/262/863/26_180.png, 262863
+Luciano Valente, CM/CAM, Feyenoord, Netherlands, Value: 452, https://cdn.sofifa.net/players/262/221/26_180.png, 262221
+Jon Mikel Aramburu, RB, Real Sociedad, Venezuela, Value: 461, https://cdn.sofifa.net/players/259/848/26_180.png, 259848
+Yoan Bonny, ST/CAM, Inter, France, Value: 469, https://cdn.sofifa.net/players/259/565/26_180.png, 259565
+Carney Chukwuemeka, CAM/CM, Borussia Dortmund, England, Value: 452, https://cdn.sofifa.net/players/259/356/26_180.png, 259356
+Chrislain Matsima, CB, FC Augsburg, France, Value: 461, https://cdn.sofifa.net/players/258/432/26_180.png, 258432
+Bilal El Khannouss, CAM/LM/CM, VfB Stuttgart, Morocco, Value: 452, https://cdn.sofifa.net/players/257/504/26_180.png, 257504
+Ardon Jashari, CDM/CM, AC Milan, Switzerland, Value: 469, https://cdn.sofifa.net/players/257/186/26_180.png, 257186
+Elia Caprile, GK, Cagliari, Italy, Value: 452, https://cdn.sofifa.net/players/255/303/26_180.png, 255303
+Eduardo Quaresma, CB/RB, Sporting CP, Portugal, Value: 452, https://cdn.sofifa.net/players/252/144/26_180.png, 252144
+Logan Costa, CB, Villarreal CF, Cabo Verde, Value: 452, https://cdn.sofifa.net/players/243/923/26_180.png, 243923
+Asencio, CB/RB/CDM, Real Madrid, Spain, Value: 452, https://cdn.sofifa.net/players/075/605/26_180.png, 75605
+Rodrigo Mora, CAM/LW/CM/ST, FC Porto, Portugal, Value: 495, https://cdn.sofifa.net/players/072/997/26_180.png, 72997

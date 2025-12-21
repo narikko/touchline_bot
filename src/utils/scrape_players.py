@@ -11,32 +11,56 @@ project_root = os.path.dirname(current_dir)
 OUTPUT_DIR = os.path.join(project_root, "data")
 
 # --- CONFIGURATION ---
-BASE_URL = "https://sofifa.com/players?gender=0&units=mks&currency=EUR"
-TOTAL_PAGES = 600 
+# Using the sorted URL to guarantee we find everyone
+BASE_URL = "https://sofifa.com/players?type=all&r=260013&set=true&gender=0&units=mks&currency=EUR&col=oa&sort=desc"
+TOTAL_PAGES = 900 
 
 def calculate_value(current, potential):
-    raw_value = int(((0.8 * current) + (0.2 * potential)) * 10)
-    if raw_value >= 850: return raw_value, "ultra_rare"
-    elif 820 <= raw_value < 850: return raw_value - 120, "rare"
-    elif 790 <= raw_value < 820: return raw_value - 280, "semi_rare"
-    elif 750 <= raw_value < 790: return raw_value - 375, "uncommon"
-    elif 590 <= raw_value < 750: return raw_value - 580, "common"
-    else: return 10, "trash"
+    # 1. Effective Rating (85% Current, 15% Potential)
+    raw_rating = (0.85 * current) + (0.15 * potential)
+    
+    # --- PIECEWISE LOGIC ---
+    if raw_rating >= 85:
+        final_value = int(raw_rating * 10)
+        category = "ultra_rare"
+    elif raw_rating >= 78:
+        final_value = int(450 + (raw_rating - 78) * 57)
+        category = "rare"
+    else:
+        final_value = int(450 - (78 - raw_rating) * 70)
+        category = "common"
+
+    return max(15, final_value), category
 
 def clean_name_from_slug(url):
     try:
         parts = [p for p in url.split('/') if p]
-        # SoFIFA URLs are usually /player/ID/SLUG/VERSION
-        # We want the slug (text part)
         slug = parts[-1] if not parts[-1].isdigit() else parts[-2]
         return slug.replace('-', ' ').title()
     except:
         return None
 
+# --- NEW HELPER FUNCTION TO FIX THE CRASH ---
+def get_clean_rating(td_element):
+    """Converts '83+1' or '83-2' into just integer 83."""
+    if not td_element: return 0
+    text = td_element.get_text(strip=True)
+    
+    # Split by '+' or '-' and take the first part
+    if '+' in text:
+        text = text.split('+')[0]
+    if '-' in text:
+        text = text.split('-')[0]
+        
+    try:
+        return int(text)
+    except ValueError:
+        return 0
+# ---------------------------------------------
+
 def scrape_sofifa():
     if not os.path.exists(OUTPUT_DIR):
         os.makedirs(OUTPUT_DIR)
-        print(f"Created data directory at: {OUTPUT_DIR}")
 
     f_ultra = open(os.path.join(OUTPUT_DIR, "ultra_rare_players_list.txt"), "w", encoding="utf-8")
     f_rare = open(os.path.join(OUTPUT_DIR, "rare_players.txt"), "w", encoding="utf-8")
@@ -52,6 +76,7 @@ def scrape_sofifa():
     }
 
     seen_ids = set()
+    # Updated Scraper headers to match debug script success
     scraper = cloudscraper.create_scraper(browser={'browser': 'chrome', 'platform': 'windows', 'desktop': True})
     
     print(f"Starting scrape (~{TOTAL_PAGES} pages)...")
@@ -82,30 +107,20 @@ def scrape_sofifa():
                     name_link = row.select_one('a[href^="/player/"]')
                     if not name_link: continue
                     
-                    # ID Check (Deduplication)
                     player_id = name_link['href'].split('/')[2]
                     if player_id in seen_ids:
                         continue 
                     seen_ids.add(player_id)
 
-                    # --- UPDATED NAME LOGIC ---
-                    # 1. Get the short name displayed on the card (e.g., "Raphinha" or "C. Palmer")
                     short_name = name_link.get_text(strip=True)
-
-                    # 2. Get the full name from tooltip or URL slug (e.g., "Raphael Dias Belloli")
                     full_name = name_link.get('data-tooltip')
                     if not full_name:
                         full_name = clean_name_from_slug(name_link['href'])
                     
-                    # 3. Apply the Logic: Only use full name if short name has a dot "."
                     if "." in short_name:
-                        # Case: "C. Palmer" -> Use "Cole Palmer" (Full Name)
-                        # Fallback: if full_name is somehow missing, keep short_name
                         name = full_name if full_name else short_name
                     else:
-                        # Case: "Raphinha" -> Keep "Raphinha"
                         name = short_name
-                    # ---------------------------
 
                     # 2. POSITIONS
                     name_col = row.select_one('td:nth-of-type(2)')
@@ -131,11 +146,12 @@ def scrape_sofifa():
                     nation_img = row.select_one('img[src*="flags"], a[href^="/players?na"] img')
                     nationality = nation_img.get('title') if nation_img else "N/A"
 
-                    # 5. RATINGS
+                    # 5. RATINGS (FIXED WITH HELPER FUNCTION)
                     ovr_td = row.select_one('td[data-col="oa"]')
                     pot_td = row.select_one('td[data-col="pt"]')
-                    current_ovr = int(ovr_td.get_text(strip=True)) if ovr_td else 0
-                    potential_ovr = int(pot_td.get_text(strip=True)) if pot_td else 0
+                    
+                    current_ovr = get_clean_rating(ovr_td)    # <--- FIXED
+                    potential_ovr = get_clean_rating(pot_td)  # <--- FIXED
 
                     # 6. CLUB
                     team_link = row.select_one('a[href^="/team/"]')
@@ -154,6 +170,8 @@ def scrape_sofifa():
                         count += 1
 
                 except Exception as e:
+                    # Now we will see if something else breaks!
+                    print(f"Skipping player error: {e}")
                     continue
             
             print(f"✅ Page {page + 1}: Saved {count} Players (Total Unique: {len(seen_ids)})")
