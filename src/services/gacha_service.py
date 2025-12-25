@@ -46,7 +46,7 @@ class GachaService:
         # Refresh Rolls
         time_since_roll = (now - user.last_roll_reset).total_seconds() / 60
         if time_since_roll >= self.ROLL_RESET_MINUTES:
-            user.rolls_remaining = self.MAX_ROLLS
+            user.rolls_remaining = user.max_rolls
             user.last_roll_reset = now
             commit = True
 
@@ -121,7 +121,7 @@ class GachaService:
             return {"success": False, "message": "Database error: No players found."}
 
         # 3. Pay the Roll Cost
-        if user.rolls_remaining >= self.MAX_ROLLS:
+        if user.rolls_remaining >= user.max_rolls:
             user.last_roll_reset = datetime.utcnow()
 
         user.rolls_remaining -= 1

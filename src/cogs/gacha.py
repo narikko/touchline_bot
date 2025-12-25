@@ -521,7 +521,7 @@ class GachaCog(commands.Cog):
             total_cards = session.query(Card).filter_by(user_id=user.id).count()
             
             # Rolls Display
-            if user.rolls_remaining >= service.MAX_ROLLS:
+            if user.rolls_remaining >= user.max_rolls:
                 rolls_display = f"**{user.rolls_remaining}** (Max)"
             else:
                 roll_timer = service.get_next_reset_time(user.last_roll_reset, service.ROLL_RESET_MINUTES)
