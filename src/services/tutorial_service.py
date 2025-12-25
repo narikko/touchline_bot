@@ -192,7 +192,7 @@ class TutorialService:
         user = self._get_user(discord_id, guild_id)
         
         if not user:
-            return {"success": False, "message": "User profile not found. Try running /start first."}
+            return {"success": False, "message": "User profile not found. Try running /tutorial first."}
 
         global_level = tracker.tutorial_progress
         local_level = user.tutorial_progress # Currently 0 for most users
