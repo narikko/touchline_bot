@@ -1,5 +1,6 @@
 import discord
 from src.database.models import User, GlobalTutorial
+from src.services.gacha_service import GachaService
 
 class TutorialService:
     def __init__(self, session):
@@ -119,7 +120,7 @@ class TutorialService:
             )
             self.session.add(user)
             self.session.commit()
-        self.check_refills(user)
+        GachaService.check_refills(user)
         return user
 
     def _get_global_tracker(self, discord_id):
