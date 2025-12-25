@@ -40,7 +40,8 @@ class GeneralCog(commands.Cog):
             value=(
                 "`/invite` - Get the link to add Touchline to a server.\n"
                 "`/refer [user]` - Redeem a referral reward (1000 Coins + 2 Tickets).\n"
-                "`/use_refresh` - Use a ticket to instantly refill your rolls."
+                "`/use_refresh` - Use a ticket to instantly refill your rolls.\n"
+                "`/claim_tutorial_rewards` - Claim tutorial rewards completed on other servers."
             ),
             inline=False
         )

@@ -168,6 +168,55 @@ class TutorialService:
 
         embed.set_footer(text=f"Page {target_index + 1}/{len(self.TUTORIALS)}")
         return {"success": True, "embed": embed}
+    
+    def sync_rewards(self, discord_id, guild_id):
+        """
+        Checks if the user's Local progress lags behind their Global progress.
+        If so, grants the missing rewards for this server.
+        """
+        tracker = self._get_global_tracker(discord_id)
+        user = self._get_user(discord_id, guild_id)
+        
+        if not user:
+            return {"success": False, "message": "User profile not found. Try running /start first."}
+
+        global_level = tracker.tutorial_progress
+        local_level = user.tutorial_progress # Currently 0 for most users
+        
+        if local_level >= global_level:
+            return {"success": False, "message": "You are all caught up on rewards for this server!"}
+
+        rewards_given = []
+
+        # Iterate through the levels the user completed globally but hasn't claimed locally
+        for level_idx in range(local_level, global_level):
+            # Safety check in case global progress exceeds defined tutorials
+            if level_idx >= len(self.TUTORIALS): 
+                break
+                
+            data = self.TUTORIALS[level_idx]
+            reward = data["reward"]
+            
+            # Grant the reward locally
+            if reward["type"] == "coins":
+                user.coins += reward["amount"]
+            elif reward["type"] == "free_claim":
+                user.free_claims += reward["amount"]
+            elif reward["type"] == "max_rolls":
+                user.max_rolls += reward["amount"]
+            
+            rewards_given.append(f"• **{data['title']}**: {data['reward_text']}")
+
+        # Fast-forward local progress to match global
+        user.tutorial_progress = global_level
+        self.session.commit()
+
+        embed = discord.Embed(
+            title="🎁 Tutorial Rewards Synced",
+            description=f"We found completed tutorials from your other servers!\n\n" + "\n".join(rewards_given),
+            color=discord.Color.green()
+        )
+        return {"success": True, "embed": embed}
 
     def complete_step(self, discord_id, guild_id, step_key):
         """
@@ -231,3 +280,5 @@ class TutorialService:
 
         self.session.commit()
         return result_msg
+    
+    
