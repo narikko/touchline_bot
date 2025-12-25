@@ -109,6 +109,19 @@ class TutorialService:
         # Local User (For Rewards)
         return self.session.query(User).filter_by(discord_id=str(discord_id), guild_id=str(guild_id)).first()
 
+    def get_or_create_user(self, discord_id, guild_id, username):
+        user = self.session.query(User).filter_by(discord_id=discord_id, guild_id=guild_id).first()
+        if not user:
+            user = User(
+                discord_id=discord_id,
+                guild_id=guild_id,
+                username=username
+            )
+            self.session.add(user)
+            self.session.commit()
+        self.check_refills(user)
+        return user
+
     def _get_global_tracker(self, discord_id):
         # Global Tracker (For Progress)
         tracker = self.session.query(GlobalTutorial).filter_by(discord_id=str(discord_id)).first()
@@ -118,8 +131,9 @@ class TutorialService:
             self.session.commit()
         return tracker
 
-    def get_tutorial_status(self, discord_id, guild_id, page=None):
+    def get_tutorial_status(self, discord_id, guild_id, username, page=None):
         """Returns the Embed for a specific tutorial level."""
+        self.get_or_create_user(discord_id, guild_id, username)
         tracker = self._get_global_tracker(discord_id)
         current_progress = tracker.tutorial_progress
         

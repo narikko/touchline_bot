@@ -16,7 +16,7 @@ class TutorialCog(commands.Cog):
         service = TutorialService(session)
         
         try:
-            result = service.get_tutorial_status(interaction.user.id, interaction.guild_id, page=page)
+            result = service.get_tutorial_status(interaction.user.id, interaction.guild_id, interaction.user.name, page=page)
             
             if result["success"]:
                 await interaction.followup.send(embed=result["embed"])
