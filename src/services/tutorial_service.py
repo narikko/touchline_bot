@@ -113,8 +113,8 @@ class TutorialService:
         user = self.session.query(User).filter_by(discord_id=discord_id, guild_id=guild_id).first()
         if not user:
             user = User(
-                discord_id=discord_id,
-                guild_id=guild_id,
+                discord_id=str(discord_id),
+                guild_id=str(guild_id),
                 username=username
             )
             self.session.add(user)
