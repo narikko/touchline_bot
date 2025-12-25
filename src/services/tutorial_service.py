@@ -120,7 +120,7 @@ class TutorialService:
             )
             self.session.add(user)
             self.session.commit()
-        GachaService.check_refills(user)
+        GachaService.check_refills(self, user)
         return user
 
     def _get_global_tracker(self, discord_id):
