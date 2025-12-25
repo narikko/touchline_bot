@@ -111,10 +111,14 @@ class TutorialService:
 
     def get_or_create_user(self, discord_id, guild_id, username):
         user = self.session.query(User).filter_by(discord_id=discord_id, guild_id=guild_id).first()
+
+        s_discord_id = str(discord_id)
+        s_guild_id = str(guild_id)
+
         if not user:
             user = User(
-                discord_id=str(discord_id),
-                guild_id=str(guild_id),
+                discord_id=s_discord_id,
+                guild_id=s_guild_id,
                 username=username
             )
             self.session.add(user)
