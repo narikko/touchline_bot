@@ -11,7 +11,7 @@ def normalize_text(text):
 class TeamService:
     def __init__(self, session):
         self.session = session
-        self.TRAINING_MULTIPLIERS = [3, 3.5, 4, 4.5, 5]
+        self.TRAINING_MULTIPLIERS = [0.3, 0.35, 0.4, 0.45, 0.5]
 
         # Valid slots for the command
         self.VALID_SLOTS = {
