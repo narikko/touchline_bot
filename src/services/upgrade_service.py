@@ -27,7 +27,7 @@ class UpgradeService:
             "transfer": {
                 "name": "Transfer Market 📜",
                 "description": "Reduces the **wait time** for transfers to be completed.",
-                "bonuses": ["2 days", "1 day", "12 hours", "6 hours", "3 hours"],
+                "bonuses": ["24 hours", "18 hours", "12 hours", "6 hours", "3 hours"],
                 "prices": [2000, 5000, 10000, 30000, 75000]
             },
             "scout": {

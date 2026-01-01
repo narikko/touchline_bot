@@ -8,7 +8,7 @@ class TransferService:
         
         # Duration in HOURS based on Transfer Upgrade Level (0-5)
         # Default (0) = 72h, 1=48h, 2=24h, 3=12h, 4=6h, 5=3h
-        self.DURATION_HOURS = [72, 48, 24, 12, 6, 3]
+        self.DURATION_HOURS = [36, 24, 18, 12, 6, 3]
 
     def _get_user(self, discord_id, guild_id):
         return self.session.query(User).filter_by(discord_id=discord_id, guild_id=guild_id).first()
