@@ -2,16 +2,26 @@ import os
 from src.database.db import get_session
 from src.database.models import PlayerBase
 
-# --- CONFIGURATION ---
-# Make sure this matches the filename where you fixed the URLs
-LEGENDS_FILE = "data/legends.txt" 
+# --- PATH CONFIGURATION ---
+# 1. Get the directory where this script lives (src/utils)
+current_dir = os.path.dirname(os.path.abspath(__file__))
+
+# 2. Go up two levels to get to the Project Root
+# src/utils -> src -> Project Root
+src_dir = os.path.dirname(current_dir)
+project_root = os.path.dirname(src_dir)
+
+# 3. Construct the full path to the data file
+# NOTE: I used "legends_list.txt" based on your previous messages. 
+# If your file is named "legends.txt", change it below.
+LEGENDS_FILE = os.path.join(project_root, "data", "legends_list.txt")
 
 def update_legend_images():
     session = get_session()
     
-    # Check if file exists
+    # Check if file exists using the absolute path
     if not os.path.exists(LEGENDS_FILE):
-        print(f"❌ Error: Could not find file {LEGENDS_FILE}")
+        print(f"❌ Error: Could not find file at: {LEGENDS_FILE}")
         return
 
     print(f"🔄 Reading {LEGENDS_FILE} to update images...")
@@ -26,11 +36,15 @@ def update_legend_images():
             if len(parts) < 7:
                 continue
 
-            # Extract Data based on your file format
+            # Extract Data
             # Format: Name, Pos, Club, Nation, Value, URL, ID
             name = parts[0]
             new_image_url = parts[5]
-            player_id = int(parts[6])
+            
+            try:
+                player_id = int(parts[6])
+            except ValueError:
+                continue # Skip header lines or bad IDs
 
             # Find the player in the DB
             player = session.query(PlayerBase).filter_by(id=player_id).first()
