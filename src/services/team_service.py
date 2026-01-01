@@ -272,11 +272,13 @@ class TeamService:
             # 3: 500 OVL
             if ovl_value >= 500 and not flags[3]:
                 flags[3] = True
+                user.max_rolls += 2
                 unlocked_msgs.append("• 500 OVL: **+2 Rolls/Hour Boost Active!**")
 
             # 4: 600 OVL
             if ovl_value >= 600 and not flags[4]:
                 flags[4] = True
+                user.max_rolls += 3
                 unlocked_msgs.append("• 600 OVL: **+3 Rolls/Hour Boost Active!**")
 
             # 5: 700 OVL
