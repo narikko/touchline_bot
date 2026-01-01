@@ -391,7 +391,7 @@ class GachaService:
         return {"success": False, "reason": "none", "matches": []}
     
     def view_player(self, discord_id, guild_id, player_name):
-        player_name = normalize_text(player_name)
+        #player_name = normalize_text(player_name)
         search_term = f"%{player_name}%"
         matches = self.session.query(PlayerBase)\
             .filter(PlayerBase.name.ilike(search_term))\
