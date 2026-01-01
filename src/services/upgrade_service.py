@@ -21,8 +21,8 @@ class UpgradeService:
             "training": {
                 "name": "Training Facility 🏋️‍♂️",
                 "description": "Boosts the overall **value rating** of your Starting XI.",
-                "bonuses": ["3%", "3.5%", "4%", "4.5%", "5%"], 
-                "prices": [500, 1000, 2000, 4000, 8000]
+                "bonuses": ["3%", "5%", "7%", "10%", "15%"], 
+                "prices": [500, 1000, 3000, 8000, 12000]
             },
             "transfer": {
                 "name": "Transfer Market 📜",

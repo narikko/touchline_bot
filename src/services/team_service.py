@@ -11,7 +11,7 @@ def normalize_text(text):
 class TeamService:
     def __init__(self, session):
         self.session = session
-        self.TRAINING_MULTIPLIERS = [0.3, 0.35, 0.4, 0.45, 0.5]
+        self.TRAINING_MULTIPLIERS = [0.03, 0.05, 0.07, 0.1, 0.15]
 
         # Valid slots for the command
         self.VALID_SLOTS = {
@@ -184,7 +184,7 @@ class TeamService:
             multiplier = 0
         else:
             # Level 1 is at index 0. Values are percents (3 = 0.03)
-            multiplier = self.TRAINING_MULTIPLIERS[training_level - 1] / 100.0
+            multiplier = self.TRAINING_MULTIPLIERS[training_level - 1]
         
         # Calculate Final Boosted OVL
         ovl_value = int(base_ovl * (1 + multiplier))
@@ -221,7 +221,12 @@ class TeamService:
         
         # 2. Apply Training Facility Upgrade
         training_level = min(getattr(user, "upgrade_training", 0), 5)
-        multiplier = self.TRAINING_MULTIPLIERS[training_level]
+        
+        if training_level == 0:
+            multiplier = 0
+        else:
+            # Level 1 is at index 0. Values are percents (3 = 0.03)
+            multiplier = self.TRAINING_MULTIPLIERS[training_level - 1]
         
         # Final OVL Value used for checks
         ovl_value = int(base_ovl * (1 + multiplier))
@@ -286,7 +291,7 @@ class TeamService:
             # 5: 700 OVL
             if ovl_value >= 700 and not flags[5]:
                 flags[5] = True
-                p_name = grant_random_card(min_rating=830)
+                p_name = grant_random_card(rarity="Ultra Rare")
                 unlocked_msgs.append(f"• 700 OVL: **Unlocked {p_name}!**")
 
             # 6: 800 OVL
