@@ -6,15 +6,11 @@ from src.database.models import PlayerBase
 # 1. Get the directory where this script lives (src/utils)
 current_dir = os.path.dirname(os.path.abspath(__file__))
 
-# 2. Go up two levels to get to the Project Root
-# src/utils -> src -> Project Root
+# 2. Go up one level to get to 'src'
 src_dir = os.path.dirname(current_dir)
-project_root = os.path.dirname(src_dir)
 
-# 3. Construct the full path to the data file
-# NOTE: I used "legends_list.txt" based on your previous messages. 
-# If your file is named "legends.txt", change it below.
-LEGENDS_FILE = os.path.join(project_root, "data", "legends_list.txt")
+# 3. Construct the path to src/data/legends_list.txt
+LEGENDS_FILE = os.path.join(src_dir, "data", "legends_list.txt")
 
 def update_legend_images():
     session = get_session()
@@ -32,25 +28,23 @@ def update_legend_images():
         for line in f:
             parts = line.strip().split(', ')
             
-            # Ensure the line has all parts (Name, Pos, Club, Nation, Value, URL, ID)
+            # Ensure the line has all parts
             if len(parts) < 7:
                 continue
 
             # Extract Data
-            # Format: Name, Pos, Club, Nation, Value, URL, ID
             name = parts[0]
             new_image_url = parts[5]
             
             try:
                 player_id = int(parts[6])
             except ValueError:
-                continue # Skip header lines or bad IDs
+                continue 
 
             # Find the player in the DB
             player = session.query(PlayerBase).filter_by(id=player_id).first()
             
             if player:
-                # Check if URL is different
                 if player.image_url != new_image_url:
                     print(f"   ✏️ Updating {name}: New URL applied.")
                     player.image_url = new_image_url
