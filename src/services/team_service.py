@@ -172,8 +172,8 @@ class TeamService:
             Card.position_in_xi.isnot(None)
         ).all()
         
-        base_ovl = sum(card.details.rating for card in lineup_cards)
         player_count = len(lineup_cards)
+        base_ovl = int(sum(card.details.rating for card in lineup_cards) / player_count)
         
         # 2. Apply Training Facility Upgrade
         # "Boosts the overall value rating of your Starting XI."
