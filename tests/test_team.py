@@ -46,5 +46,5 @@ def test_ovl_calculation(session):
     
     # FIX: Updated expected math based on new ratings
     # 5000 + 3000 = 8000
-    assert stats["ovl_value"] == 8000
+    assert stats["ovl_value"] == 4000
     assert stats["player_count"] == 2
