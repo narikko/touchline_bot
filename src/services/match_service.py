@@ -77,7 +77,7 @@ class MatchService:
 
     def simulate_match(self, home_stats, away_stats):
         """
-        Generates 6 random events spread over 30 minutes (1800 seconds).
+        Generates 6 random events spread over 90 seconds.
         """
         timeline = []
         home_score = 0
@@ -89,14 +89,13 @@ class MatchService:
         total_ovr = home_stats["ovr"] + away_stats["ovr"]
         home_advantage = home_stats["ovr"] / total_ovr 
 
-        # Generate 6 random timestamps between 1 min (60s) and 29 mins (1740s)
-        # We sort them so they happen in order
-        event_timestamps = sorted([random.randint(60, 1740) for _ in range(6)])
+        # CHANGED: Timestamps are now between 5s and 85s (within the 90s match)
+        event_timestamps = sorted([random.randint(5, 85) for _ in range(6)])
 
         for real_second in event_timestamps:
-            # Map Real Time (0-1800s) to Game Time (0-90m)
-            # e.g., 900 seconds = 45th minute
-            game_minute = int((real_second / 1800) * 90)
+            # CHANGED: Map Real Time (0-90s) to Game Time (0-90m)
+            # Since match is 90 seconds, 1 real second = 1 in-game minute
+            game_minute = int(real_second)
 
             # 1. Who gets the chance?
             is_home_attack = random.random() < home_advantage
@@ -121,8 +120,8 @@ class MatchService:
                 team_name = attacker_stats["user"].club_name
                 
                 timeline.append({
-                    "real_second": real_second, # When this happens in real life
-                    "game_minute": game_minute, # What minute to show on scoreboard
+                    "real_second": real_second, # This determines when the embed updates
+                    "game_minute": game_minute,
                     "type": "goal",
                     "text": f"⚽ **GOAL!** {line} ({team_name})",
                     "score": (home_score, away_score)

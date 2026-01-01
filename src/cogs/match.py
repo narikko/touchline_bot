@@ -51,7 +51,7 @@ class MatchCog(commands.Cog):
                 f"⚽ **MATCH CHALLENGE**\n{interaction.user.mention} vs {opponent.mention}\n"
                 f"💰 Wager: **{wager}** 💠\n"
                 f"📊 OVR: **{home_stats['ovr']}** vs **{away_stats['ovr']}**\n"
-                f"⏳ Duration: **30 Minutes**\n\n"
+                f"⏳ Duration: **90 Seconds**\n\n"
                 f"{opponent.mention}, do you accept?",
                 view=view
             )
@@ -139,7 +139,7 @@ class MatchCog(commands.Cog):
                     # We continue the loop to ensure payout happens, even if display is gone
 
             # 5. Finish the remaining time (up to 30 mins / 1800s)
-            remaining_time = 1800 - elapsed_real_time
+            remaining_time = 90 - elapsed_real_time
             if remaining_time > 0:
                 await asyncio.sleep(remaining_time)
 
