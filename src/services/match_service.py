@@ -11,6 +11,10 @@ class MatchService:
         self.MIDFIELD_SLOTS = ["M1", "M2", "M3"]
         self.DEFENSE_SLOTS = ["D1", "D2", "D3", "D4", "GK"]
 
+        # Training Bonuses (Level 1 to Level 5)
+        # Level 1 (+3%), Level 2 (+5%), Level 3 (+7%), Level 4 (+10%), Level 5 (+15%)
+        self.TRAINING_MULTIPLIERS = [0.03, 0.05, 0.07, 0.10, 0.15]
+
         self.GOAL_LINES = [
             "What a screamer! ⚽ [Player] finds the top corner!",
             "Beautiful team play! [Player] taps it in! ⚽",
@@ -25,7 +29,7 @@ class MatchService:
         ]
 
     def get_team_power(self, user_id, guild_id):
-        """Calculates Attack, Midfield, Defense scores based on the lineup."""
+        """Calculates Attack, Midfield, Defense scores based on the lineup + Training Upgrades."""
         user = self.session.query(User).filter_by(discord_id=str(user_id), guild_id=str(guild_id)).first()
         if not user: return None
 
@@ -59,12 +63,30 @@ class MatchService:
                 else:
                     roster["defense"].append(name)
 
-        # Calculate Averages
+        # Calculate Base Averages
         def avg(lst): return int(sum(lst) / len(lst)) if lst else 0
 
         att_pwr = avg(stats["attack"])
         mid_pwr = avg(stats["midfield"])
         def_pwr = avg(stats["defense"])
+
+        # --- NEW: APPLY TRAINING UPGRADE BOOST ---
+        training_level = user.upgrade_training # Defaults to 0 if not set
+        
+        if training_level > 0:
+            # Ensure we don't crash if level is higher than our list (safety check)
+            # Level 1 corresponds to index 0
+            index = min(training_level, len(self.TRAINING_MULTIPLIERS)) - 1
+            
+            if index >= 0:
+                bonus_pct = self.TRAINING_MULTIPLIERS[index] # e.g., 0.03 for Level 1
+                multiplier = 1.0 + bonus_pct
+                
+                # Apply boost
+                att_pwr = int(att_pwr * multiplier)
+                mid_pwr = int(mid_pwr * multiplier)
+                def_pwr = int(def_pwr * multiplier)
+        # -----------------------------------------
         
         overall = int((att_pwr + mid_pwr + def_pwr) / 3)
 
@@ -77,7 +99,7 @@ class MatchService:
 
     def simulate_match(self, home_stats, away_stats):
         """
-        Generates 6 random events spread over 90 seconds.
+        Generates random events (between 5 and 12) spread over 90 seconds.
         """
         timeline = []
         home_score = 0
@@ -87,14 +109,18 @@ class MatchService:
         away_roster = away_stats["roster"]
 
         total_ovr = home_stats["ovr"] + away_stats["ovr"]
+        if total_ovr == 0: total_ovr = 1
+        
         home_advantage = home_stats["ovr"] / total_ovr 
 
-        # CHANGED: Timestamps are now between 5s and 85s (within the 90s match)
-        event_timestamps = sorted([random.randint(5, 85) for _ in range(6)])
+        # CHANGED: Randomize number of events between 5 and 12
+        # This makes some matches quiet (5 events) and others chaotic (12 events)
+        num_events = random.randint(5, 12)
+
+        # Timestamps between 5s and 85s
+        event_timestamps = sorted([random.randint(5, 85) for _ in range(num_events)])
 
         for real_second in event_timestamps:
-            # CHANGED: Map Real Time (0-90s) to Game Time (0-90m)
-            # Since match is 90 seconds, 1 real second = 1 in-game minute
             game_minute = int(real_second)
 
             # 1. Who gets the chance?
@@ -105,22 +131,27 @@ class MatchService:
             attacker_roster = home_roster if is_home_attack else away_roster
             defender_roster = away_roster if is_home_attack else home_roster
 
-            # 2. Attack vs Defense Calculation
-            att_roll = attacker_stats["att"] * random.uniform(0.8, 1.2)
-            def_roll = ((defender_stats["def"] + defender_stats["mid"]) / 2) * random.uniform(0.8, 1.2)
+            # 2. Attack vs Defense Calculation (Including Midfield logic from before)
+            att_base = (attacker_stats["att"] + attacker_stats["mid"]) / 2
+            att_roll = att_base * random.uniform(0.8, 1.2)
+
+            def_base = (defender_stats["def"] + defender_stats["mid"]) / 2
+            def_roll = def_base * random.uniform(0.8, 1.2)
 
             if att_roll > def_roll:
                 # GOAL
                 if is_home_attack: home_score += 1
                 else: away_score += 1
 
-                r_pos = random.choice(["attack", "midfield", "attack"]) 
-                scorer = random.choice(attacker_roster[r_pos])
+                r_pos = random.choice(["attack", "midfield", "attack"])
+                available_scorers = attacker_roster[r_pos] if attacker_roster[r_pos] else ["Unknown Player"]
+                scorer = random.choice(available_scorers)
+                
                 line = random.choice(self.GOAL_LINES).replace("[Player]", f"**{scorer}**")
                 team_name = attacker_stats["user"].club_name
                 
                 timeline.append({
-                    "real_second": real_second, # This determines when the embed updates
+                    "real_second": real_second, 
                     "game_minute": game_minute,
                     "type": "goal",
                     "text": f"⚽ **GOAL!** {line} ({team_name})",
@@ -131,7 +162,8 @@ class MatchService:
                 if random.random() < 0.6: 
                     saver = defender_roster["gk"][0] if defender_roster["gk"] else "GK"
                 else:
-                    saver = random.choice(defender_roster["defense"])
+                    available_defenders = defender_roster["defense"] if defender_roster["defense"] else ["Defender"]
+                    saver = random.choice(available_defenders)
                 
                 line = random.choice(self.SAVE_LINES).replace("[Player]", f"**{saver}**")
                 
