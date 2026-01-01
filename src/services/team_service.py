@@ -226,6 +226,8 @@ class TeamService:
         # Final OVL Value used for checks
         ovl_value = int(base_ovl * (1 + multiplier))
 
+        print(ovl_value)
+
         # --- Initialize Flags ---
         if not user.team_rewards_flags:
             user.team_rewards_flags = [False] * 7
