@@ -13,6 +13,13 @@ class TradeService:
             self.session.commit()
         return user
 
+    def check_balance(self, discord_id, guild_id, amount):
+        """
+        Checks if a user has enough coins.
+        """
+        user = self.get_or_create_user(discord_id, guild_id, "Unknown")
+        return user.coins >= amount
+
     def validate_offer(self, discord_id, guild_id, player_names_str):
         """
         Parses a string like "Messi, Ronaldo" and finds valid cards.
@@ -21,7 +28,6 @@ class TradeService:
         user = self.get_or_create_user(discord_id, guild_id, "Unknown")
         
         # 1. Parse Input
-        # Split by comma, strip whitespace, remove empty strings
         names = [n.strip() for n in player_names_str.split(',') if n.strip()]
         
         if len(names) > 3:
@@ -35,7 +41,6 @@ class TradeService:
 
         # 2. Find Each Card
         for name in names:
-            # We search for a card owned by the user
             card = self.session.query(Card).join(PlayerBase)\
                 .options(joinedload(Card.details))\
                 .outerjoin(MarketListing, Card.id == MarketListing.card_id)\
@@ -59,47 +64,57 @@ class TradeService:
 
         return {"success": True, "cards": found_cards}
 
-    def execute_multi_trade(self, card_ids_a, card_ids_b):
+    def execute_multi_trade(self, user_a_id, user_b_id, card_ids_a, card_ids_b, coins_a=0, coins_b=0):
         """
-        Swaps ownership of two LISTS of cards.
+        Swaps ownership of LISTS of cards AND transfers coins.
         """
-        # Fetch all cards involved
+        # Fetch Users
+        # We assume IDs are passed as integers or strings, so we convert to match DB
+        user_a = self.session.query(User).filter_by(discord_id=str(user_a_id)).first()
+        user_b = self.session.query(User).filter_by(discord_id=str(user_b_id)).first()
+
+        if not user_a or not user_b:
+            return {"success": False, "message": "Trade failed: User not found."}
+
+        # Fetch Cards
         cards_a = self.session.query(Card).filter(Card.id.in_(card_ids_a)).all()
         cards_b = self.session.query(Card).filter(Card.id.in_(card_ids_b)).all()
 
-        # 1. Verification
+        # 1. Verification (Cards Exist)
         if len(cards_a) != len(card_ids_a) or len(cards_b) != len(card_ids_b):
              return {"success": False, "message": "Trade failed: One or more cards no longer exist."}
 
-        # Check XI status again just to be safe
+        # 2. Verification (Cards in XI)
         for c in cards_a + cards_b:
             if c.position_in_xi:
                 return {"success": False, "message": f"Trade failed: **{c.details.name}** is in a Starting XI."}
 
-        # 2. Get Owners (From the first card of each side)
-        # We enforce at least 1 card per side
-        if not cards_a or not cards_b:
-             return {"success": False, "message": "Trade failed: Both sides must offer at least one card."}
+        # 3. Verification (Coins)
+        if user_a.coins < coins_a:
+             return {"success": False, "message": f"Trade failed: {user_a.username} cannot afford {coins_a} coins."}
+        if user_b.coins < coins_b:
+             return {"success": False, "message": f"Trade failed: {user_b.username} cannot afford {coins_b} coins."}
 
-        owner_a_id = cards_a[0].user_id
-        owner_b_id = cards_b[0].user_id
-
-        # 3. SWAP
+        # 4. SWAP CARDS
         # All cards from A go to B
         for c in cards_a:
-            c.user_id = owner_b_id
-            c.position_in_xi = None # Reset pos
-            c.is_locked = False     # Unlock if locked
-
-        # All cards from B go to A
-        for c in cards_b:
-            c.user_id = owner_a_id
+            c.user_id = user_b.id
             c.position_in_xi = None
             c.is_locked = False
 
+        # All cards from B go to A
+        for c in cards_b:
+            c.user_id = user_a.id
+            c.position_in_xi = None
+            c.is_locked = False
+
+        # 5. SWAP COINS
+        user_a.coins -= coins_a
+        user_b.coins += coins_a
+        
+        user_b.coins -= coins_b
+        user_a.coins += coins_b
+
         self.session.commit()
         
-        return {
-            "success": True, 
-            "message": "Trade Successful!"
-        }
+        return {"success": True, "message": "Trade Successful!"}

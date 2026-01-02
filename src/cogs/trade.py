@@ -9,7 +9,7 @@ class TradeCog(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @app_commands.command(name="trade", description="Trade players (Max 3). Use commas for multiple: 'Messi, Ronaldo'")
+    @app_commands.command(name="trade", description="Trade players/coins. Use commas for multiple players.")
     @app_commands.describe(offer="The player(s) you are offering (e.g. 'Messi, Neymar')")
     async def trade(self, interaction: discord.Interaction, user: discord.User, offer: str):
         await interaction.response.defer()
@@ -22,17 +22,16 @@ class TradeCog(commands.Cog):
         service = TradeService(session)
 
         try:
-            # 1. Validate User A's Offer (Handle "Messi, Ronaldo")
+            # 1. Validate User A's Offer
             result_a = service.validate_offer(interaction.user.id, interaction.guild_id, offer)
             
             if not result_a["success"]:
                 await interaction.followup.send(result_a["message"], ephemeral=True)
                 return
 
-            offered_cards_a = result_a["cards"] # List of Card Objects
+            offered_cards_a = result_a["cards"]
 
             # 2. Create View
-            # We pass the LIST of cards, not just one ID
             view = TradingView(
                 bot=self.bot, 
                 user_a=interaction.user, 
@@ -48,6 +47,7 @@ class TradeCog(commands.Cog):
             
             embed.add_field(name=f"📤 {interaction.user.name}'s Offer", value=offer_names, inline=False)
             embed.add_field(name=f"📥 {user.name}'s Counter", value="*Waiting for offer...*", inline=False)
+            embed.set_footer(text="Use the buttons below to add Coins or Counter-offer.")
             
             msg = await interaction.followup.send(content=f"{user.mention}, you have a trade request!", embed=embed, view=view)
             view.message = msg 
