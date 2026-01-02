@@ -67,6 +67,7 @@ class TeamService:
         # Map Position -> Player Details
         lineup_dict = {card.position_in_xi: card.details for card in lineup_cards}
         
+        
         return {
             "success": True, 
             "club_name": user.club_name if user.club_name else "Default FC",

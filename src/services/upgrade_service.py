@@ -1,4 +1,5 @@
 from src.database.models import User
+from src.services.team_service import TeamService
 
 class UpgradeService:
     def __init__(self, session):
@@ -129,11 +130,14 @@ class UpgradeService:
         # Get the new bonus value to display
         new_bonus = config["bonuses"][current_level] # Now at this index
 
+        reward_msg = TeamService.process_milestone_check(user)
+
         return {
             "success": True, 
             "name": config["name"],
             "new_level": current_level + 1,
             "cost": cost,
             "new_bonus": new_bonus,
-            "balance": user.coins
+            "balance": user.coins,
+            "reward": reward_msg
         }

@@ -89,6 +89,9 @@ class UpgradeCog(commands.Cog):
                     )
                     await interaction.followup.send(embed=embed)
 
+                    if result["reward"]:
+                        await interaction.followup.send(result["reward"])
+
                     # --- TUTORIAL HOOK: 6_buy ---
                     try:
                         from src.services.tutorial_service import TutorialService
