@@ -9,7 +9,7 @@ class GeneralCog(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @app_commands.command(name="index", description="View the complete list of commands.")
+    @app_commands.command(name="help", description="View the complete list of commands.")
     async def index(self, interaction: discord.Interaction):
         embed = discord.Embed(
             title="📖 Manager's Handbook (Index)",

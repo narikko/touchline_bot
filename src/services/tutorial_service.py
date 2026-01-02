@@ -283,7 +283,7 @@ class TutorialService:
                     "🏆 **CONGRATULATIONS!** 🏆\n"
                     "You have completed the entire Tutorial Campaign!\n\n"
                     f"You received **{data['reward_text']}**.\n"
-                    "You are now a certified manager. Use **/index** to view the full command list at any time.\n\n"
+                    "You are now a certified manager. Use **/help** to view the full command list at any time.\n\n"
                     "🚀 **Want a Head Start?**\n"
                     "Invite a friend to play and you **BOTH get 1,000 Coins!** \n"
                     "Type **/invite** to get your link."
