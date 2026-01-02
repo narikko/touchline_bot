@@ -37,6 +37,21 @@ class MatchService:
         cards = self.session.query(Card).join(PlayerBase)\
             .filter(Card.user_id == user.id, Card.position_in_xi.isnot(None))\
             .all()
+        
+        player_count = len(cards)
+        base_ovl = int(sum(card.details.rating for card in cards) / player_count)
+        
+        # 2. Apply Training Facility Upgrade
+        training_level = min(getattr(user, "upgrade_training", 0), 5)
+        
+        if training_level == 0:
+            multiplier = 0
+        else:
+            # Level 1 is at index 0. Values are percents (3 = 0.03)
+            multiplier = self.TRAINING_MULTIPLIERS[training_level - 1]
+        
+        # Final OVL Value used for checks
+        ovl_value = int(base_ovl * (1 + multiplier))
 
         if len(cards) < 11:
             return {"valid": False, "message": "You need a full team of 11 players to play!"}
@@ -88,7 +103,7 @@ class MatchService:
                 def_pwr = int(def_pwr * multiplier)
         # -----------------------------------------
         
-        overall = int((att_pwr + mid_pwr + def_pwr) / 3)
+        overall = ovl_value
 
         return {
             "valid": True,

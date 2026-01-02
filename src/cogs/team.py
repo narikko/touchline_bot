@@ -12,26 +12,48 @@ class TeamCog(commands.Cog):
     team_group = app_commands.Group(name="team", description="Manage your starting XI and club details.")
 
     # --- SUBCOMMAND: VIEW ---
-    @team_group.command(name="view", description="View your current starting XI.")
-    async def view_team(self, interaction: discord.Interaction):
+    # --- SUBCOMMAND: VIEW ---
+    @team_group.command(name="view", description="View your (or another user's) starting XI.")
+    @app_commands.describe(user="The user whose team you want to view (optional).")
+    async def view_team(self, interaction: discord.Interaction, user: discord.User = None):
         await interaction.response.defer()
+        
+        # 1. Determine Target (If no user specified, view self)
+        target_user = user if user else interaction.user
+        
+        # Optional: Prevent viewing bots
+        if target_user.bot:
+            await interaction.followup.send("🤖 Bots don't play football!", ephemeral=True)
+            return
+
         session = get_session()
         service = TeamService(session)
         
         try:
-            result = service.get_starting_xi(interaction.user.id, interaction.guild_id)
+            # 2. Get the team for the TARGET user
+            result = service.get_starting_xi(target_user.id, interaction.guild_id)
+            
             if not result["success"]:
-                await interaction.followup.send(result["message"])
+                # If viewing someone else, make the error clearer
+                if user:
+                    await interaction.followup.send(f"❌ **{target_user.display_name}** hasn't set up their club yet.")
+                else:
+                    await interaction.followup.send(result["message"])
                 return
 
             club_name = result["club_name"]
             lineup = result["lineup"]
+            ovl_value = result["ovl_value"]
             
+            # 3. Build Embed
             embed = discord.Embed(
                 title=f"⚽ {club_name}", 
-                description="Your Starting XI",
+                description=f"Overall Value: **{ovl_value}**",
                 color=discord.Color.blue()
             )
+            
+            # Add footer to clarify whose team this is
+            embed.set_footer(text=f"Manager: {target_user.display_name}", icon_url=target_user.display_avatar.url)
             
             def get_field(pos_code):
                 player = lineup.get(pos_code)
@@ -45,12 +67,14 @@ class TeamCog(commands.Cog):
             await interaction.followup.send(embed=embed)
 
             # --- TUTORIAL HOOK: 5_view_team ---
-            try:
-                from src.services.tutorial_service import TutorialService
-                tut_service = TutorialService(session)
-                tut_msg = tut_service.complete_step(interaction.user.id, interaction.guild_id, "5_view_team")
-                if tut_msg: await interaction.followup.send(tut_msg)
-            except Exception as e: print(f"Tutorial Error: {e}")
+            # Only trigger tutorial if viewing YOURSELF (otherwise they cheat the step by looking at others)
+            if target_user.id == interaction.user.id:
+                try:
+                    from src.services.tutorial_service import TutorialService
+                    tut_service = TutorialService(session)
+                    tut_msg = tut_service.complete_step(interaction.user.id, interaction.guild_id, "5_view_team")
+                    if tut_msg: await interaction.followup.send(tut_msg)
+                except Exception as e: print(f"Tutorial Error: {e}")
             # ----------------------------------
 
         finally:

@@ -48,6 +48,21 @@ class TeamService:
         lineup_cards = self.session.query(Card).join(PlayerBase)\
             .filter(Card.user_id == user.id, Card.position_in_xi.isnot(None))\
             .all()
+        
+        player_count = len(lineup_cards)
+        base_ovl = int(sum(card.details.rating for card in lineup_cards) / player_count)
+        
+        # 2. Apply Training Facility Upgrade
+        training_level = min(getattr(user, "upgrade_training", 0), 5)
+        
+        if training_level == 0:
+            multiplier = 0
+        else:
+            # Level 1 is at index 0. Values are percents (3 = 0.03)
+            multiplier = self.TRAINING_MULTIPLIERS[training_level - 1]
+        
+        # Final OVL Value used for checks
+        ovl_value = int(base_ovl * (1 + multiplier))
 
         # Map Position -> Player Details
         lineup_dict = {card.position_in_xi: card.details for card in lineup_cards}
@@ -55,7 +70,8 @@ class TeamService:
         return {
             "success": True, 
             "club_name": user.club_name if user.club_name else "Default FC",
-            "lineup": lineup_dict
+            "lineup": lineup_dict,
+            "ovl_value": ovl_value
         }
 
     def set_lineup_player(self, discord_id, guild_id, slot_code, player_name_query):
@@ -230,8 +246,6 @@ class TeamService:
         
         # Final OVL Value used for checks
         ovl_value = int(base_ovl * (1 + multiplier))
-
-        print(ovl_value)
 
         # --- Initialize Flags ---
         if not user.team_rewards_flags:
