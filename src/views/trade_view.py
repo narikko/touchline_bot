@@ -2,179 +2,155 @@ import discord
 from src.database.db import get_session
 from src.services.trade_service import TradeService
 
-class TradeOfferModal(discord.ui.Modal, title="Make your Counter-Offer"):
-    def __init__(self, view, user_b_discord_id, guild_id):
-        super().__init__()
-        self.trade_view = view
-        self.user_b_discord_id = user_b_discord_id
-        self.guild_id = guild_id
-
-    player_name = discord.ui.TextInput(
-        label="Player Name",
-        placeholder="Type the exact name of the player...",
+# --- MODAL FOR USER B TO TYPE THEIR OFFER ---
+class CounterOfferModal(discord.ui.Modal, title="Make Counter Offer"):
+    offer_input = discord.ui.TextInput(
+        label="Player Names (Max 3)",
+        placeholder="e.g. Haaland, De Bruyne",
         required=True
     )
 
+    def __init__(self, view_ref):
+        super().__init__()
+        self.view_ref = view_ref # Reference to the main View
+
     async def on_submit(self, interaction: discord.Interaction):
         await interaction.response.defer(ephemeral=True)
-        
         session = get_session()
         service = TradeService(session)
         
-        try:
-            # Check if this player exists in User B's collection
-            card = service.find_card_for_trade(self.user_b_discord_id, self.guild_id, self.player_name.value)
-            
-            if not card:
-                await interaction.followup.send("❌ Card not found, in Starting XI, or on Market.", ephemeral=True)
-                return
+        # Validate User B's input
+        result = service.validate_offer(interaction.user.id, interaction.guild_id, self.offer_input.value)
+        session.close()
 
-            # Update View State
-            self.trade_view.card_b_id = card.id
-            self.trade_view.card_b_name = card.details.name
-            
-            await self.trade_view.update_embed(interaction)
-            await interaction.followup.send(f"You offered **{card.details.name}**!", ephemeral=True)
-            
-        finally:
-            session.close()
+        if not result["success"]:
+            await interaction.followup.send(result["message"], ephemeral=True)
+            return
+        
+        # Save User B's cards to the view
+        # We store the objects temporarily to display names
+        self.view_ref.cards_b = result["cards"]
+        self.view_ref.accepted_a = False # Reset accept status if offer changes
+        self.view_ref.accepted_b = True  # Auto-accept their own offer
+        
+        await interaction.followup.send("✅ Offer updated!", ephemeral=True)
+        await self.view_ref.update_embed(interaction)
 
+
+# --- MAIN VIEW ---
 class TradingView(discord.ui.View):
-    def __init__(self, bot, user_a, user_b, card_a_id, card_a_name):
+    def __init__(self, bot, user_a, user_b, cards_a):
         super().__init__(timeout=300)
         self.bot = bot
         self.user_a = user_a
         self.user_b = user_b
         
-        self.card_a_id = card_a_id
-        self.card_a_name = card_a_name
+        self.cards_a = cards_a # List of Card Objects
+        self.cards_b = []      # Starts empty
         
-        self.card_b_id = None
-        self.card_b_name = "Waiting for offer..."
-        
-        self.a_accepted = False
-        self.b_accepted = False
+        self.accepted_a = True # User A accepted by starting the trade
+        self.accepted_b = False
         self.message = None
 
-        # IMPORTANT: Initialize buttons immediately!
-        self._update_buttons()
-
-    def _update_buttons(self):
-        """Helper to refresh buttons based on current state."""
-        self.clear_items()
-        
-        # Button: Counter Offer (Visible if B hasn't accepted yet)
-        if not self.b_accepted:
-             offer_btn = discord.ui.Button(label="Make/Change Offer", style=discord.ButtonStyle.blurple, emoji="📤")
-             offer_btn.callback = self.offer_callback
-             self.add_item(offer_btn)
-        
-        # Button: Confirm (Only if BOTH sides have an item)
-        if self.card_b_id:
-            confirm_label = "Confirm Trade"
-            style = discord.ButtonStyle.green
-            
-            # If both clicked, show processing state visually
-            if self.a_accepted and self.b_accepted: 
-                confirm_label = "Processing..."
-                style = discord.ButtonStyle.grey
-            
-            accept_btn = discord.ui.Button(label=confirm_label, style=style, emoji="✅")
-            accept_btn.callback = self.accept_callback
-            self.add_item(accept_btn)
-            
-        # Button: Cancel (Always visible)
-        cancel_btn = discord.ui.Button(label="Cancel", style=discord.ButtonStyle.red)
-        cancel_btn.callback = self.cancel_callback
-        self.add_item(cancel_btn)
-
     async def update_embed(self, interaction):
-        embed = discord.Embed(title="🤝 Trade Desk", color=discord.Color.gold())
-        
-        icon_a = "✅" if self.a_accepted else "⏳"
-        embed.add_field(name=f"{self.user_a.display_name}", value=f"Offer: **{self.card_a_name}**\nStatus: {icon_a}", inline=True)
-        
-        embed.add_field(name="vs", value="↔️", inline=True)
-        
-        icon_b = "✅" if self.b_accepted else "⏳"
-        embed.add_field(name=f"{self.user_b.display_name}", value=f"Offer: **{self.card_b_name}**\nStatus: {icon_b}", inline=True)
+        names_a = ", ".join([f"**{c.details.name}**" for c in self.cards_a])
+        names_b = ", ".join([f"**{c.details.name}**" for c in self.cards_b]) if self.cards_b else "*None*"
 
-        # Refresh buttons state logic
-        self._update_buttons()
+        embed = discord.Embed(title="🤝 Trade Negotiation", color=discord.Color.blue())
+        
+        # Visual Indicators for Status
+        status_a = "✅ Ready" if self.accepted_a else "⏳ Thinking..."
+        status_b = "✅ Ready" if self.accepted_b else "⏳ Thinking..."
 
-        if interaction.message:
-            await interaction.message.edit(embed=embed, view=self)
-        elif self.message:
+        embed.add_field(name=f"{self.user_a.name} ({status_a})", value=names_a, inline=False)
+        embed.add_field(name=f"⬇️ ⬆️", value="vs", inline=False)
+        embed.add_field(name=f"{self.user_b.name} ({status_b})", value=names_b, inline=False)
+        
+        # Check if complete
+        if self.accepted_a and self.accepted_b:
+             embed.color = discord.Color.green()
+             embed.set_footer(text="Both parties accepted! Processing...")
+             
+             # Disable buttons visual only (logic handled below)
+             for item in self.children: item.disabled = True
+             
+             if self.message:
+                 await self.message.edit(embed=embed, view=self)
+             elif interaction.message:
+                 await interaction.message.edit(embed=embed, view=self)
+
+             # Execute Trade
+             session = get_session()
+             service = TradeService(session)
+             
+             ids_a = [c.id for c in self.cards_a]
+             ids_b = [c.id for c in self.cards_b]
+             
+             res = service.execute_multi_trade(ids_a, ids_b)
+             
+             if res["success"]:
+                 embed.title = "✅ Trade Completed!"
+                 embed.description = f"Owners swapped successfully.\n\n{names_a} ↔ {names_b}"
+                 
+                 # --- TUTORIAL HOOK ---
+                 try:
+                     from src.services.tutorial_service import TutorialService
+                     tut = TutorialService(session)
+                     msg_a = tut.complete_step(self.user_a.id, interaction.guild.id, "7_trade")
+                     msg_b = tut.complete_step(self.user_b.id, interaction.guild.id, "7_trade")
+                     
+                     if msg_a: await interaction.channel.send(f"{self.user_a.mention} {msg_a}")
+                     if msg_b: await interaction.channel.send(f"{self.user_b.mention} {msg_b}")
+                 except Exception as e:
+                     print(f"Tutorial Hook Error: {e}")
+                 # ---------------------
+             else:
+                 embed.title = "❌ Trade Failed"
+                 embed.description = res["message"]
+                 embed.color = discord.Color.red()
+             
+             session.close()
+
+             if self.message:
+                 await self.message.edit(embed=embed, view=None)
+             elif interaction.message:
+                 await interaction.message.edit(embed=embed, view=None)
+             return
+
+        # Normal Update
+        if self.message:
             await self.message.edit(embed=embed, view=self)
+        elif interaction.message:
+            await interaction.message.edit(embed=embed, view=self)
 
-    async def offer_callback(self, interaction: discord.Interaction):
+
+    @discord.ui.button(label="Make Offer / Counter", style=discord.ButtonStyle.primary)
+    async def counter(self, interaction: discord.Interaction, button: discord.ui.Button):
         if interaction.user.id != self.user_b.id:
-            await interaction.response.send_message("Only the target user can make a counter-offer!", ephemeral=True)
-            return
-        await interaction.response.send_modal(TradeOfferModal(self, self.user_b.id, interaction.guild.id))
+            return await interaction.response.send_message("Only the trade partner can add cards!", ephemeral=True)
+        
+        # Open Modal for User B to type names
+        await interaction.response.send_modal(CounterOfferModal(self))
 
-    async def accept_callback(self, interaction: discord.Interaction):
+    @discord.ui.button(label="Accept Trade", style=discord.ButtonStyle.success)
+    async def accept(self, interaction: discord.Interaction, button: discord.ui.Button):
         if interaction.user.id == self.user_a.id:
-            self.a_accepted = not self.a_accepted
+            self.accepted_a = not self.accepted_a # Toggle
         elif interaction.user.id == self.user_b.id:
-            self.b_accepted = not self.b_accepted
+            if not self.cards_b:
+                return await interaction.response.send_message("You must offer at least one player!", ephemeral=True)
+            self.accepted_b = not self.accepted_b # Toggle
         else:
-            await interaction.response.send_message("You are not part of this trade.", ephemeral=True)
-            return
+            return await interaction.response.send_message("You are not part of this trade.", ephemeral=True)
 
         await interaction.response.defer()
+        await self.update_embed(interaction)
 
-        # If Both Accepted -> EXECUTE
-        if self.a_accepted and self.b_accepted:
-            session = get_session()
-            service = TradeService(session) 
-            try:
-                result = service.execute_trade(self.card_a_id, self.card_b_id)
-                
-                if result["success"]:
-                    self.stop()
-                    final_embed = discord.Embed(
-                        title="✅ Trade Completed!",
-                        description=f"{self.user_a.mention} traded **{self.card_a_name}** for {self.user_b.mention}'s **{self.card_b_name}**.",
-                        color=discord.Color.green()
-                    )
-                    if self.message:
-                        await self.message.edit(embed=final_embed, view=None)
-                    
-                    # --- TUTORIAL HOOK (7_trade) ---
-                    try:
-                        from src.services.tutorial_service import TutorialService
-                        tut_service = TutorialService(session)
-                        
-                        # 1. Credit User A (The Proposer)
-                        msg_a = tut_service.complete_step(self.user_a.id, interaction.guild.id, "7_trade")
-                        
-                        # 2. Credit User B (The Accepter)
-                        msg_b = tut_service.complete_step(self.user_b.id, interaction.guild.id, "7_trade")
-
-                        # 3. Send Notifications
-                        if msg_a:
-                            await interaction.channel.send(f"{self.user_a.mention} {msg_a}")
-                        if msg_b:
-                            await interaction.channel.send(f"{self.user_b.mention} {msg_b}")
-
-                    except Exception as e:
-                        print(f"Tutorial Error in Trade: {e}")
-                    # -------------------------------
-                    
-                else:
-                    await interaction.followup.send(f"❌ Trade Failed: {result['message']}", ephemeral=True)
-                    self.a_accepted = False
-                    self.b_accepted = False
-                    await self.update_embed(interaction)
-            finally:
-                session.close()
-        else:
-            await self.update_embed(interaction)
-
-    async def cancel_callback(self, interaction: discord.Interaction):
+    @discord.ui.button(label="Cancel", style=discord.ButtonStyle.danger)
+    async def cancel(self, interaction: discord.Interaction, button: discord.ui.Button):
         if interaction.user.id not in [self.user_a.id, self.user_b.id]:
-            return
+             return await interaction.response.send_message("You cannot cancel this trade.", ephemeral=True)
+        
+        embed = discord.Embed(title="❌ Trade Cancelled", description=f"Cancelled by {interaction.user.mention}", color=discord.Color.red())
         self.stop()
-        if interaction.message:
-            await interaction.message.edit(content="❌ Trade Cancelled.", embed=None, view=None)
+        await interaction.response.edit_message(embed=embed, view=None)
