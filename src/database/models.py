@@ -47,6 +47,8 @@ class User(Base):
     # These replace the old 'backrefs'
     cards = relationship("Card", back_populates="user", cascade="all, delete-orphan")
     shortlist_items = relationship("Shortlist", back_populates="user", cascade="all, delete-orphan")
+
+    formation = Column(String, default="4-3-3")
     
     __table_args__ = (UniqueConstraint('discord_id', 'guild_id', name='_user_guild_uc'),)
 

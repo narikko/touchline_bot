@@ -13,22 +13,25 @@ class TeamService:
         self.session = session
         self.TRAINING_MULTIPLIERS = [0.03, 0.05, 0.07, 0.1, 0.15]
 
-        # Valid slots for the command
-        self.VALID_SLOTS = {
-            "GK": "Goalkeeper",
-            "D1": "Defender 1", "D2": "Defender 2", "D3": "Defender 3", "D4": "Defender 4",
-            "M1": "Midfielder 1", "M2": "Midfielder 2", "M3": "Midfielder 3",
-            "F1": "Forward 1", "F2": "Forward 2", "F3": "Forward 3"
+        # DEFINING THE FORMATIONS
+        # Format: { "Position_Code": Count }
+        self.FORMATIONS = {
+            "4-3-3": {"D": 4, "M": 3, "F": 3}, # Standard
+            "3-4-3": {"D": 3, "M": 4, "F": 3},
+            "4-4-2": {"D": 4, "M": 4, "F": 2},
+            "4-5-1": {"D": 4, "M": 5, "F": 1},
+            "3-5-2": {"D": 3, "M": 5, "F": 2},
+            "5-3-2": {"D": 5, "M": 3, "F": 2},
         }
 
-        # Which real-life positions are allowed in which slot
         self.POSITION_COMPATIBILITY = {
             "GK": ["GK"],
             "D":  ["CB", "LB", "RB", "LWB", "RWB"],
             "M":  ["CM", "CDM", "CAM", "LM", "RM"],
             "F":  ["ST", "CF", "LW", "RW"]
         }
-
+        
+        # ... (Keep MILESTONES the same) ...
         self.MILESTONES = [
             {"desc": "Build a full team of 11 players", "reward_text": "1000 💠"},
             {"desc": "Starting XI value of 300", "reward_text": "2 free claims"},
@@ -39,52 +42,153 @@ class TeamService:
             {"desc": "Starting XI value of 800", "reward_text": "Random Legend card"},
         ]
 
+    def get_slots_for_formation(self, fmt_code):
+        config = self.FORMATIONS.get(fmt_code, self.FORMATIONS["4-3-3"])
+        slots = ["GK"]
+        for i in range(1, config["D"] + 1): slots.append(f"D{i}")
+        for i in range(1, config["M"] + 1): slots.append(f"M{i}")
+        for i in range(1, config["F"] + 1): slots.append(f"F{i}")
+        return slots
+
+    def change_formation(self, discord_id, guild_id, new_fmt):
+        if new_fmt not in self.FORMATIONS:
+            return {"success": False, "message": f"Invalid formation. Available: {', '.join(self.FORMATIONS.keys())}"}
+
+        user = self.session.query(User).filter_by(discord_id=str(discord_id), guild_id=str(guild_id)).first()
+        if not user: return {"success": False, "message": "Register first!"}
+
+        if user.formation == new_fmt:
+            return {"success": False, "message": f"You are already using **{new_fmt}**."}
+
+        # LOGIC: Check which slots are disappearing
+        old_config = self.FORMATIONS.get(user.formation, self.FORMATIONS["4-3-3"])
+        new_config = self.FORMATIONS[new_fmt]
+
+        dropped_msg = []
+
+        # Check Defenders (e.g. going from 4 defenders to 3)
+        if new_config["D"] < old_config["D"]:
+            # We are losing slots (e.g. D4). Find who to drop.
+            limit = new_config["D"] # e.g. 3
+            # Get all defenders currently in XI
+            defenders = self.session.query(Card).join(PlayerBase).filter(
+                Card.user_id == user.id, 
+                Card.position_in_xi.like("D%")
+            ).all()
+            
+            # Sort by Rating (Ascending) -> Weakest first
+            defenders.sort(key=lambda c: c.details.rating)
+            
+            # We need to drop (Old - New) amount of players
+            to_drop_count = old_config["D"] - new_config["D"]
+            
+            for i in range(to_drop_count):
+                if i < len(defenders):
+                    card_to_drop = defenders[i]
+                    card_to_drop.position_in_xi = None
+                    dropped_msg.append(f"🛡️ **{card_to_drop.details.name}** (Bench)")
+
+        # Check Midfielders
+        if new_config["M"] < old_config["M"]:
+            mids = self.session.query(Card).join(PlayerBase).filter(Card.user_id == user.id, Card.position_in_xi.like("M%")).all()
+            mids.sort(key=lambda c: c.details.rating)
+            for i in range(old_config["M"] - new_config["M"]):
+                if i < len(mids):
+                    c = mids[i]
+                    c.position_in_xi = None
+                    dropped_msg.append(f"⚙️ **{c.details.name}** (Bench)")
+
+        # Check Forwards
+        if new_config["F"] < old_config["F"]:
+            fwds = self.session.query(Card).join(PlayerBase).filter(Card.user_id == user.id, Card.position_in_xi.like("F%")).all()
+            fwds.sort(key=lambda c: c.details.rating)
+            for i in range(old_config["F"] - new_config["F"]):
+                if i < len(fwds):
+                    c = fwds[i]
+                    c.position_in_xi = None
+                    dropped_msg.append(f"🔥 **{c.details.name}** (Bench)")
+        
+        # 2. Re-assign slots for survivors to ensure they fit D1..D3
+        # E.g. If D4 survived but D2 was dropped, D4 should become D2.
+        # This is complex, so for simplicity we just keep their slot codes (D4 might exist while D2 is empty).
+        # OR: We re-normalize them. Let's re-normalize.
+        
+        self.session.flush() # Commit drops first
+        
+        # Re-fetch everyone remaining
+        all_xi = self.session.query(Card).filter(Card.user_id == user.id, Card.position_in_xi.isnot(None)).all()
+        
+        # Group by pos type
+        d_list = [c for c in all_xi if c.position_in_xi.startswith("D")]
+        m_list = [c for c in all_xi if c.position_in_xi.startswith("M")]
+        f_list = [c for c in all_xi if c.position_in_xi.startswith("F")]
+        gk = next((c for c in all_xi if c.position_in_xi == "GK"), None)
+
+        # Sort by Rating (High to Low) so best players get Slot 1
+        d_list.sort(key=lambda c: c.details.rating, reverse=True)
+        m_list.sort(key=lambda c: c.details.rating, reverse=True)
+        f_list.sort(key=lambda c: c.details.rating, reverse=True)
+
+        # Re-assign codes
+        for i, c in enumerate(d_list): c.position_in_xi = f"D{i+1}"
+        for i, c in enumerate(m_list): c.position_in_xi = f"M{i+1}"
+        for i, c in enumerate(f_list): c.position_in_xi = f"F{i+1}"
+        
+        user.formation = new_fmt
+        self.session.commit()
+
+        msg = f"Formation changed to **{new_fmt}**!"
+        if dropped_msg:
+            msg += "\n\n**Dropped Players (Lowest Rated):**\n" + "\n".join(dropped_msg)
+        
+        return {"success": True, "message": msg}
+
     def get_starting_xi(self, discord_id, guild_id):
         user = self.session.query(User).filter_by(discord_id=str(discord_id), guild_id=str(guild_id)).first()
         if not user:
             return {"success": False, "message": "User not found."}
 
-        # Fetch cards in the starting XI
+        # Default formation fallback
+        fmt = user.formation if user.formation else "4-3-3"
+        config = self.FORMATIONS.get(fmt, self.FORMATIONS["4-3-3"])
+
+        # Fetch cards
         lineup_cards = self.session.query(Card).join(PlayerBase)\
             .filter(Card.user_id == user.id, Card.position_in_xi.isnot(None))\
             .all()
         
         player_count = len(lineup_cards)
-        base_ovl = int(sum(card.details.rating for card in lineup_cards) / player_count)
+        base_ovl = 0
+        if player_count > 0:
+            base_ovl = int(sum(card.details.rating for card in lineup_cards) / player_count)
         
-        # 2. Apply Training Facility Upgrade
+        # Training Boost
         training_level = min(getattr(user, "upgrade_training", 0), 5)
-        
-        if training_level == 0:
-            multiplier = 0
-        else:
-            # Level 1 is at index 0. Values are percents (3 = 0.03)
-            multiplier = self.TRAINING_MULTIPLIERS[training_level - 1]
-        
-        # Final OVL Value used for checks
+        multiplier = 0 if training_level == 0 else self.TRAINING_MULTIPLIERS[training_level - 1]
         ovl_value = int(base_ovl * (1 + multiplier))
 
-        # Map Position -> Player Details
         lineup_dict = {card.position_in_xi: card.details for card in lineup_cards}
-        
         
         return {
             "success": True, 
             "club_name": user.club_name if user.club_name else "Default FC",
+            "formation": fmt,
+            "config": config, # Pass the D/M/F counts to the View
             "lineup": lineup_dict,
             "ovl_value": ovl_value
         }
 
     def set_lineup_player(self, discord_id, guild_id, slot_code, player_name_query):
         slot_code = slot_code.upper()
-        
-        # 1. Validate Slot
-        if slot_code not in self.VALID_SLOTS:
-            return {"success": False, "message": f"Invalid slot `{slot_code}`. Use GK, D1-D4, M1-M3, F1-F3."}
-
         user = self.session.query(User).filter_by(discord_id=str(discord_id), guild_id=str(guild_id)).first()
-        if not user: 
-            return {"success": False, "message": "Register first!"}
+        if not user: return {"success": False, "message": "Register first!"}
+
+        # 1. Validate Slot against CURRENT formation
+        fmt = user.formation if user.formation else "4-3-3"
+        valid_slots = self.get_slots_for_formation(fmt)
+        
+        if slot_code not in valid_slots:
+            return {"success": False, "message": f"❌ Slot **{slot_code}** doesn't exist in formation **{fmt}**."}
 
         # 2. Find the card using Python filtering (Safe for SQLite & Accents)
         # Fetch all user cards first

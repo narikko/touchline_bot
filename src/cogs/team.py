@@ -11,17 +11,33 @@ class TeamCog(commands.Cog):
     # 1. Create the Parent Group "/team"
     team_group = app_commands.Group(name="team", description="Manage your starting XI and club details.")
 
-    # --- SUBCOMMAND: VIEW ---
+    # --- SUBCOMMAND: FORMATION ---
+    @team_group.command(name="formation", description="Change your team's tactical formation.")
+    @app_commands.describe(style="Select a formation")
+    @app_commands.choices(style=[
+        app_commands.Choice(name="4-3-3 (Balanced)", value="4-3-3"),
+        app_commands.Choice(name="4-4-2 (Classic)", value="4-4-2"),
+        app_commands.Choice(name="3-4-3 (Attack)", value="3-4-3"),
+        app_commands.Choice(name="3-5-2 (Midfield)", value="3-5-2"),
+        app_commands.Choice(name="5-3-2 (Defensive)", value="5-3-2"),
+        app_commands.Choice(name="4-5-1 (Control)", value="4-5-1"),
+    ])
+    async def set_formation(self, interaction: discord.Interaction, style: app_commands.Choice[str]):
+        await interaction.response.defer()
+        session = get_session()
+        service = TeamService(session)
+        try:
+            result = service.change_formation(interaction.user.id, interaction.guild_id, style.value)
+            await interaction.followup.send(result["message"])
+        finally:
+            session.close()
+
     # --- SUBCOMMAND: VIEW ---
     @team_group.command(name="view", description="View your (or another user's) starting XI.")
     @app_commands.describe(user="The user whose team you want to view (optional).")
     async def view_team(self, interaction: discord.Interaction, user: discord.User = None):
         await interaction.response.defer()
-        
-        # 1. Determine Target (If no user specified, view self)
         target_user = user if user else interaction.user
-        
-        # Optional: Prevent viewing bots
         if target_user.bot:
             await interaction.followup.send("🤖 Bots don't play football!", ephemeral=True)
             return
@@ -30,52 +46,60 @@ class TeamCog(commands.Cog):
         service = TeamService(session)
         
         try:
-            # 2. Get the team for the TARGET user
             result = service.get_starting_xi(target_user.id, interaction.guild_id)
-            
             if not result["success"]:
-                # If viewing someone else, make the error clearer
-                if user:
-                    await interaction.followup.send(f"❌ **{target_user.display_name}** hasn't set up their club yet.")
-                else:
-                    await interaction.followup.send(result["message"])
+                msg = f"❌ **{target_user.display_name}** hasn't set up their club yet." if user else result["message"]
+                await interaction.followup.send(msg)
                 return
 
             club_name = result["club_name"]
             lineup = result["lineup"]
             ovl_value = result["ovl_value"]
+            formation = result["formation"]
+            config = result["config"] # Contains {D: 4, M: 3, F: 3}
             
-            # 3. Build Embed
             embed = discord.Embed(
-                title=f"⚽ {club_name}", 
+                title=f"⚽ {club_name} ({formation})", 
                 description=f"Overall Value: **{ovl_value}**",
                 color=discord.Color.blue()
             )
-            
-            # Add footer to clarify whose team this is
             embed.set_footer(text=f"Manager: {target_user.display_name}", icon_url=target_user.display_avatar.url)
             
             def get_field(pos_code):
                 player = lineup.get(pos_code)
                 return f"**{player.name}** ({player.rating})" if player else "---"
 
+            # Dynamic Field Generation
             embed.add_field(name="🧤 Goalkeeper", value=get_field("GK"), inline=False)
-            embed.add_field(name="🛡️ Defenders", value=f"D1: {get_field('D1')}\nD2: {get_field('D2')}\nD3: {get_field('D3')}\nD4: {get_field('D4')}", inline=False)
-            embed.add_field(name="⚙️ Midfielders", value=f"M1: {get_field('M1')}\nM2: {get_field('M2')}\nM3: {get_field('M3')}", inline=False)
-            embed.add_field(name="🔥 Forwards", value=f"F1: {get_field('F1')}\nF2: {get_field('F2')}\nF3: {get_field('F3')}", inline=False)
+            
+            # Defenders
+            d_str = ""
+            for i in range(1, config["D"] + 1):
+                d_str += f"D{i}: {get_field(f'D{i}')}\n"
+            embed.add_field(name="🛡️ Defenders", value=d_str, inline=False)
+            
+            # Midfielders
+            m_str = ""
+            for i in range(1, config["M"] + 1):
+                m_str += f"M{i}: {get_field(f'M{i}')}\n"
+            embed.add_field(name="⚙️ Midfielders", value=m_str, inline=False)
+            
+            # Forwards
+            f_str = ""
+            for i in range(1, config["F"] + 1):
+                f_str += f"F{i}: {get_field(f'F{i}')}\n"
+            embed.add_field(name="🔥 Forwards", value=f_str, inline=False)
             
             await interaction.followup.send(embed=embed)
 
-            # --- TUTORIAL HOOK: 5_view_team ---
-            # Only trigger tutorial if viewing YOURSELF (otherwise they cheat the step by looking at others)
+            # Tutorial Hook (Only for self)
             if target_user.id == interaction.user.id:
                 try:
                     from src.services.tutorial_service import TutorialService
                     tut_service = TutorialService(session)
                     tut_msg = tut_service.complete_step(interaction.user.id, interaction.guild_id, "5_view_team")
                     if tut_msg: await interaction.followup.send(tut_msg)
-                except Exception as e: print(f"Tutorial Error: {e}")
-            # ----------------------------------
+                except: pass
 
         finally:
             session.close()
