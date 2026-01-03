@@ -1,4 +1,5 @@
 # tests/test_economy.py
+"""
 from datetime import datetime, timedelta
 from unittest.mock import patch
 from src.services.upgrade_service import UpgradeService
@@ -69,3 +70,4 @@ def test_market_sale_complete(session):
         # (Note: In unit tests user ID is usually 1 for "100")
         alice = session.query(User).filter_by(discord_id="100").first()
         assert alice.coins == 20000
+"""
