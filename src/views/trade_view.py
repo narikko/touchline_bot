@@ -70,7 +70,7 @@ class CounterOfferModal(discord.ui.Modal, title="Make Counter Offer"):
         
         self.view_ref.cards_b = result["cards"]
         self.view_ref.accepted_a = False
-        self.view_ref.accepted_b = True # Auto-accept own offer
+        self.view_ref.accepted_b = False
         await interaction.followup.send("✅ Offer updated!", ephemeral=True)
         await self.view_ref.update_embed(interaction)
 
