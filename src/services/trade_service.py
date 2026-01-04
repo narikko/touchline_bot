@@ -64,14 +64,14 @@ class TradeService:
 
         return {"success": True, "cards": found_cards}
 
-    def execute_multi_trade(self, user_a_id, user_b_id, card_ids_a, card_ids_b, coins_a=0, coins_b=0):
+    def execute_multi_trade(self, guild_id, user_a_id, user_b_id, card_ids_a, card_ids_b, coins_a=0, coins_b=0):
         """
         Swaps ownership of LISTS of cards AND transfers coins.
         """
         # Fetch Users
         # We assume IDs are passed as integers or strings, so we convert to match DB
-        user_a = self.session.query(User).filter_by(discord_id=str(user_a_id)).first()
-        user_b = self.session.query(User).filter_by(discord_id=str(user_b_id)).first()
+        user_a = self.session.query(User).filter_by(discord_id=str(user_a_id), guild_id=str(guild_id)).first()
+        user_b = self.session.query(User).filter_by(discord_id=str(user_b_id), guild_id=str(guild_id)).first()
 
         if not user_a or not user_b:
             return {"success": False, "message": "Trade failed: User not found."}

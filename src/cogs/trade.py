@@ -46,7 +46,7 @@ class TradeCog(commands.Cog):
             embed.description = f"{interaction.user.mention} proposes a trade with {user.mention}!"
             
             embed.add_field(name=f"📤 {interaction.user.name}'s Offer", value=offer_names, inline=False)
-            embed.add_field(name=f"📥 {user.name}'s Counter", value="*Waiting for offer...*", inline=False)
+            embed.add_field(name=f"📥 {user.name}'s Offer", value="*Waiting for offer...*", inline=False)
             embed.set_footer(text="Use the buttons below to add Coins or Counter-offer.")
             
             msg = await interaction.followup.send(content=f"{user.mention}, you have a trade request!", embed=embed, view=view)

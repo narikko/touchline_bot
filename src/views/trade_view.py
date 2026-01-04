@@ -134,6 +134,7 @@ class TradingView(discord.ui.View):
              
              # Pass user IDs explicitly to handle money-only trades safely
              res = service.execute_multi_trade(
+                 interaction.guild.id,
                  self.user_a.id, self.user_b.id, 
                  ids_a, ids_b, 
                  self.coins_a, self.coins_b
