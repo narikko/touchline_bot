@@ -59,6 +59,17 @@ async def main():
         bot.tree.copy_global_to(guild=ctx.guild)
         synced = await bot.tree.sync(guild=ctx.guild)
         await ctx.send(f"✅ Synced {len(synced)} commands to this server!")
+
+    @bot.command(name="fix_duplicates")
+    @commands.is_owner()
+    async def fix_duplicates(ctx):
+        # 1. Clear the local guild commands queue
+        bot.tree.clear_commands(guild=ctx.guild)
+        
+        # 2. Sync this empty queue to the guild (effectively deleting the guild commands on Discord's side)
+        await bot.tree.sync(guild=ctx.guild)
+        
+        await ctx.send("✅ Guild-specific commands cleared! You should now only see the Global commands (updates might take 1 hour).")
         
     token = DISCORD_TOKEN
     if not token:
