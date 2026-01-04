@@ -1,5 +1,6 @@
 from sqlalchemy.orm import joinedload
 from src.database.models import User, Card, PlayerBase, MarketListing
+from datetime import datetime
 
 class TradeService:
     def __init__(self, session):
@@ -95,18 +96,22 @@ class TradeService:
         if user_b.coins < coins_b:
              return {"success": False, "message": f"Trade failed: {user_b.username} cannot afford {coins_b} coins."}
 
+        current_time = datetime.utcnow()
+
         # 4. SWAP CARDS
         # All cards from A go to B
         for c in cards_a:
             c.user_id = user_b.id
             c.position_in_xi = None
             c.is_locked = False
+            c.obtained_at = current_time
 
         # All cards from B go to A
         for c in cards_b:
             c.user_id = user_a.id
             c.position_in_xi = None
             c.is_locked = False
+            c.obtained_at = current_time
 
         # 5. SWAP COINS
         user_a.coins -= coins_a
