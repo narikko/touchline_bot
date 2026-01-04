@@ -130,7 +130,7 @@ class UpgradeService:
         # Get the new bonus value to display
         new_bonus = config["bonuses"][current_level] # Now at this index
 
-        reward_msg = TeamService.process_milestone_check(user)
+        reward_msg = TeamService.process_milestone_check(self, user)
 
         return {
             "success": True, 
