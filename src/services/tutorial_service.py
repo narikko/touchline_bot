@@ -157,7 +157,7 @@ class TutorialService:
             if current_progress >= len(self.TUTORIALS):
                 embed = discord.Embed(
                     title="🎓 Tutorials Completed!",
-                    description="🎉 You have completed all the tutorials!\nType `/index` to see all available commands.",
+                    description="🎉 You have completed all the tutorials!\nType `/help` to see all available commands.",
                     color=discord.Color.gold()
                 )
                 return {"success": True, "embed": embed}

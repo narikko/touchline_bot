@@ -54,7 +54,8 @@ class GeneralCog(commands.Cog):
                 "`/team set [pos] [name]` - Add a player to your team.\n"
                 "`/team bench [name]` - Remove a player from your team.\n"
                 "`/team rewards` - Check Team OVL milestones.\n"
-                "`/team rename` - Change your club's name."
+                "`/team rename` - Change your club's name.\n"
+                "`/team formation [style]` - Change your team's tactical formation."
             ),
             inline=False
         )
