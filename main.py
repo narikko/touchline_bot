@@ -23,7 +23,7 @@ class SoccerBot(commands.Bot):
         extensions = [
             "src.cogs.gacha", "src.cogs.team", "src.cogs.upgrade",
             "src.cogs.market", "src.cogs.trade", "src.cogs.match",
-            "src.cogs.tutorial", "src.cogs.general"
+            "src.cogs.tutorial", "src.cogs.vote", "src.cogs.general"
         ]
         for ext in extensions:
             await self.load_extension(ext)
