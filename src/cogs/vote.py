@@ -1,11 +1,12 @@
 import discord
-from discord.ext import commands, tasks
+from discord import app_commands
+from discord.ext import commands
 import topgg
 from src.database.db import get_session
 from src.database.models import User
 
 # CONFIGURATION
-WEBHOOK_PASSWORD = "jersey123"          
+WEBHOOK_PASSWORD = "jersey123"
 
 class VoteCog(commands.Cog):
     def __init__(self, bot):
@@ -13,32 +14,53 @@ class VoteCog(commands.Cog):
         # Initialize the webhook manager
         self.webhook_manager = topgg.WebhookManager(bot).dbl_webhook("/vote", WEBHOOK_PASSWORD)
         
-        # Start the server in the background so the bot doesn't freeze
+        # Start the server in the background
         self.bot.loop.create_task(self.start_webhook())
 
     async def start_webhook(self):
         """Starts the webhook server on port 5000."""
-        # We wrap this in a try/except to prevent crashing if the port is busy
         try:
             await self.webhook_manager.run(5000)
-            print("✅ Top.gg Webhook running on port 5000")
+            print("[System] Top.gg Webhook running on port 5000")
         except Exception as e:
-            print(f"❌ Failed to start webhook: {e}")
+            print(f"[Error] Failed to start webhook: {e}")
 
+    # --- NEW: The /vote Command ---
+    @app_commands.command(name="vote", description="Get the link to vote and earn rewards.")
+    async def vote(self, interaction: discord.Interaction):
+        # Generate the dynamic link for your bot
+        vote_link = f"https://top.gg/bot/{self.bot.user.id}/vote"
+
+        embed = discord.Embed(title="Vote Rewards", color=discord.Color.blue())
+        embed.description = (
+            "Vote for us on Top.gg to support the bot and earn rewards!\n\n"
+            "**You will receive:**\n"
+            "• 250 Coins\n"
+            "• 1 Roll Refill\n\n"
+            "You can vote once every 12 hours."
+        )
+
+        # Create a button that links directly to the page
+        view = discord.ui.View()
+        button = discord.ui.Button(label="Vote on Top.gg", url=vote_link, style=discord.ButtonStyle.link)
+        view.add_item(button)
+
+        await interaction.response.send_message(embed=embed, view=view)
+
+    # --- Webhook Listener ---
     @commands.Cog.listener()
     async def on_dbl_vote(self, data):
         """Triggered automatically when someone votes on Top.gg"""
         user_id = int(data["user"])
-        print(f"🗳️ Vote received from User ID: {user_id}")
+        print(f"[Vote] Received from User ID: {user_id}")
         
         session = get_session()
         try:
-            # FIX: Get ALL instances of this user across all servers
-            # We filter only by discord_id, ignoring guild_id to find them everywhere
+            # Get ALL instances of this user across all servers
             user_profiles = session.query(User).filter_by(discord_id=str(user_id)).all()
             
             if not user_profiles:
-                print(f"⚠️ User {user_id} voted but has no profile.")
+                print(f"[Vote] User {user_id} voted but has no profile in database.")
                 return
 
             # Reward EVERY profile they have
@@ -47,19 +69,19 @@ class VoteCog(commands.Cog):
                 profile.roll_refreshes += 1
             
             session.commit()
-            print(f"✅ Rewarded {len(user_profiles)} profiles for User {user_id}")
+            print(f"[Vote] Rewarded {len(user_profiles)} profiles for User {user_id}")
 
-            # Notify the user (DM)
+            # Notify the user (DM) - Clean text, no emojis
             try:
                 discord_user = await self.bot.fetch_user(user_id)
-                embed = discord.Embed(title="Thanks for voting!", color=discord.Color.green())
-                embed.description = "You received **250 Coins** and **1 Roll Refill** in all your servers!"
+                embed = discord.Embed(title="Vote Successful", color=discord.Color.green())
+                embed.description = "Thank you for voting. You have received **250 Coins** and **1 Roll Refill** in all your servers."
                 await discord_user.send(embed=embed)
             except discord.Forbidden:
                 pass # User has DMs off
 
         except Exception as e:
-            print(f"❌ Error processing vote: {e}")
+            print(f"[Error] Processing vote failed: {e}")
             session.rollback()
         finally:
             session.close()
