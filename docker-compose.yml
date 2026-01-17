@@ -12,6 +12,8 @@ services:
     environment:
       # OVERRIDE the DB URL to point to the 'db' service name below
       - DATABASE_URL=postgresql://gacha_user:gacha_pass@db:5432/gacha_db
+    ports:             
+      - "5000:5000"
     volumes:
       # Mount the code so you can edit locally and restart to see changes (optional but helpful)
       - .:/app
