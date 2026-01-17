@@ -52,7 +52,7 @@ class VoteCog(commands.Cog):
             # Notify the user (DM)
             try:
                 discord_user = await self.bot.fetch_user(user_id)
-                embed = discord.Embed(title="Thanks for voting! 🗳️", color=discord.Color.green())
+                embed = discord.Embed(title="Thanks for voting!", color=discord.Color.green())
                 embed.description = "You received **250 Coins** and **1 Roll Refill** in all your servers!"
                 await discord_user.send(embed=embed)
             except discord.Forbidden:
